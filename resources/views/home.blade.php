@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - IndoBismar Group</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!--Font Awesome CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">
+          <img
+            src="img/logo.webp"
+            alt="Logo"
+            style="height: 45px; margin-right: 20px; vertical-align: bottom"
+          />
+          Indo<span>Bismar</span></a
+        >
+        <ul class="nav-menu" id="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li class="dropdown">
+            <a
+              href="javascript:void(0);"
+              class="nav-link"
+              onclick="toggleDropdown()"
+              aria-expanded="false"
+              >About
+              <svg
+                class="w-[12px] h-[12px] text-gray-800 dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                fill="none"
+                viewBox="0 0 24 24"
+                style="margin-left: 5px"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="m19 9-7 7-7-7"
+                />
+              </svg>
+            </a>
+            <ul class="dropdown-menu" id="dropdownMenu">
+              <li><a href="#about">Description</a></li>
+              <li><a href="#founder">Founder</a></li>
+              <li><a href="#brand-partner">Brand Partner</a></li>
+              <li><a href="#reviews">Rating</a></li>
+              <li><a href="#business-partner">Company Center</a></li>
+            </ul>
+          </li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#products" class="nav-link">Product</a></li>
+          <li><a href="#section-store" class="nav-link">Store</a></li>
+          <li><a href="#footer" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="mobile-menu" id="mobile-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <!-- Konten -->
+      <div class="hero-content">
+        <h1>IndoBismar <span class="highlight">Group</span><br /></h1>
+        <h2>Distributor dan Retail Komputer</h2>
+        <p>
+          Distributor terdepan laptop, komputer, smartphone, dan peralatan IT
+          berkualitas tinggi untuk kebutuhan bisnis dan personal Anda
+        </p>
+      </div>
+      <div class="hero-image fade-in">
+        <img src="img/front1.png" alt="Gambar Hero" />
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+      <div class="container">
+        <h2 class="section-title fade-in">About us</h2>
+        <div class="about-content fade-in">
+          <div class="about-text">
+            <span id="shortText">
+              <span class="highlight">PT. INDO BISMAR</span> merupakan
+              perusahaan multinasional yang bergerak di bidang penjualan grosir
+              dan ritel perangkat teknologi, meliputi laptop, komputer,
+              smartphone, serta berbagai perlengkapan IT lainnya. Sejak
+              didirikan pada tahun 2000 di Surabaya, PT. Indo Bismar terus
+              berkembang dan memperluas jangkauan bisnisnya secara signifikan
+            </span>
+            <span id="moreText" style="display: none">
+              <br />
+              Pada tahun 2014, kami mulai melakukan ekspansi dengan memperluas
+              lini produk, termasuk smartphone, dan membuka sejumlah cabang
+              ritel di berbagai kota di Jawa Timur dan Jawa Tengah. Hingga saat
+              ini, kami telah memiliki 24 cabang aktif, dengan kantor pusat yang
+              berlokasi di Surabaya. <br />
+              Dengan komitmen terhadap inovasi, kualitas layanan, dan kepuasan
+              pelanggan, PT. Indo Bismar siap menjadi mitra terpercaya dalam
+              memenuhi kebutuhan teknologi Anda, baik untuk keperluan bisnis
+              maupun personal.
+            </span>
+            <a
+              href="javascript:void(0);"
+              id="readMoreLink"
+              onclick="toggleText()"
+              ><span class="pointer">...</span> more</a
+            >
+          </div>
+
+          <iframe
+            class="about-video"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/6020shHfBX4?si=QM_lf_4FXJgo39uv"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <div class="about-stats fade-in">
+          <div class="stat-item">
+            <div class="stat-number">4.8</div>
+            <div class="stars" style="margin-top: -15px">★★★★★</div>
+            <div>323 Ulasan</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">25th</div>
+            <div>Tahun Pengalaman</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div>Brand Partner</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24</div>
+            <div>Retail Store</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Founder Section -->
+    <section class="section founder" id="founder">
+      <div class="container">
+        <h2 class="section-title fade-in">Founder</h2>
+        <div class="founder-content fade-in">
+          <div class="founder-image-container">
+            <div class="founder-image-bg"></div>
+            <img src="img/founder.jpg" alt="Founder" class="founder-image" />
+          </div>
+          <div class="founder-text">
+            <h3>Dr. H. Siswanto, S.Sos., M.M.</h3>
+            <p>
+              <span>PT. INDO BISMAR</span> dirintis oleh Bapak Siswanto pada
+              tahun 2000, dengan fokus awal pada bidang teknologi informasi,
+              khususnya penjualan laptop. Berbekal visi yang kuat dan semangat
+              kewirausahaan, beliau membangun fondasi perusahaan yang kokoh
+              dalam industri teknologi.
+            </p>
+            <p>
+              Memasuki tahun 2014, seiring dengan perkembangan kebutuhan pasar,
+              PT. Indo Bismar mulai melakukan ekspansi bisnis melalui strategi
+              pemasaran multiproduk, termasuk smartphone dan perangkat digital
+              lainnya. Ekspansi ini diwujudkan dengan membuka jaringan cabang
+              ritel di berbagai kota di wilayah Jawa Timur dan Jawa Tengah, yang
+              terus berkembang hingga saat ini.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery" id="gallery">
+      <div class="container">
+        <h2 class="section-title fade-in">Gallery</h2>
+        <div class="gallery-wrapper">
+          <button class="gallery-btn prev">&#10094;</button>
+          <div class="gallery-track">
+            <div class="gallery-item">
+              <img src="img/galeri/galeri7.webp" alt="Gallery 1" />
+              <div class="caption">Toko Pusat IndoBismar Group</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri8.webp" alt="Gallery 2" />
+              <div class="caption">Pengadaan Komputer</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri9.webp" alt="Gallery 3" />
+              <div class="caption">Pemasangan dan Konfigurasi Komputer</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri10.webp" alt="Gallery 4" />
+              <div class="caption">Event DUDI Awards</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri11.webp" alt="Gallery 5" />
+              <div class="caption">Divisi Marketing IndoBismar Group</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri12.webp" alt="Gallery 6" />
+              <div class="caption">Penempatan Posisi Karyawan</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri13.webp" alt="Gallery 7" />
+              <div class="caption">Kerja Sama Industri</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri14.webp" alt="Gallery 8" />
+              <div class="caption">Sosialisasi BPJS Ketenagakerjaan</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri16.webp" alt="Gallery 9" />
+              <div class="caption">Meeting Pimpinan</div>
+            </div>
+            <div class="gallery-item">
+              <img src="img/galeri/galeri18.webp" alt="Gallery 10" />
+              <div class="caption">Staff dan Karyawan IndoBismar Group</div>
+            </div>
+          </div>
+          <button class="gallery-btn next">&#10095;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Partner Section -->
+    <section class="section brand-partner" id="brand-partner">
+      <div class="container">
+        <h2 class="section-title fade-in">Brand Partner</h2>
+        <div class="brand-logos fade-in">
+          <img src="img/brand/asus.png" alt="ASUS" />
+          <img src="img/brand/hp.png" alt="HP" />
+          <img src="img/brand/lenovo.png" alt="Lenovo" />
+          <img src="img/brand/dell.png" alt="Dell" />
+          <img src="img/brand/acer.png" alt="Acer" />
+          <img src="img/brand/msi.png" alt="MSI" />
+          <img src="img/brand/axioo.png" alt="Axioo" />
+          <img src="img/brand/microsoft.png" alt="Microsoft" />
+          <img src="img/brand/apple.png" alt="Apple" />
+          <img src="img/brand/samsung.png" alt="Samsung" />
+          <img src="img/brand/xiaomi.png" alt="Xiaomi" />
+          <img src="img/brand/vivo.png" alt="Vivo" />
+          <img src="img/brand/oppo.png" alt="Oppo" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section products" id="products">
+      <div class="container">
+        <h2 class="section-title fade-in">Our Products</h2>
+
+        <div class="product-grid">
+          <div class="product-card fade-in">
+            <div class="product-label">Penawaran Terbaik</div>
+            <div class="product-image">
+              <img src="img/product/laptop.jpg" alt="Laptop & Notebook" />
+            </div>
+            <h3 class="product-title">Laptop & Notebook</h3>
+            <button class="btn-view">View Catalog</button>
+          </div>
+
+          <div class="product-card fade-in">
+            <div class="product-label">Penawaran Terbaik</div>
+            <div class="product-image">
+              <img src="img/product/pc.jpg" alt="Desktop Computer" />
+            </div>
+            <h3 class="product-title">Dekstop Computer</h3>
+            <button class="btn-view">View Catalog</button>
+          </div>
+
+          <div class="product-card fade-in">
+            <div class="product-label">Penawaran Terbaik</div>
+            <div class="product-image">
+              <img src="img/product/hp.jpg" alt="Smartphone" />
+            </div>
+            <h3 class="product-title">Smartphone</h3>
+            <button class="btn-view">View Catalog</button>
+          </div>
+
+          <div class="product-card fade-in">
+            <div class="product-label">Penawaran Terbaik</div>
+            <div class="product-image">
+              <img src="img/product/aksesoris.jpg" alt="IT Accessories" />
+            </div>
+            <h3 class="product-title">IT Accessories</h3>
+            <button class="btn-view">View Catalog</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retail Store Section -->
+    <section class="store-section" id="section-store">
+      <div class="container">
+        <h2 class="section-title fade-in" style="margin-top: 40px">
+          Our Retail Store
+        </h2>
+        <div class="gallery-grid">
+          <div class="store-card">
+            <img src="img/store/comp/abcomp.webp" alt="AB Computer" />
+            <div class="overlay">
+              <h3>AB Computer</h3>
+              <button
+                class="btn-see"
+                data-store="AB Computer"
+                data-address="Plasa Marina, Lt2 Blok K2, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60238"
+                data-instagram="https://www.instagram.com/abcomputersurabaya?utm_source=ig_web_button_share_sheet"
+                data-facebook="https://www.facebook.com/people/ABcomp-Plazamarina/pfbid0jEsLXkJhBGpAtquSySc8cpXuMSXUbPAF8jXbjXbNypZRQ2smFJVuMsVYDCFEGKk3l/"
+                data-map="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d506435.4713203486!2d112.343166!3d-7.4067595!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb59eedc5bf7%3A0xb50c60b8a6886094!2sAB%20COMP!5e0!3m2!1sen!2sid!4v1755156437988!5m2!1sen!2sid"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <img src="img/store/comp/arfacomp.webp" alt="Arfa Computer" />
+            <div class="overlay">
+              <h3>Arfa Computer</h3>
+              <button
+                class="btn-see"
+                data-store="Arfa Computer"
+                data-address="Plaza Marina, Jl. Margorejo Indah No.97 99 Lantai 2 Blok B1 B2, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60238"
+                data-instagram="https://www.instagram.com/arfacomputer?utm_source=ig_web_button_share_sheet&igsh=aHViM3pzanN5MGVu"
+                data-facebook="https://www.facebook.com/people/Arfa-Computer/100086219590943/"
+                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.3383600022703!2d112.74882079999999!3d-7.315834599999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fba3d8cc71eb%3A0x4137748383abdefd!2sARFA%20COMPUTER!5e0!3m2!1sen!2sid!4v1755156615131!5m2!1sen!2sid"
+                width="600"
+                height="450"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <img src="img/store/comp/hanacomp.webp" alt="Hana Computer" />
+            <div class="overlay">
+              <h3>Hana Computer</h3>
+              <button
+                class="btn-see"
+                data-store="Hana Computer"
+                data-address="Plasa marina Lantai 2 Blok A4-6, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60238"
+                data-instagram="https://www.instagram.com/hanacomp?utm_source=ig_web_button_share_sheet&igsh=MWowZ2UzNThlcWZyNQ=="
+                data-facebook="https://www.facebook.com/people/HANA-Computer/100089091773650/"
+                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.335415108186!2d112.7485466!3d-7.3161666999999975!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb65dde1c263%3A0xcb45015a3dcf327b!2sHANA%20COMPUTER!5e0!3m2!1sen!2sid!4v1755156676599!5m2!1sen!2sid"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <img src="img/store/comp/gustikacomp.webp" alt="Gustika Computer" />
+            <div class="overlay">
+              <h3>Gustika Computer</h3>
+              <button
+                class="btn-see"
+                data-store="Gustika Computer"
+                data-address="Jl. Margorejo Indah Utara No.97-99, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60238"
+                data-instagram="https://www.instagram.com/gustikacomputer?utm_source=ig_web_button_share_sheet&igsh=eXB4cnppMnBsYzBz"
+                data-facebook="https://www.facebook.com/gustikacomp"
+                data-map="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3957.3324097780933!2d112.7485501!3d-7.3165056!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb6b7560aa73%3A0xcf92d45a42410755!2sGUSTIKA%20COMPUTER!5e0!3m2!1sen!2sid!4v1755156687211!5m2!1sen!2sid"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <img src="img/store/comp/jgcomp.webp" alt="Joss Gandos Computer" />
+            <div class="overlay">
+              <h3>Joss Gandos Computer</h3>
+              <button
+                class="btn-see"
+                data-store="Joss Gandos Computer"
+                data-address="Jl. Margorejo Indah Utara No.97-99, Blok A10-11, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60238"
+                data-instagram="https://www.instagram.com/jossgandosplasamarina?utm_source=ig_web_button_share_sheet&igsh=OWx3dDEwMHRucTZy"
+                data-facebook="https://www.facebook.com/han.simbada"
+                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.335831001622!2d112.7486242!3d-7.3161198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbdcda01f64f%3A0x9afd931688e36669!2sJos%20Gandos%20Plasa%20Marina%20Surabaya!5e0!3m2!1sen!2sid!4v1755156699928!5m2!1sen!2sid"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <img src="img/store/comp/assiocomp.webp" alt="Assio Computer" />
+            <div class="overlay">
+              <h3>Assio Computer</h3>
+              <button
+                class="btn-see"
+                data-store="Assio Computer"
+                data-address="Plasa Marina, Lantai 2 Blok B3 - B5, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60111"
+                data-instagram="https://www.instagram.com/assio.id?utm_source=ig_web_button_share_sheet&igsh=MXFpaXk0MHdxZWloeA=="
+                data-facebook="https://www.facebook.com/people/Assio_Computer/61551721527254/"
+                data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.336704457881!2d112.74875399999999!3d-7.316021300000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb626118edb3%3A0xdebd21f1a171f062!2sASSIO%20KOMPUTER!5e0!3m2!1sen!2sid!4v1755156710376!5m2!1sen!2sid"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+
+          <div class="store-card">
+            <img src="img/store/comp/azharcomp.webp" alt="Azhar Computer" />
+            <div class="overlay">
+              <h3>Azhar Computer</h3>
+              <button
+                class="btn-see"
+                data-store="Azhar Computer"
+                data-address="Plasa Marina, Jl. Margorejo Indah, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60239"
+                data-instagram="https://www.instagram.com/azharkomputer.sby?utm_source=ig_web_button_share_sheet&igsh=MWdrc2l5ZWE2czcwYg=="
+                data-facebook="https://www.facebook.com/azharkomp"
+                data-map="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3957.3363346813794!2d112.7460061!3d-7.316063!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb0fc8c28789%3A0x67403e5abc48c593!2sAzhar%20Computer!5e0!3m2!1sen!2sid!4v1755156725114!5m2!1sen!2sid"
+              >
+                View More
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Store -->
+    <div id="store-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h2 id="modal-store-name"></h2>
+
+        <p id="modal-address" class="modal-address">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>Alamat toko di sini...</span>
+        </p>
+
+        <div class="social-links horizontal">
+          <a id="modal-instagram" class="instagram" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+          </a>
+          <a id="modal-facebook" class="facebook" target="_blank">
+            <i class="fab fa-facebook-f"></i> Facebook
+          </a>
+        </div>
+
+        <div class="map-container">
+          <iframe id="modal-map" src="" allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Customer Section -->
+    <section class="reviews-section" id="reviews">
+      <h2 class="section-title fade-in">Customer Reviews</h2>
+      <div class="swiper mySwiper fade-in">
+        <div class="swiper-wrapper">
+          <!-- Review Card 1 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Ari+Sandi&background=dc2626&color=fff&size=60"
+                alt="Profile Photo 1"
+              />
+              <div class="review-info">
+                <h4>Ari Sandi</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Pelayanan dari PT Indo bismar sangat baik dan responsif. Laptop
+              yang saya beli berfungsi dengan lancar, tanpa kendala. Kualitas
+              produknya juga terjamin. Terimakasih atas pelayanannya."
+            </p>
+          </div>
+
+          <!-- Review Card 2 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Orvalla+Savarannie&background=f97316&color=fff&size=60"
+                alt="Profile Photo 2"
+              />
+              <div class="review-info">
+                <h4>Orvalla Savarannie</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Buat kamu yang sedang mencari perlengkapan kantor, elektronik,
+              atau perangkat teknologi dengan harga bersahabat, PT Indo Bismar
+              layak jadi pilihan utama."
+            </p>
+          </div>
+
+          <!-- Review Card 3 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Satria+Cassanova&background=ca8a04&color=fff&size=60"
+                alt="Profile Photo 3"
+              />
+              <div class="review-info">
+                <h4>Satria Cassanova</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Pelayanan dari PT. INDO BISMAR sangat baik dan responsif. Laptop
+              yang saya beli berfungsi dengan lancar dan tanpa kendala. Kualitas
+              produknya sangat terjamin. Terimakasih atas pelayanannya."
+            </p>
+          </div>
+
+          <!-- Review Card 4 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Djorgi+Fadilla&background=16a34a&color=fff&size=60"
+                alt="Profile Photo 4"
+              />
+              <div class="review-info">
+                <h4>Djorgi Fadilla</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Laptop yang saya beli di PT indobismar sangat membantu aktivitas
+              saya sehari hari.Mulai dari desain, kecepatan, hingga kualitas
+              baterainya memuaskan.Proses transaksi pun cepat dan aman."
+            </p>
+          </div>
+
+          <!-- Review Card 5 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Mario+Balu&background=0d9488&color=fff&size=60"
+                alt="Profile Photo 5"
+              />
+              <div class="review-info">
+                <h4>Mario Bulu</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "PT Indobismar memberikan pengalaman yang profesional. Produk
+              laptop yang saya beli original, Performanya bagus, dan
+              pengirimannya tepat waktu, senang bisa bertransaksi disini."
+            </p>
+          </div>
+
+          <!-- Review Card 6 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Putri+Sabela&background=2563eb&color=fff&size=60"
+                alt="Profile Photo 6"
+              />
+              <div class="review-info">
+                <h4>Putri Sabela</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "layanan yang baguss dan sangat ramah, barang juga lengkap, sangat
+              puas dengan pembeliannya. rekomendasi banget kalau cari laptop
+              bagus dengan barang lengkap👏👏"
+            </p>
+          </div>
+
+          <!-- Review Card 7 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Ayuma+Dini&background=7c3aed&color=fff&size=60"
+                alt="Profile Photo 7"
+              />
+              <div class="review-info">
+                <h4>Ayuma Dini</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Saya beli ThinkPad L480 di PT Indobismar dan sangat puas! Dengan
+              harga terjangkau, laptop ini punya performa bagus dan build
+              quality solid."
+            </p>
+          </div>
+
+          <!-- Review Card 8 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Satrio+Bagas&background=be185d&color=fff&size=60"
+                alt="Profile Photo 8"
+              />
+              <div class="review-info">
+                <h4>Satrio Bagas</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Belanja laptop di PT indo bismar sangat memuaskan pelayananya
+              ramah, pengiriman cepat, dan barang diterima dalam kondisi aman .
+              Laptop nya juga berkualitas dan sesuai dengan deskripsi, sangat
+              direkomendasikan"
+            </p>
+          </div>
+
+          <!-- Review Card 9 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Dyah+Kusumawati&background=db2777&color=fff&size=60"
+                alt="Profile Photo 9"
+              />
+              <div class="review-info">
+                <h4>Dyah Kusumawati</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "harga yang terjangkau dan kualitas nya bagus cocok untuk kalangan
+              apapun, pelayanan yang baik dan ramah dan tempat nya nyaman"
+            </p>
+          </div>
+
+          <!-- Review Card 10 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Wenny+Wahyu&background=6d28d9&color=fff&size=60"
+                alt="Profile Photo 10"
+              />
+              <div class="review-info">
+                <h4>Wenny Wahyu</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "menurut saya ini adalah pusat penjualan laptop terbaik di
+              surabaya, disini tempat nya juga sangat cocok buat anak pkl
+              berbagai jurusan dan tempat nya juga sangat nyaman"
+            </p>
+          </div>
+
+          <!-- Review Card 11 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Manis+Tasya&background=4b5563&color=fff&size=60"
+                alt="Profile Photo 11"
+              />
+              <div class="review-info">
+                <h4>Manis Tasya</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Produk dari PT INDOBISMAR sangat berkualitas! Pelayanan cepat,
+              hasil memuaskan.Juga dengan harga yang terjangkau,Sangat
+              direkomendasikan!"
+            </p>
+          </div>
+
+          <!-- Review Card 12 -->
+          <div class="swiper-slide review-card">
+            <div class="review-header">
+              <img
+                src="https://ui-avatars.com/api/?name=Claudya+Cindy&background=b91c1c&color=fff&size=60"
+                alt="Profile Photo 12"
+              />
+              <div class="review-info">
+                <h4>Claudya Cindy</h4>
+                <div class="review-meta">
+                  <div class="stars">★★★★★</div>
+                  <div class="date">19-08-2025</div>
+                </div>
+              </div>
+            </div>
+            <p>
+              "Saya sangat puas dengan pelayanan yang diberikan saat membeli
+              laptop ini. Dari awal proses pemesanan hingga laptop sampai di
+              tangan, semuanya berjalan sangat cepat dan profesional."
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="google-summary fade-in">Ulasan Google</div>
+    </section>
+
+    <!-- Business Partner -->
+    <section class="section business-partner" id="business-partner">
+      <div class="container">
+        <h2 class="section-title fade-in">Company Center</h2>
+        <div class="business-partner-grid fade-in">
+          <div class="business-partner-card">
+            <div class="logo-wrapper">
+              <img
+                src="img/partner/bismaredu.png"
+                alt="PT. Indo Bismar Education"
+              />
+            </div>
+            <p>PT. Indo Bismar Education</p>
+          </div>
+
+          <div class="business-partner-card">
+            <div class="logo-wrapper">
+              <img src="img/partner/das.png" alt="PT. Das Global Consultindo" />
+            </div>
+            <p>PT. Das Global Consultindo</p>
+          </div>
+
+          <div class="business-partner-card">
+            <div class="logo-wrapper">
+              <img src="img/partner/resto.png" alt="Joss Gandos Resto & Cafe" />
+            </div>
+            <p>Joss Gandos Resto & Cafe</p>
+          </div>
+
+          <div class="business-partner-card">
+            <div class="logo-wrapper">
+              <img
+                src="img/partner/biz-removebg-preview.png"
+                alt="PT. BIZ Ponsel"
+              />
+            </div>
+            <p>BIZ Ponsel</p>
+          </div>
+
+          <div class="business-partner-card">
+            <div class="logo-wrapper">
+              <img src="img/partner/bhakti.png" alt="Agrowisata Bhakti Alam" />
+            </div>
+            <p>Agrowisata Bhakti Alam</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer-container">
+          <div class="footer-column">
+            <h4>IndoBismar <span>Group</span></h4>
+            <p>
+              Jl. Bendul Merisi Selatan XI No.59-61, Bendul Merisi, Kec.
+              Wonocolo, Surabaya, Jawa Timur 60239.
+            </p>
+            <br />
+          </div>
+          <div class="footer-column">
+            <h4>Useful Link</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#founder">Founder</a></li>
+              <li><a href="#products">Product</a></li>
+              <li><a href="#section-store">Store</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Contact us</h4>
+            <ul>
+              <li>
+                <a
+                  href="https://www.instagram.com/indobismar.store?utm_source=ig_web_button_share_sheet&igsh=c3c1b2tzNXc3am4="
+                  target="_blank"
+                  ><i class="fab fa-instagram"></i> Instagram</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.tiktok.com/@indobismar.store?is_from_webapp=1&sender_device=pc"
+                  target="_blank"
+                  ><i class="fab fa-tiktok"></i> Tik-Tok</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@PTINDOBISMARGROUP"
+                  target="_blank"
+                  ><i class="fab fa-youtube"></i> YouTube</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/indobismar/?lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BGO0CMm17TkqdFbnn2Ffbrg%3D%3D"
+                  target="_blank"
+                  ><i class="fab fa-linkedin"></i> LinkedIn</a
+                >
+              </li>
+              <li>
+                <a href="https://wa.me/82335966079" target="_blank"
+                  ><i class="fab fa-whatsapp"></i> WhatsApp</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Location</h4>
+            <div class="footer-column-map">
+              <ul>
+                <li>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.3599341010695!2d112.74798849999999!3d-7.3134011999999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb0f1fc7c151%3A0x879a96237dbe49f5!2sPT.%20Indo%20Bismar!5e0!3m2!1sid!2sid!4v1754551090913!5m2!1sid!2sid"
+                    width="600"
+                    height="450"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                  ></iframe>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025. All rights reserved by Indo Bismar Group</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollTop">
+      <svg
+        class="w-[32px] h-[32px] text-gray-800 dark:text-white"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m5 15 7-7 7 7"
+        />
+      </svg>
+    </button>
+
+    <script src="js/script.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      const swiper = new Swiper(".mySwiper", {
+        slidesPerView: 3.3,
+        spaceBetween: 30,
+        loop: true,
+        grabCursor: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          0: {
+            slidesPerView: 1.2,
+          },
+          768: {
+            slidesPerView: 2.3,
+          },
+          1024: {
+            slidesPerView: 3.3,
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
