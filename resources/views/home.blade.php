@@ -12,6 +12,12 @@
         href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nata+Sans:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nata+Sans:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
 
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -124,19 +130,19 @@
                 <div class="stat-item">
                     <div class="stat-number">4.8</div>
                     <div class="stars" style="margin-top: -15px">★★★★★</div>
-                    <div>323 Ulasan</div>
+                    <div class="stat-text">323 Ulasan</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">25th</div>
-                    <div>Tahun Pengalaman</div>
+                    <div class="stat-text">Tahun Pengalaman</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">50+</div>
-                    <div>Brand Partner</div>
+                    <div class="stat-text">Brand Partner</div>
                 </div>
                 <div class="stat-item">
                     <div class="stat-number">24</div>
-                    <div>Retail Store</div>
+                    <div class="stat-text">Retail Store</div>
                 </div>
             </div>
         </div>
@@ -365,7 +371,7 @@
                     <div class="overlay">
                         <h3>Joss Gandos Computer</h3>
                         <button class="btn-see" data-store="Joss Gandos Computer"
-                            data-address="Jl. Margorejo Indah Utara No.97-99, Blok A10-11, Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60238"
+                            data-address="Jl. Margorejo Indah Utara No.97-99, Blok A10-11,<br> Sidosermo, Kec. Wonocolo, Surabaya, Jawa Timur 60238"
                             data-instagram="https://www.instagram.com/jossgandosplasamarina?utm_source=ig_web_button_share_sheet&igsh=OWx3dDEwMHRucTZy"
                             data-facebook="https://www.facebook.com/han.simbada"
                             data-map="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.335831001622!2d112.7486242!3d-7.3161198!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fbdcda01f64f%3A0x9afd931688e36669!2sJos%20Gandos%20Plasa%20Marina%20Surabaya!5e0!3m2!1sen!2sid!4v1755156699928!5m2!1sen!2sid">
@@ -405,32 +411,7 @@
         </div>
     </section>
 
-    <!-- Modal Store -->
-    <div id="store-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-store-name"></h2>
-
-            <p id="modal-address" class="modal-address">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Alamat toko di sini...</span>
-            </p>
-
-            <div class="social-links horizontal">
-                <a id="modal-instagram" class="instagram" target="_blank">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a id="modal-facebook" class="facebook" target="_blank">
-                    <i class="fab fa-facebook-f"></i> Facebook
-                </a>
-            </div>
-
-            <div class="map-container">
-                <iframe id="modal-map" src="" allowfullscreen="" loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </div>
+    <x-modal></x-modal>
 
     <!-- Review Customer Section -->
     <section class="reviews-section" id="reviews">
@@ -512,7 +493,7 @@
                     </div>
                     <p>
                         "Laptop yang saya beli di PT indobismar sangat membantu aktivitas
-                        saya sehari hari.Mulai dari desain, kecepatan, hingga kualitas
+                        saya sehari hari. Mulai dari desain, kecepatan, hingga kualitas
                         baterainya memuaskan.Proses transaksi pun cepat dan aman."
                     </p>
                 </div>
