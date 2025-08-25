@@ -16,6 +16,10 @@
             <img src="img/brand/xiaomi.png" alt="Xiaomi" />
             <img src="img/brand/vivo.png" alt="Vivo" />
             <img src="img/brand/oppo.png" alt="Oppo" />
+            <img src="img/brand/pixel.png" alt="Pixel" />
+            <img src="img/brand/poco.png" alt="Poco" />
+            <img src="img/brand/realme.png" alt="Realme" />
+            <img src="img/brand/infinix.png" alt="Infinix" />
         </div>
     </div>
 </section>
