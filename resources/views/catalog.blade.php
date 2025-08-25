@@ -26,7 +26,7 @@
 
 <body>
     <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <nav class="navbar-section" id="navbar">
         <div class="nav-container">
             <!-- Logo -->
             <a href="/" class="logo">
@@ -49,7 +49,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero-section">
         <div class="hero-slider">
             <div class="slide"><img src="img/poster/poster1.jpg" alt="Promo 1"></div>
             <div class="slide"><img src="img/poster/poster2.jpg" alt="Promo 2"></div>
@@ -74,7 +74,7 @@
     </section>
 
     <!-- Breadcrumb -->
-    <nav class="breadcrumb-card">
+    <nav class="breadcrumb-card-section">
         <a href="/">Home</a>
         <span class="separator">›</span>
         <a href="/catalog">Catalog</a>
@@ -82,8 +82,8 @@
         <span class="current">Semua Produk</span>
     </nav>
 
-    <!-- Categories Section -->
-    <section class="brands">
+    <!-- Brands Section -->
+    <section class="brands-section">
         <div class="brand-grid">
             <a href="#" class="brand-card">
                 <img src="img/brand/apple.png" alt="Iphone">
@@ -105,6 +105,9 @@
             </a>
             <a href="#" class="brand-card">
                 <img src="img/brand/realme.png" alt="Realme">
+            </a>
+            <a href="#" class="brand-card">
+                <img src="img/brand/infinix.png" alt="Infinix">
             </a>
         </div>
     </section>
