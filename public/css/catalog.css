@@ -356,6 +356,7 @@ body {
 
 .brand-card {
     flex: 0 0 auto;
+    cursor: pointer;
     background: #fff;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -388,6 +389,8 @@ body {
 }
 
 .promo-title {
+    display: flex;
+    align-items: center;
     font-family: "Montserrat", sans-serif;
     text-align: left;
     font-size: 1.6rem;
@@ -397,6 +400,23 @@ body {
     letter-spacing: 0.5px;
     position: relative;
     padding-left: 10px;
+}
+
+.promo-title .see-all-btn {
+    font-size: 0.6rem;
+    font-weight: 650;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1.5px solid #ffffff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.promo-title .see-all-btn:hover {
+    background: #ffffff;
+    color: #e63946;
 }
 
 .promo-grid {
@@ -731,6 +751,8 @@ body {
 }
 
 .recommendation-title {
+    display: flex;
+    align-items: center;
     font-family: "Montserrat", sans-serif;
     text-align: left;
     font-size: 1.6rem;
@@ -740,6 +762,23 @@ body {
     letter-spacing: 0.5px;
     position: relative;
     padding-left: 10px;
+}
+
+.recommendation-title .see-all-btn {
+    font-size: 0.6rem;
+    font-weight: 650;
+    color: #e63946;
+    text-decoration: none;
+    border: 1.5px solid #e63946;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    margin-left: 15px;
+}
+
+.recommendation-title .see-all-btn:hover {
+    background: #e63946;
+    color: #fff;
 }
 
 .recommendation-grid {
@@ -832,4 +871,139 @@ body {
 
 .btn-recommendation:active {
     transform: scale(0.96);
+}
+
+/* Footer */
+.footer {
+    background: #f5f7fa;
+    padding: 20px 40px;
+    font-family: "Montserrat", sans-serif;
+    color: #222;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-logo img {
+    height: 80px;
+    margin-right: 0;
+}
+
+.footer-logo h1 {
+    font-family: "Poppins", sans-serif;
+    margin-left: 0;
+    margin-top: 15px;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.footer-logo .highlight {
+    color: #dc2626;
+}
+
+.footer-social span {
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.footer-social img {
+    width: 28px;
+    height: 28px;
+    margin: 0 6px;
+    vertical-align: middle;
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.footer-social img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.footer-col h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #1f2e3d;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #3a4750;
+}
+
+.footer-col ul li small {
+    font-weight: 400;
+    color: #555;
+}
+
+.footer-col ul li a {
+    text-decoration: none;
+    color: #3a4750;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover,
+.footer-col ul li a:hover i[data-lucide="mail"] {
+    color: #e63946;
+    stroke: #e63946;
+}
+
+.partner-logo {
+    height: 90px;
+}
+
+.footer-bottom {
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .footer-main {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
 }

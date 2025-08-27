@@ -26,6 +26,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
@@ -89,7 +90,9 @@
     <!-- Recommendation Section -->
     <section class="recommendation-section">
         <div class="container">
-            <h2 class="recommendation-title">Rekomendasi terbaik buatmu</h2>
+            <h2 class="recommendation-title">Rekomendasi terbaik buatmu
+                <a href="#" class="see-all-btn">Lihat Semua <span>›</span></a>
+            </h2>
 
             <!-- Wrapper untuk scroll -->
             <div class="recommendation-wrapper">
@@ -162,7 +165,9 @@
     <!-- Promo Section -->
     <section class="promo-section">
         <div class="container">
-            <h2 class="promo-title">Promo spesial HUT RI ke 80</h2>
+            <h2 class="promo-title">Promo spesial HUT RI ke 80
+                <a href="#" class="see-all-btn">Lihat Semua <span>›</span></a>
+            </h2>
 
             <!-- Wrapper untuk scroll -->
             <div class="promo-wrapper">
@@ -282,10 +287,10 @@
                     <label for="category">Kategori:</label>
                     <select id="category">
                         <option value="all">Semua</option>
-                        <option value="smartphone">Flagship</option>
-                        <option value="laptop">High Range</option>
-                        <option value="tablet">Mid Range</option>
-                        <option value="aksesori">Entry Level</option>
+                        <option value="flagship">Flagship</option>
+                        <option value="high range">High Range</option>
+                        <option value="mid range">Mid Range</option>
+                        <option value="entry level">Entry Level</option>
                     </select>
                 </div>
 
@@ -303,126 +308,126 @@
             <!-- Product Grid -->
             <div class="product-grid">
                 <!-- Card Produk -->
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/iphone15.png" alt="iPhone 15">
                     <h3>iPhone 15</h3>
                     <p class="price">Rp 15.000.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="laptop">
+                <div class="product-card" data-category="high range">
                     <img src="img/category/oppo.png" alt="MacBook Pro">
                     <h3>Oppo Reno 14 Pro</h3>
                     <p class="price">Rp 25.000.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="tablet">
+                <div class="product-card" data-category="high range">
                     <img src="img/category/vivo.png" alt="iPad Pro">
                     <h3>Vivo X200 Pro</h3>
                     <p class="price">Rp 18.000.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="aksesori">
+                <div class="product-card" data-category="mid range">
                     <img src="img/category/xiaomi.png" alt="AirPods Pro">
                     <h3>Xiaomi Note 14T Pro</h3>
                     <p class="price">Rp 3.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
                     <button class="btn-detail">View Details</button>
                 </div>
 
-                <div class="product-card" data-category="smartphone">
+                <div class="product-card" data-category="flagship">
                     <img src="img/category/samsung.png" alt="Samsung S24">
                     <h3>Samsung Galaxy S24</h3>
                     <p class="price">Rp 13.500.000</p>
@@ -439,8 +444,92 @@
         </div>
     </section>
 
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="img/logo.webp" alt="Indo Bismar Group" />
+                    <h1>IndoBismar <span class="highlight">Group</span></h1>
+                </div>
+                <div class="footer-social">
+                    <span>Ikuti Kami :</span>
+                    <a href="#"><img src="img/social/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="img/social/tiktok.png" alt="Tiktok"></a>
+                    <a href="#"><img src="img/social/whatsapp.png" alt="WhatsApp"></a>
+                    <a href="#"><img src="img/social/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="img/social/x.webp" alt="X"></a>
+                    <a href="#"><img src="img/social/youtube.png" alt="YouTube"></a>
+                </div>
+            </div>
 
+            <div class="footer-main">
+                <!-- Kategori Produk -->
+                <div class="footer-col">
+                    <h4>Kategori Produk</h4>
+                    <ul>
+                        <li><a href="#">Laptop & Notebook</a></li>
+                        <li><a href="#">Dekstop Computer</a></li>
+                        <li><a href="#">Smartphone</a></li>
+                        <li><a href="#">IT Accessories</a></li>
+                    </ul>
+                </div>
+
+                <!-- Kategori Brand -->
+                <div class="footer-col">
+                    <h4>Kategori Brand</h4>
+                    <ul>
+                        <li><a href="#">Apple</a></li>
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Vivo</a></li>
+                        <li><a href="#">Oppo</a></li>
+                        <li><a href="#">Xiaomi</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hubungi Kami -->
+                <div class="footer-col">
+                    <h4>Hubungi Kami</h4>
+                    <ul>
+                        <li><i data-lucide="phone"
+                                style="width: 16px;height: 16px;margin-right: 5px;vertical-align: middle;"></i> Call
+                            Center (031) 8474685
+                            <br><small style="margin-left: 25px;">(Operasional Layanan 24/7)</small>
+                        </li>
+                        <li><i data-lucide="clock"
+                                style="width: 16px;height: 16px;margin-right: 5px;vertical-align: middle;"></i> Jam
+                            Operasional
+                            <br><small style="margin-left: 25px;">(Senin - Jumat: 08.30 -
+                                17.00 WIB)</small>
+                        </li>
+                        <li><i data-lucide="mail"
+                                style="width: 16px;height: 16px;margin-right: 5px;vertical-align: middle;"></i> <a
+                                href="mailto:bismar@ptindobismar.com">bismar@ptindobismar.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Kerjasama -->
+                <div class="footer-col">
+                    <h4>Bekerjasama Dengan</h4>
+                    <img src="img/partner/biz-removebg-preview.png" alt="Partner" class="partner-logo" />
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025. All rights reserved by Indo Bismar Group</p>
+            </div>
+        </div>
+
+    </footer>
     <script src="js/catalog.js"></script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
 </body>
 
 </html>
