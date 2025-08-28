@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const grid = document.querySelector(".product-grid");
 
     // Pagination setup
-    const itemsPerPage = 18;
+    const itemsPerPage = 15;
     let currentPage = 1;
     let filteredProducts = Array.from(products);
 
@@ -211,6 +211,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const recBtnLeft = recWrapper.querySelector(".scroll-btn.left");
     const recBtnRight = recWrapper.querySelector(".scroll-btn.right");
 
+    // Latest Product Section Scroll
+    const latestWrapper = document.querySelector(".latest-wrapper");
+    const latestScroll = latestWrapper.querySelector(".latest-scroll");
+    const latestBtnLeft = latestWrapper.querySelector(".scroll-btn.left");
+    const latestBtnRight = latestWrapper.querySelector(".scroll-btn.right");
+
     const scrollAmount = 250;
 
     // Promo scroll buttons
@@ -228,4 +234,18 @@ document.addEventListener("DOMContentLoaded", () => {
     recBtnRight.addEventListener("click", () => {
         recScroll.scrollBy({ left: scrollAmount, behavior: "smooth" });
     });
+
+    // Latest Product scroll buttons
+    latestBtnLeft.addEventListener("click", () => {
+        latestScroll.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+    latestBtnRight.addEventListener("click", () => {
+        latestScroll.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
 });
+
+// Sidebar Toggle
+function toggleFilter(header) {
+    const group = header.parentElement;
+    group.classList.toggle("collapsed");
+}

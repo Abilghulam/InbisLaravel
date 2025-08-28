@@ -6,43 +6,43 @@
             <button class="gallery-btn prev">&#10094;</button>
             <div class="gallery-track">
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri7.webp" alt="Gallery 1" />
+                    <img src="img/galeri/galeri7.webp" alt="Gallery 1" loading="lazy" />
                     <div class="caption">Toko Pusat IndoBismar Group</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri8.webp" alt="Gallery 2" />
+                    <img src="img/galeri/galeri8.webp" alt="Gallery 2" loading="lazy" />
                     <div class="caption">Pengadaan Komputer</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri9.webp" alt="Gallery 3" />
+                    <img src="img/galeri/galeri9.webp" alt="Gallery 3" loading="lazy" />
                     <div class="caption">Pemasangan dan Konfigurasi Komputer</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri10.webp" alt="Gallery 4" />
+                    <img src="img/galeri/galeri10.webp" alt="Gallery 4" loading="lazy" />
                     <div class="caption">Event DUDI Awards</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri11.webp" alt="Gallery 5" />
+                    <img src="img/galeri/galeri11.webp" alt="Gallery 5" loading="lazy" />
                     <div class="caption">Divisi Marketing IndoBismar Group</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri12.webp" alt="Gallery 6" />
+                    <img src="img/galeri/galeri12.webp" alt="Gallery 6" loading="lazy" />
                     <div class="caption">Penempatan Posisi Karyawan</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri13.webp" alt="Gallery 7" />
+                    <img src="img/galeri/galeri13.webp" alt="Gallery 7" loading="lazy" />
                     <div class="caption">Kerja Sama Industri</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri14.webp" alt="Gallery 8" />
+                    <img src="img/galeri/galeri14.webp" alt="Gallery 8" loading="lazy" />
                     <div class="caption">Sosialisasi BPJS Ketenagakerjaan</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri16.webp" alt="Gallery 9" />
+                    <img src="img/galeri/galeri16.webp" alt="Gallery 9" loading="lazy" />
                     <div class="caption">Meeting Pimpinan</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="img/galeri/galeri18.webp" alt="Gallery 10" />
+                    <img src="img/galeri/galeri18.webp" alt="Gallery 10" loading="lazy" />
                     <div class="caption">Staff dan Karyawan IndoBismar Group</div>
                 </div>
             </div>

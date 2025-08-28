@@ -56,18 +56,18 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="hero-slider">
-            <div class="slide"><img src="img/poster/poster1.jpg" alt="Promotion 1"></div>
-            <div class="slide"><img src="img/poster/poster2.jpg" alt="Promotion 2"></div>
-            <div class="slide"><img src="img/poster/poster3.jpg" alt="Promotion 3"></div>
-            <div class="slide"><img src="img/poster/poster4.jpg" alt="Promotion 4"></div>
-            <div class="slide"><img src="img/poster/poster5.jpg" alt="Promotion 5"></div>
-            <div class="slide"><img src="img/poster/poster6.jpg" alt="Promotion 6"></div>
-            <div class="slide"><img src="img/poster/poster7.jpg" alt="Promotion 7"></div>
-            <div class="slide"><img src="img/poster/poster8.jpg" alt="Promotion 8"></div>
-            <div class="slide"><img src="img/poster/poster9.jpg" alt="Promotion 9"></div>
-            <div class="slide"><img src="img/poster/poster10.jpg" alt="Promotion 10"></div>
-            <div class="slide"><img src="img/poster/poster11.jpg" alt="Promotion 11"></div>
-            <div class="slide"><img src="img/poster/poster14.jpg" alt="Promotion 14"></div>
+            <div class="slide"><img src="img/poster/poster1.jpg" alt="Promotion 1" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster2.jpg" alt="Promotion 2" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster3.jpg" alt="Promotion 3" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster4.jpg" alt="Promotion 4" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster5.jpg" alt="Promotion 5" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster6.jpg" alt="Promotion 6" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster7.jpg" alt="Promotion 7" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster8.jpg" alt="Promotion 8" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster9.jpg" alt="Promotion 9" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster10.jpg" alt="Promotion 10" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster11.jpg" alt="Promotion 11" loading="lazy"></div>
+            <div class="slide"><img src="img/poster/poster14.jpg" alt="Promotion 14" loading="lazy"></div>
         </div>
 
         <!-- Navigation -->
@@ -101,56 +101,56 @@
                 <div class="recommendation-scroll">
                     <!-- Card recommendation -->
                     <div class="recommendation-card">
-                        <img src="img/category/iphone15.png" alt="iPhone 15">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/samsung.png" alt="Samsung S24">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
                         <h3>Samsung Galaxy S24</h3>
                         <p class="price">Rp 13.500.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro">
+                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
                         <h3>Oppo Reno 14 Pro</h3>
                         <p class="price">Rp 25.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/vivo.png" alt="Vivo X200 Pro">
+                        <img src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo Y200</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro">
+                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo X200 Pro</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro">
+                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Samsung Galaxy A56</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro">
+                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Iphone 16 Pro Max</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro">
+                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Samsung Galaxy A55</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
@@ -177,7 +177,7 @@
                     <!-- Card Promo -->
                     <div class="promo-card">
                         <div class="discount-badge">-15%</div>
-                        <img src="img/category/iphone15.png" alt="iPhone 15">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -185,7 +185,7 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-15%</div>
-                        <img src="img/category/samsung.png" alt="Samsung S24">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
                         <h3>Samsung Galaxy S24</h3>
                         <p class="price">Rp 13.500.000</p>
                         <button class="btn-promo">View Details</button>
@@ -193,7 +193,7 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-30%</div>
-                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro">
+                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
                         <h3>Oppo Reno 14 Pro</h3>
                         <p class="price">Rp 25.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -201,7 +201,7 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/vivo.png" alt="Vivo X200 Pro">
+                        <img src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo Y200</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -209,7 +209,7 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro">
+                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo X200 Pro</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -217,7 +217,7 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro">
+                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Samsung Galaxy A56</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -225,7 +225,7 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro">
+                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Iphone 16 Pro Max</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -233,10 +233,85 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro">
+                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Samsung Galaxy A55</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
+                    </div>
+                </div>
+
+                <button class="scroll-btn right">›</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Product Section -->
+    <section class="latest-section">
+        <div class="container">
+            <h2 class="latest-title">Produk terbaru menarik
+                <a href="#" class="see-all-btn">Lihat Semua <span>›</span></a>
+            </h2>
+
+            <!-- Wrapper untuk scroll -->
+            <div class="latest-wrapper">
+                <button class="scroll-btn left">‹</button>
+
+                <div class="latest-scroll">
+                    <!-- Card latest -->
+                    <div class="latest-card">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
+                        <button class="btn-latest">View Details</button>
+                    </div>
+
+                    <div class="latest-card">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-latest">View Details</button>
+                    </div>
+
+                    <div class="latest-card">
+                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
+                        <h3>Oppo Reno 14 Pro</h3>
+                        <p class="price">Rp 25.000.000</p>
+                        <button class="btn-latest">View Details</button>
+                    </div>
+
+                    <div class="latest-card">
+                        <img src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
+                        <h3>Vivo Y200</h3>
+                        <p class="price">Rp 18.000.000</p>
+                        <button class="btn-latest">View Details</button>
+                    </div>
+
+                    <div class="latest-card">
+                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
+                        <h3>Vivo X200 Pro</h3>
+                        <p class="price">Rp 18.000.000</p>
+                        <button class="btn-latest">View Details</button>
+                    </div>
+
+                    <div class="latest-card">
+                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro" loading="lazy">
+                        <h3>Samsung Galaxy A56</h3>
+                        <p class="price">Rp 18.000.000</p>
+                        <button class="btn-latest">View Details</button>
+                    </div>
+
+                    <div class="latest-card">
+                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro" loading="lazy">
+                        <h3>Iphone 16 Pro Max</h3>
+                        <p class="price">Rp 18.000.000</p>
+                        <button class="btn-latest">View Details</button>
+                    </div>
+
+                    <div class="latest-card">
+                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro" loading="lazy">
+                        <h3>Samsung Galaxy A55</h3>
+                        <p class="price">Rp 18.000.000</p>
+                        <button class="btn-latest">View Details</button>
                     </div>
                 </div>
 
@@ -251,28 +326,28 @@
             <h2 class="title-section">Kategori Brand</h2>
             <div class="brand-grid">
                 <a href="#" class="brand-card">
-                    <img src="img/brand/apple.png" alt="Iphone">
+                    <img src="img/brand/apple.png" alt="Iphone" loading="lazy">
                 </a>
                 <a href="#" class="brand-card">
-                    <img src="img/brand/samsung.png" alt="Samsung">
+                    <img src="img/brand/samsung.png" alt="Samsung" loading="lazy">
                 </a>
                 <a href="#" class="brand-card">
-                    <img src="img/brand/vivo.png" alt="Vivo">
+                    <img src="img/brand/vivo.png" alt="Vivo" loading="lazy">
                 </a>
                 <a href="#" class="brand-card">
-                    <img src="img/brand/oppo.png" alt="Oppo">
+                    <img src="img/brand/oppo.png" alt="Oppo" loading="lazy">
                 </a>
                 <a href="#" class="brand-card">
-                    <img src="img/brand/xiaomi1.png" alt="Xiaomi">
+                    <img src="img/brand/xiaomi1.png" alt="Xiaomi" loading="lazy">
                 </a>
                 <a href="#" class="brand-card">
-                    <img src="img/brand/poco.png" alt="Poco">
+                    <img src="img/brand/poco.png" alt="Poco" loading="lazy">
                 </a>
                 <a href="#" class="brand-card">
-                    <img src="img/brand/realme.png" alt="Realme">
+                    <img src="img/brand/realme.png" alt="Realme" loading="lazy">
                 </a>
                 <a href="#" class="brand-card">
-                    <img src="img/brand/infinix.png" alt="Infinix">
+                    <img src="img/brand/infinix.png" alt="Infinix" loading="lazy">
                 </a>
             </div>
         </div>
@@ -297,7 +372,7 @@
                 <div class="sort">
                     <label for="sort">Urutkan:</label>
                     <select id="sort">
-                        <option value="default">Default</option>
+                        <option value="default">Paling Sesuai</option>
                         <option value="price-asc">Harga Termurah</option>
                         <option value="price-desc">Harga Termahal</option>
                         <option value="newest">Terbaru</option>
@@ -305,143 +380,287 @@
                 </div>
             </div>
 
-            <!-- Product Grid -->
-            <div class="product-grid">
-                <!-- Card Produk -->
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/iphone15.png" alt="iPhone 15">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+            <!-- Catalog Layout (Sidebar + Grid) -->
+            <div class="catalog-layout">
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <h3>Filter Produk</h3>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <!-- Produk Diskon -->
+                    <div class="filter-group">
+                        <div class="filter-header" onclick="toggleFilter(this)">
+                            <h4>Produk Diskon</h4>
+                            <i data-lucide="chevron-up" class="arrow"></i>
+                        </div>
+                        <div class="filter-content">
+                            <label><input type="checkbox" value="diskon"> Produk Diskon</label>
+                        </div>
 
-                <div class="product-card" data-category="high range">
-                    <img src="img/category/oppo.png" alt="MacBook Pro">
-                    <h3>Oppo Reno 14 Pro</h3>
-                    <p class="price">Rp 25.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    </div>
 
-                <div class="product-card" data-category="high range">
-                    <img src="img/category/vivo.png" alt="iPad Pro">
-                    <h3>Vivo X200 Pro</h3>
-                    <p class="price">Rp 18.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <!-- Kategori -->
+                    <div class="filter-group">
+                        <div class="filter-header" onclick="toggleFilter(this)">
+                            <h4>Kategori</h4>
+                            <i data-lucide="chevron-up" class="arrow"></i>
+                        </div>
+                        <div class="filter-content">
+                            <label><input type="checkbox" value="flagship"> Flagship</label><br>
+                            <label><input type="checkbox" value="high range"> High Range</label><br>
+                            <label><input type="checkbox" value="mid range"> Mid Range</label><br>
+                            <label><input type="checkbox" value="entry level"> Entry Level</label>
+                        </div>
+                    </div>
 
-                <div class="product-card" data-category="mid range">
-                    <img src="img/category/xiaomi.png" alt="AirPods Pro">
-                    <h3>Xiaomi Note 14T Pro</h3>
-                    <p class="price">Rp 3.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <!-- Harga -->
+                    <div class="filter-group">
+                        <div class="filter-header" onclick="toggleFilter(this)">
+                            <h4>Harga</h4>
+                            <i data-lucide="chevron-up" class="arrow"></i>
+                        </div>
+                        <div class="filter-content">
+                            <div class="price-input">
+                                <div class="price-field">
+                                    <span class="currency">Rp</span>
+                                    <input type="number" id="minPrice" placeholder="Terendah" min="0">
+                                </div>
+                                <div class="price-field">
+                                    <span class="currency">Rp</span>
+                                    <input type="number" id="maxPrice" placeholder="Tertinggi" min="0">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <!-- Rating -->
+                    <div class="filter-group">
+                        <div class="filter-header" onclick="toggleFilter(this)">
+                            <h4>Rating</h4>
+                            <i data-lucide="chevron-up" class="arrow"></i>
+                        </div>
+                        <div class="filter-content">
+                            <label><input type="checkbox" value="5"> ⭐ 5</label><br>
+                            <label><input type="checkbox" value="4"> ⭐ 4</label><br>
+                            <label><input type="checkbox" value="3"> ⭐ 3</label><br>
+                            <label><input type="checkbox" value="2"> ⭐ 2</label><br>
+                            <label><input type="checkbox" value="1"> ⭐ 1</label><br>
+                        </div>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <!-- Stok -->
+                    <div class="filter-group">
+                        <div class="filter-header" onclick="toggleFilter(this)">
+                            <h4>Ketersediaan</h4>
+                            <i data-lucide="chevron-up" class="arrow"></i>
+                        </div>
+                        <div class="filter-content">
+                            <label><input type="checkbox" value="tersedia"> Tersedia</label><br>
+                            <label><input type="checkbox" value="habis"> Habis</label>
+                        </div>
+                    </div>
+                </aside>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                <!-- Product Grid -->
+                <div class="product-grid">
+                    <!-- Card Produk -->
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="high range">
+                        <img src="img/category/oppo.png" alt="MacBook Pro" loading="lazy">
+                        <h3>Oppo Reno 14 Pro</h3>
+                        <p class="price">Rp 25.000.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="high range">
+                        <img src="img/category/vivo.png" alt="iPad Pro" loading="lazy">
+                        <h3>Vivo X200 Pro</h3>
+                        <p class="price">Rp 18.000.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="mid range">
+                        <img src="img/category/xiaomi.png" alt="AirPods Pro" loading="lazy">
+                        <h3>Xiaomi Note 14T Pro</h3>
+                        <p class="price">Rp 3.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
 
-                <div class="product-card" data-category="flagship">
-                    <img src="img/category/samsung.png" alt="Samsung S24">
-                    <h3>Samsung Galaxy S24</h3>
-                    <p class="price">Rp 13.500.000</p>
-                    <button class="btn-detail">View Details</button>
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy S24</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
+                        <h3>Vivo X200 Pro</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
+                        <h3>Vivo X200 Pro</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
+                        <h3>Vivo X200 Pro</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
+                        <h3>Vivo X200 Pro</h3>
+                        <p class="price">Rp 13.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy A56</h3>
+                        <p class="price">Rp 7.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy A56</h3>
+                        <p class="price">Rp 7.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy A56</h3>
+                        <p class="price">Rp 7.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy A56</h3>
+                        <p class="price">Rp 7.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship">
+                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
+                        <h3>Samsung Galaxy A56</h3>
+                        <p class="price">Rp 7.500.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Pagination -->
-        <div class="pagination">
-            <button class="prev-page">‹</button>
-            <div class="page-numbers"></div>
-            <button class="next-page">›</button>
-        </div>
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="prev-page">‹</button>
+                <div class="page-numbers"></div>
+                <button class="next-page">›</button>
+            </div>
     </section>
 
     <!-- Footer Section -->
