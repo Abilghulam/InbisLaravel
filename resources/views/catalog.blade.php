@@ -325,28 +325,28 @@
         <div class="container">
             <h2 class="title-section">Kategori Brand</h2>
             <div class="brand-grid">
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="apple">
                     <img src="img/brand/apple.png" alt="Iphone" loading="lazy">
                 </a>
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="samsung">
                     <img src="img/brand/samsung.png" alt="Samsung" loading="lazy">
                 </a>
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="vivo">
                     <img src="img/brand/vivo.png" alt="Vivo" loading="lazy">
                 </a>
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="oppo">
                     <img src="img/brand/oppo.png" alt="Oppo" loading="lazy">
                 </a>
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="xiaomi">
                     <img src="img/brand/xiaomi1.png" alt="Xiaomi" loading="lazy">
                 </a>
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="poco">
                     <img src="img/brand/poco.png" alt="Poco" loading="lazy">
                 </a>
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="realme">
                     <img src="img/brand/realme.png" alt="Realme" loading="lazy">
                 </a>
-                <a href="#" class="brand-card">
+                <a href="#" class="brand-card" data-brand="infinix">
                     <img src="img/brand/infinix.png" alt="Infinix" loading="lazy">
                 </a>
             </div>
@@ -356,46 +356,41 @@
     <!-- Product Section -->
     <section class="products-section">
         <div class="container">
-            <!-- Filter & Sort Bar -->
-            <div class="filter-sort-bar">
-                <div class="filter">
-                    <label for="category">Kategori:</label>
-                    <select id="category">
-                        <option value="all">Semua</option>
-                        <option value="flagship">Flagship</option>
-                        <option value="high range">High Range</option>
-                        <option value="mid range">Mid Range</option>
-                        <option value="entry level">Entry Level</option>
-                    </select>
-                </div>
-
-                <div class="sort">
-                    <label for="sort">Urutkan:</label>
-                    <select id="sort">
-                        <option value="default">Paling Sesuai</option>
-                        <option value="price-asc">Harga Termurah</option>
-                        <option value="price-desc">Harga Termahal</option>
-                        <option value="newest">Terbaru</option>
-                    </select>
-                </div>
-            </div>
 
             <!-- Catalog Layout (Sidebar + Grid) -->
             <div class="catalog-layout">
                 <!-- Sidebar -->
                 <aside class="sidebar">
-                    <h3>Filter Produk</h3>
+                    <div class="filter-header">
+                        <h3>Filter Produk</h3>
+                        <button id="clearAllFilters" class="clear-btn">Clear Filter</button>
+                    </div>
 
-                    <!-- Produk Diskon -->
+
+                    <!-- Sorting -->
                     <div class="filter-group">
                         <div class="filter-header" onclick="toggleFilter(this)">
-                            <h4>Produk Diskon</h4>
+                            <h4>Urutkan</h4>
                             <i data-lucide="chevron-up" class="arrow"></i>
                         </div>
                         <div class="filter-content">
-                            <label><input type="checkbox" value="diskon"> Produk Diskon</label>
+                            <label>
+                                <input type="radio" name="sort" value="default" checked>
+                                Paling Sesuai
+                            </label><br>
+                            <label>
+                                <input type="radio" name="sort" value="price-asc">
+                                Harga Termurah
+                            </label><br>
+                            <label>
+                                <input type="radio" name="sort" value="price-desc">
+                                Harga Termahal
+                            </label><br>
+                            <label>
+                                <input type="radio" name="sort" value="newest">
+                                Terbaru
+                            </label>
                         </div>
-
                     </div>
 
                     <!-- Kategori -->
@@ -405,10 +400,13 @@
                             <i data-lucide="chevron-up" class="arrow"></i>
                         </div>
                         <div class="filter-content">
-                            <label><input type="checkbox" value="flagship"> Flagship</label><br>
-                            <label><input type="checkbox" value="high range"> High Range</label><br>
-                            <label><input type="checkbox" value="mid range"> Mid Range</label><br>
-                            <label><input type="checkbox" value="entry level"> Entry Level</label>
+                            <label><input type="checkbox" data-type="category" value="flagship"> Flagship</label><br>
+                            <label><input type="checkbox" data-type="category" value="high range"> High
+                                Range</label><br>
+                            <label><input type="checkbox" data-type="category" value="mid range"> Mid
+                                Range</label><br>
+                            <label><input type="checkbox" data-type="category" value="entry level"> Entry
+                                Level</label>
                         </div>
                     </div>
 
@@ -432,224 +430,157 @@
                         </div>
                     </div>
 
-                    <!-- Rating -->
-                    <div class="filter-group">
-                        <div class="filter-header" onclick="toggleFilter(this)">
-                            <h4>Rating</h4>
-                            <i data-lucide="chevron-up" class="arrow"></i>
-                        </div>
-                        <div class="filter-content">
-                            <label><input type="checkbox" value="5"> ⭐ 5</label><br>
-                            <label><input type="checkbox" value="4"> ⭐ 4</label><br>
-                            <label><input type="checkbox" value="3"> ⭐ 3</label><br>
-                            <label><input type="checkbox" value="2"> ⭐ 2</label><br>
-                            <label><input type="checkbox" value="1"> ⭐ 1</label><br>
-                        </div>
-                    </div>
-
-                    <!-- Stok -->
+                    <!-- Stok (opsional) -->
                     <div class="filter-group">
                         <div class="filter-header" onclick="toggleFilter(this)">
                             <h4>Ketersediaan</h4>
                             <i data-lucide="chevron-up" class="arrow"></i>
                         </div>
                         <div class="filter-content">
-                            <label><input type="checkbox" value="tersedia"> Tersedia</label><br>
-                            <label><input type="checkbox" value="habis"> Habis</label>
+                            <label><input type="checkbox" data-type="stock" value="tersedia"> Tersedia</label><br>
+                            <label><input type="checkbox" data-type="stock" value="habis"> Habis</label>
                         </div>
                     </div>
                 </aside>
 
-
                 <!-- Product Grid -->
                 <div class="product-grid">
                     <!-- Card Produk -->
-                    <div class="product-card" data-category="flagship">
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <img src="img/category/iphone15.png" alt="iPhone 15 Pro Max" loading="lazy">
+                        <h3>iPhone 15 Pro Max</h3>
+                        <p class="price">Rp 20.000.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="habis" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone16.png" alt="iPhone 15" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <h3>iPhone 16 Plus</h3>
+                        <p class="price">Rp 15.999.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone16pro.png" alt="iPhone 15" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <h3>iPhone 16 Pro Max</h3>
+                        <p class="price">Rp 21.999.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship" data-brand="samsung" data-date="2025-08-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/samsung25.png" alt="Samsung Galaxy S26 Ultra" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Apple">
+                        </div>
+                        <h3>Samsung Galaxy S26 Ultra</h3>
+                        <p class="price">Rp 20.999.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship" data-brand="samsung" data-date="2025-01-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/samsung55.png" alt="Samsung Galaxy A55" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Apple">
+                        </div>
+                        <h3>Samsung Galaxy A55</h3>
+                        <p class="price">Rp 5.899.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship" data-brand="samsung" data-date="2025-06-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/samsung56.png" alt="Samsung Galaxy A56" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Apple">
+                        </div>
+                        <h3>Samsung Galaxy A56</h3>
+                        <p class="price">Rp 6.999.000</p>
+                        <button class="btn-detail">View Details</button>
+                    </div>
+
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
                         <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="high range">
-                        <img src="img/category/oppo.png" alt="MacBook Pro" loading="lazy">
-                        <h3>Oppo Reno 14 Pro</h3>
-                        <p class="price">Rp 25.000.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="high range">
-                        <img src="img/category/vivo.png" alt="iPad Pro" loading="lazy">
-                        <h3>Vivo X200 Pro</h3>
-                        <p class="price">Rp 18.000.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="mid range">
-                        <img src="img/category/xiaomi.png" alt="AirPods Pro" loading="lazy">
-                        <h3>Xiaomi Note 14T Pro</h3>
-                        <p class="price">Rp 3.500.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy S24</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
-                        <h3>Vivo X200 Pro</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
-                        <h3>Vivo X200 Pro</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
-                        <h3>Vivo X200 Pro</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/vivo200.png" alt="Samsung S24" loading="lazy">
-                        <h3>Vivo X200 Pro</h3>
-                        <p class="price">Rp 13.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy A56</h3>
-                        <p class="price">Rp 7.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy A56</h3>
-                        <p class="price">Rp 7.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy A56</h3>
-                        <p class="price">Rp 7.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy A56</h3>
-                        <p class="price">Rp 7.500.000</p>
-                        <button class="btn-detail">View Details</button>
-                    </div>
-
-                    <div class="product-card" data-category="flagship">
-                        <img src="img/category/samsung56.png" alt="Samsung S24" loading="lazy">
-                        <h3>Samsung Galaxy A56</h3>
-                        <p class="price">Rp 7.500.000</p>
+                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                        data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <h3>iPhone 15</h3>
+                        <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
                     </div>
                 </div>
@@ -662,6 +593,28 @@
                 <button class="next-page">›</button>
             </div>
     </section>
+
+    <!-- View Details Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalProductImage" src="" alt="Product Image">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalProductTitle"></h2>
+                    <p class="modal-price" id="modalProductPrice"></p>
+                    <p class="modal-stock" id="modalProductStock"></p>
+                    <div class="modal-specs" id="modalProductSpecs">
+                        <!-- Spesifikasi produk masuk di sini -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -739,10 +692,9 @@
                 <p>&copy; 2025. All rights reserved by Indo Bismar Group</p>
             </div>
         </div>
-
     </footer>
-    <script src="js/catalog.js"></script>
 
+    <script src="js/catalog.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
