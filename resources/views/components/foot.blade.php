@@ -34,3 +34,18 @@
         },
     });
 </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get("scroll") === "products") {
+            const target = document.getElementById("products");
+            if (target) {
+                target.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    });
+</script>
