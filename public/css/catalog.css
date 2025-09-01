@@ -417,6 +417,37 @@ body {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
+.recommendation-card .recommendation-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.recommendation-card .brand-logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.recommendation-card .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
 .recommendation-card img {
     max-width: 100%;
     height: 200px;
@@ -544,6 +575,37 @@ body {
 .promo-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.promo-card .promo-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.promo-card .brand-logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.promo-card .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .discount-badge {
@@ -723,6 +785,37 @@ body {
 .latest-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.latest-card .latest-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: contain;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.latest-card .brand-logo {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    aspect-ratio: 1 / 1;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    background: transparent;
+}
+
+.latest-card .brand-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .latest-card img {
@@ -971,7 +1064,7 @@ body {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.product-card img {
+.product-card .product-image {
     width: 100%;
     aspect-ratio: 3 / 4;
     object-fit: contain;

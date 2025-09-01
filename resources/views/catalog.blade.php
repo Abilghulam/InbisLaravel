@@ -101,56 +101,88 @@
                 <div class="recommendation-scroll">
                     <!-- Card recommendation -->
                     <div class="recommendation-card">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <img class="recommendation-image" src="img/category/iphone15pm.png" alt="iPhone 15"
+                            loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="recommendation-image" src="img/category/samsung25.png" alt="Samsung S24"
+                            loading="lazy">
                         <h3>Samsung Galaxy S24</h3>
                         <p class="price">Rp 13.500.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/oppo.png" alt="Oppo">
+                        </div>
+                        <img class="recommendation-image" src="img/category/oppo.png" alt="Oppo Reno 14 Pro"
+                            loading="lazy">
                         <h3>Oppo Reno 14 Pro</h3>
                         <p class="price">Rp 25.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/vivo.png" alt="Vivo">
+                        </div>
+                        <img class="recommendation-image" src="img/category/vivo.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Vivo Y200</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/vivo.png" alt="Vivo">
+                        </div>
+                        <img class="recommendation-image" src="img/category/vivo200.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Vivo X200 Pro</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="recommendation-image" src="img/category/samsung56.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Samsung Galaxy A56</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <img class="recommendation-image" src="img/category/iphone16pro.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Iphone 16 Pro Max</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
                     </div>
 
                     <div class="recommendation-card">
-                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="recommendation-image" src="img/category/samsung55.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Samsung Galaxy A55</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-recommendation">View Details</button>
@@ -177,7 +209,10 @@
                     <!-- Card Promo -->
                     <div class="promo-card">
                         <div class="discount-badge">-15%</div>
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <img class="promo-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -185,7 +220,10 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-15%</div>
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="promo-image" src="img/category/samsung25.png" alt="Samsung S24" loading="lazy">
                         <h3>Samsung Galaxy S24</h3>
                         <p class="price">Rp 13.500.000</p>
                         <button class="btn-promo">View Details</button>
@@ -193,7 +231,10 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-30%</div>
-                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/oppo.png" alt="Oppo">
+                        </div>
+                        <img class="promo-image" src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
                         <h3>Oppo Reno 14 Pro</h3>
                         <p class="price">Rp 25.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -201,7 +242,10 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/vivo.png" alt="Vivo">
+                        </div>
+                        <img class="promo-image" src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo Y200</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -209,7 +253,10 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/vivo.png" alt="Vivo">
+                        </div>
+                        <img class="promo-image" src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo X200 Pro</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -217,7 +264,11 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="promo-image" src="img/category/samsung56.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Samsung Galaxy A56</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -225,7 +276,11 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <img class="promo-image" src="img/category/iphone16pro.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Iphone 16 Pro Max</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -233,7 +288,11 @@
 
                     <div class="promo-card">
                         <div class="discount-badge">-10%</div>
-                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="promo-image" src="img/category/samsung55.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Samsung Galaxy A55</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-promo">View Details</button>
@@ -259,56 +318,83 @@
                 <div class="latest-scroll">
                     <!-- Card latest -->
                     <div class="latest-card">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <img class="latest-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-latest">View Details</button>
                     </div>
 
                     <div class="latest-card">
-                        <img src="img/category/samsung.png" alt="Samsung S24" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="latest-image" src="img/category/samsung25.png" alt="Samsung S24" loading="lazy">
                         <h3>Samsung Galaxy S24</h3>
                         <p class="price">Rp 13.500.000</p>
                         <button class="btn-latest">View Details</button>
                     </div>
 
                     <div class="latest-card">
-                        <img src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/oppo.png" alt="Oppo">
+                        </div>
+                        <img class="latest-image" src="img/category/oppo.png" alt="Oppo Reno 14 Pro" loading="lazy">
                         <h3>Oppo Reno 14 Pro</h3>
                         <p class="price">Rp 25.000.000</p>
                         <button class="btn-latest">View Details</button>
                     </div>
 
                     <div class="latest-card">
-                        <img src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/vivo.png" alt="Vivo">
+                        </div>
+                        <img class="latest-image" src="img/category/vivo.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo Y200</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-latest">View Details</button>
                     </div>
 
                     <div class="latest-card">
-                        <img src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/vivo.png" alt="Vivo">
+                        </div>
+                        <img class="latest-image" src="img/category/vivo200.png" alt="Vivo X200 Pro" loading="lazy">
                         <h3>Vivo X200 Pro</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-latest">View Details</button>
                     </div>
 
                     <div class="latest-card">
-                        <img src="img/category/samsung56.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="latest-image" src="img/category/samsung56.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Samsung Galaxy A56</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-latest">View Details</button>
                     </div>
 
                     <div class="latest-card">
-                        <img src="img/category/iphone16pro.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/apple.png" alt="Apple">
+                        </div>
+                        <img class="latest-image" src="img/category/iphone16pro.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Iphone 16 Pro Max</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-latest">View Details</button>
                     </div>
 
                     <div class="latest-card">
-                        <img src="img/category/samsung55.png" alt="Vivo X200 Pro" loading="lazy">
+                        <div class="brand-logo">
+                            <img src="img/brand/samsung.png" alt="Samsung">
+                        </div>
+                        <img class="latest-image" src="img/category/samsung55.png" alt="Vivo X200 Pro"
+                            loading="lazy">
                         <h3>Samsung Galaxy A55</h3>
                         <p class="price">Rp 18.000.000</p>
                         <button class="btn-latest">View Details</button>
@@ -448,10 +534,11 @@
                     <!-- Card Produk -->
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15 Pro Max"
+                            loading="lazy">
                         <div class="brand-logo">
                             <img src="img/brand/apple.png" alt="Apple">
                         </div>
-                        <img src="img/category/iphone15.png" alt="iPhone 15 Pro Max" loading="lazy">
                         <h3>iPhone 15 Pro Max</h3>
                         <p class="price">Rp 20.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -459,7 +546,8 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="habis" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone16.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone16plus.png" alt="iPhone 15"
+                            loading="lazy">
                         <div class="brand-logo">
                             <img src="img/brand/apple.png" alt="Apple">
                         </div>
@@ -470,7 +558,8 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone16pro.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone16pro.png" alt="iPhone 15"
+                            loading="lazy">
                         <div class="brand-logo">
                             <img src="img/brand/apple.png" alt="Apple">
                         </div>
@@ -481,7 +570,8 @@
 
                     <div class="product-card" data-category="flagship" data-brand="samsung" data-date="2025-08-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/samsung25.png" alt="Samsung Galaxy S26 Ultra" loading="lazy">
+                        <img class="product-image" src="img/category/samsung25.png" alt="Samsung Galaxy S26 Ultra"
+                            loading="lazy">
                         <div class="brand-logo">
                             <img src="img/brand/samsung.png" alt="Apple">
                         </div>
@@ -490,9 +580,10 @@
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship" data-brand="samsung" data-date="2025-01-01"
+                    <div class="product-card" data-category="mid range" data-brand="samsung" data-date="2025-01-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/samsung55.png" alt="Samsung Galaxy A55" loading="lazy">
+                        <img class="product-image" src="img/category/samsung55.png" alt="Samsung Galaxy A55"
+                            loading="lazy">
                         <div class="brand-logo">
                             <img src="img/brand/samsung.png" alt="Apple">
                         </div>
@@ -501,9 +592,10 @@
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship" data-brand="samsung" data-date="2025-06-01"
+                    <div class="product-card" data-category="mid range" data-brand="samsung" data-date="2025-06-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/samsung56.png" alt="Samsung Galaxy A56" loading="lazy">
+                        <img class="product-image" src="img/category/samsung56.png" alt="Samsung Galaxy A56"
+                            loading="lazy">
                         <div class="brand-logo">
                             <img src="img/brand/samsung.png" alt="Apple">
                         </div>
@@ -512,9 +604,9 @@
                         <button class="btn-detail">View Details</button>
                     </div>
 
-                    <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
+                    <div class="product-card" data-category="high range" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -522,7 +614,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -530,7 +622,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -538,7 +630,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -546,7 +638,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -554,7 +646,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -562,7 +654,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -570,7 +662,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>
@@ -578,7 +670,7 @@
 
                     <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
                         data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                        <img src="img/category/iphone15.png" alt="iPhone 15" loading="lazy">
+                        <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
                         <h3>iPhone 15</h3>
                         <p class="price">Rp 15.000.000</p>
                         <button class="btn-detail">View Details</button>

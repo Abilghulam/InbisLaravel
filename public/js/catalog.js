@@ -313,7 +313,9 @@ document.addEventListener("DOMContentLoaded", () => {
             modalPrice.textContent = price;
             modalSpecs.innerHTML = `<p>${specs}</p>`;
             modalStock.textContent =
-                stock.toLowerCase() === "habis" ? "Stok Habis" : "Tersedia";
+                stock.toLowerCase() === "habis"
+                    ? "Stok Habis"
+                    : "Stok Tersedia";
 
             modal.style.display = "block";
         });
