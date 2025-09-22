@@ -2,22 +2,21 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class RecommendationCatalog extends Component
 {
-    public $type;
+    public $recommendations;
 
-    public function __construct($type = null)
+    public function __construct($recommendations)
     {
-        $this->type = $type;
+        $this->recommendations = $recommendations;
     }
 
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.recommendation-catalog');
     }
 }
+
 

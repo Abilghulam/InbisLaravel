@@ -6,15 +6,15 @@
 </head>
 
 <body>
-    <x-navbar-catalog />
+    <x-navbar-catalog :type="$type" />
     <x-hero-catalog :type="$type" />
-    <x-recommendation-catalog :type="$type" />
-    <x-promo-catalog :type="$type" />
-    <x-latest-catalog :type="$type" />
+    <x-recommendation-catalog :recommendations="$recommendations" />
+    <x-promo-catalog :promos="$promos" />
+    <x-latest-catalog :latest="$latest" />
     <x-brand-catalog :type="$type" />
-    <x-product-catalog :type="$type" />
-    <x-modal-catalog />
+    <x-product-catalog :products="$products" />
     <x-footer-catalog />
+    <x-modal-catalog />
     <x-foot-catalog />
 </body>
 

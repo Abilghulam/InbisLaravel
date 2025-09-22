@@ -8,17 +8,13 @@ use Illuminate\View\Component;
 
 class PromoCatalog extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $promos;
+
+    public function __construct($promos = [])
     {
-        //
+        $this->promos = $promos;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.promo-catalog');

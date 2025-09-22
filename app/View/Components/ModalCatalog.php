@@ -2,25 +2,13 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class ModalCatalog extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public function render()
     {
-        //
-    }
-
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
-    {
+        // Pastikan path view ini cocok dengan file blade di resources/views/components/modal-catalog.blade.php
         return view('components.modal-catalog');
     }
 }

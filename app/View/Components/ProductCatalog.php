@@ -2,25 +2,20 @@
 
 namespace App\View\Components;
 
-use Closure;
-use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
 class ProductCatalog extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $products;
+
+    public function __construct($products)
     {
-        //
+        $this->products = $products;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
+    public function render()
     {
         return view('components.product-catalog');
     }
 }
+

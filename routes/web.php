@@ -1,23 +1,33 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CatalogController;
 
+// ==================
+// 🏠 Halaman Utama
+// ==================
 Route::get('/', function () {
     return view('home', ['title' => 'Home - Indo Bismar Group']);
 })->name('home');
 
-Route::get('/catalog-laptop', function () {
-    return view('catalog-laptop', ['title' => 'Catalog - Indo Bismar Group']);
-})->name('catalog-laptop');
+// ==================
+// 📦 Catalog Dinamis
+// ==================
+// Semua kategori: hp, laptop, pc, accessories
+Route::get('/catalog/{type}', [CatalogController::class, 'show'])
+    ->where('type', 'hp|laptop|pc|accessories')
+    ->name('catalog.show');
 
-Route::get('/catalog-pc', function () {
-    return view('catalog-pc', ['title' => 'Catalog - Indo Bismar Group']);
-})->name('catalog-pc');
+// 🔎 Pencarian + filter + sort
+Route::get('/search/{type}', [CatalogController::class, 'search'])
+    ->where('type', 'hp|laptop|pc|accessories')
+    ->name('catalog.search');
 
-Route::get('/catalog-hp', function () {
-    return view('catalog-hp', ['title' => 'Catalog - Indo Bismar Group']);
-})->name('catalog-hp');
-
-Route::get('/catalog-accessories', function () {
-    return view('catalog-accessories', ['title' => 'Catalog - Indo Bismar Group']);
-})->name('catalog-accessories');
+// ==================
+// 🔀 Redirect lama (opsional)
+// ==================
+// Agar URL lama tetap jalan (tidak 404)
+Route::redirect('/catalog-hp', '/catalog/hp');
+Route::redirect('/catalog-laptop', '/catalog/laptop');
+Route::redirect('/catalog-pc', '/catalog/pc');
+Route::redirect('/catalog-accessories', '/catalog/accessories');

@@ -16,7 +16,14 @@
         'pc' => [
             'url' => '/catalog-pc',
             'label' => 'Catalog PC',
-            'posters' => ['img/poster/pc1.jpg', 'img/poster/pc2.jpg', 'img/poster/pc3.jpg'],
+            'posters' => [
+                'img/poster/pc1.jpg',
+                'img/poster/pc2.jpg',
+                'img/poster/pc3.jpg',
+                'img/poster/pc4.png',
+                'img/poster/pc5.jpg',
+                'img/poster/pc6.jpg',
+            ],
         ],
         'laptop' => [
             'url' => '/catalog-laptop',
@@ -26,7 +33,6 @@
                 'img/poster/laptop2.jpg',
                 'img/poster/laptop3.jpg',
                 'img/poster/laptop4.jpg',
-                'img/poster/laptop5.jpg',
                 'img/poster/laptop6.jpg',
                 'img/poster/laptop7.jpg',
                 'img/poster/laptop8.png',
@@ -36,7 +42,13 @@
         'accessories' => [
             'url' => '/catalog-accessories',
             'label' => 'Catalog Accessories',
-            'posters' => ['img/poster/acc1.jpg', 'img/poster/acc2.jpg', 'img/poster/acc3.jpg'],
+            'posters' => [
+                'img/poster/acc1.jpg',
+                'img/poster/acc2.png',
+                'img/poster/acc3.jpg',
+                'img/poster/acc4.jpg',
+                'img/poster/acc5.png',
+            ],
         ],
     ];
 

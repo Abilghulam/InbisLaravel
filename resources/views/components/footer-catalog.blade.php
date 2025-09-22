@@ -3,17 +3,17 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-logo">
-                    <img src="img/logo.webp" alt="Indo Bismar Group" />
+                    <img src="{{ asset('img/logo.webp') }}" alt="Indo Bismar Group" />
                     <h1>IndoBismar <span class="highlight">Group</span></h1>
                 </div>
                 <div class="footer-social">
                     <span>Ikuti Kami :</span>
-                    <a href="#"><img src="img/social/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="img/social/tiktok.png" alt="Tiktok"></a>
-                    <a href="#"><img src="img/social/whatsapp.png" alt="WhatsApp"></a>
-                    <a href="#"><img src="img/social/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="img/social/x.webp" alt="X"></a>
-                    <a href="#"><img src="img/social/youtube.png" alt="YouTube"></a>
+                    <a href="#"><img src="{{ asset('img/social/instagram.png') }}" alt="Instagram"></a>
+                    <a href="#"><img src="{{ asset('img/social/tiktok.png') }}" alt="Tiktok"></a>
+                    <a href="#"><img src="{{ asset('img/social/whatsapp.png') }}" alt="WhatsApp"></a>
+                    <a href="#"><img src="{{ asset('img/social/facebook.png') }}" alt="Facebook"></a>
+                    <a href="#"><img src="{{ asset('img/social/x.webp') }}" alt="X"></a>
+                    <a href="#"><img src="{{ asset('img/social/youtube.png') }}" alt="YouTube"></a>
                 </div>
             </div>
 
@@ -22,10 +22,10 @@
                 <div class="footer-col">
                     <h4>Kategori Produk</h4>
                     <ul>
-                        <li><a href="#">Laptop & Notebook</a></li>
-                        <li><a href="#">Dekstop Computer</a></li>
-                        <li><a href="#">Smartphone</a></li>
-                        <li><a href="#">IT Accessories</a></li>
+                        <li><a href="{{ route('catalog.show', ['type' => 'laptop']) }}">Laptop & Notebook</a></li>
+                        <li><a href="{{ route('catalog.show', ['type' => 'pc']) }}">Dekstop Computer</a></li>
+                        <li><a href="{{ route('catalog.show', ['type' => 'pc']) }}">Handphone</a></li>
+                        <li><a href="{{ route('catalog.show', ['type' => 'accessories']) }}">IT Accessories</a></li>
                     </ul>
                 </div>
 
@@ -33,11 +33,11 @@
                 <div class="footer-col">
                     <h4>Kategori Brand</h4>
                     <ul>
-                        <li><a href="#">Apple</a></li>
-                        <li><a href="#">Samsung</a></li>
-                        <li><a href="#">Vivo</a></li>
-                        <li><a href="#">Oppo</a></li>
-                        <li><a href="#">Xiaomi</a></li>
+                        <li><a href="">Apple</a></li>
+                        <li><a href="">Samsung</a></li>
+                        <li><a href="">Vivo</a></li>
+                        <li><a href="">Oppo</a></li>
+                        <li><a href="">Xiaomi</a></li>
                     </ul>
                 </div>
 
@@ -64,9 +64,10 @@
                 </div>
 
                 <!-- Kerjasama -->
-                <div class="footer-col">
+                <div class="footer-col no-collapse">
                     <h4>Bekerjasama Dengan</h4>
-                    <img src="img/partner/biz-removebg-preview.png" alt="Partner" class="partner-logo" />
+                    <img src="{{ asset('img/partner/biz-removebg-preview.png') }}" alt="Partner"
+                        class="partner-logo" />
                 </div>
             </div>
 
@@ -75,3 +76,16 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll(".footer-col:not(.no-collapse) h4").forEach((header) => {
+                    header.addEventListener("click", () => {
+                        const parent = header.parentElement;
+                        parent.classList.toggle("active");
+                    });
+                });
+            }
+        });
+    </script>

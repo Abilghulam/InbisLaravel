@@ -8,17 +8,13 @@ use Illuminate\View\Component;
 
 class BrandCatalog extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+    public $type;
+
+    public function __construct($type = null)
     {
-        //
+        $this->type = $type;
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('components.brand-catalog');

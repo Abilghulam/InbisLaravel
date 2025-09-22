@@ -1,16 +1,15 @@
-<!-- Product Section -->
 <section class="products-section">
     <div class="container">
-
-        <!-- Catalog Layout (Sidebar + Grid) -->
         <div class="catalog-layout">
-            <!-- Sidebar -->
+
+            <!-- Sidebar (Filter) -->
             <aside class="sidebar">
                 <div class="filter-header">
                     <h3>Filter Produk</h3>
-                    <button id="clearAllFilters" class="clear-btn">Clear Filter</button>
+                    <button id="clearAllFilters" class="clear-btn">
+                        <i data-lucide="refresh-ccw"></i>
+                        Clear Filter</button>
                 </div>
-
 
                 <!-- Sorting -->
                 <div class="filter-group">
@@ -19,39 +18,24 @@
                         <i data-lucide="chevron-up" class="arrow"></i>
                     </div>
                     <div class="filter-content">
-                        <label>
-                            <input type="radio" name="sort" value="default" checked>
-                            Paling Sesuai
-                        </label><br>
-                        <label>
-                            <input type="radio" name="sort" value="price-asc">
-                            Harga Termurah
-                        </label><br>
-                        <label>
-                            <input type="radio" name="sort" value="price-desc">
-                            Harga Termahal
-                        </label><br>
-                        <label>
-                            <input type="radio" name="sort" value="newest">
-                            Terbaru
-                        </label>
+                        <label><input type="radio" name="sort" value="default" checked> Paling Sesuai</label><br>
+                        <label><input type="radio" name="sort" value="price-asc"> Harga Termurah</label><br>
+                        <label><input type="radio" name="sort" value="price-desc"> Harga Termahal</label><br>
+                        <label><input type="radio" name="sort" value="newest"> Terbaru</label>
                     </div>
                 </div>
 
-                <!-- Kategori -->
+                <!-- Level -->
                 <div class="filter-group">
                     <div class="filter-header" onclick="toggleFilter(this)">
                         <h4>Kategori</h4>
                         <i data-lucide="chevron-up" class="arrow"></i>
                     </div>
                     <div class="filter-content">
-                        <label><input type="checkbox" data-type="category" value="flagship"> Flagship</label><br>
-                        <label><input type="checkbox" data-type="category" value="high range"> High
-                            Range</label><br>
-                        <label><input type="checkbox" data-type="category" value="mid range"> Mid
-                            Range</label><br>
-                        <label><input type="checkbox" data-type="category" value="entry level"> Entry
-                            Level</label>
+                        <label><input type="checkbox" data-type="level" value="flagship"> Flagship</label><br>
+                        <label><input type="checkbox" data-type="level" value="high range"> High Range</label><br>
+                        <label><input type="checkbox" data-type="level" value="mid range"> Mid Range</label><br>
+                        <label><input type="checkbox" data-type="level" value="entry level"> Entry Level</label>
                     </div>
                 </div>
 
@@ -75,7 +59,7 @@
                     </div>
                 </div>
 
-                <!-- Stok (opsional) -->
+                <!-- Stok -->
                 <div class="filter-group">
                     <div class="filter-header" onclick="toggleFilter(this)">
                         <h4>Ketersediaan</h4>
@@ -88,156 +72,86 @@
                 </div>
             </aside>
 
+            <!-- Filter Toogle for Mobile -->
+            <div class="filter-toggle">
+                <button id="filterBtn">
+                    <i class="fas fa-sliders-h"></i> Filter
+                </button>
+            </div>
+
             <!-- Product Grid -->
             <div class="product-grid">
-                <!-- Card Produk -->
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15 Pro Max" loading="lazy">
-                    <div class="brand-logo">
-                        <img src="img/brand/apple.png" alt="Apple">
+                @foreach ($products as $product)
+                    <div class="product-card" data-name="{{ $product->name }}" data-brand="{{ $product->brand }}"
+                        data-category="{{ $product->category }}" data-level="{{ $product->level }}"
+                        data-image="{{ asset($product->image) }}" data-price="{{ $product->price }}"
+                        data-price-label="Rp {{ number_format($product->price, 0, ',', '.') }}"
+                        data-stock="{{ $product->stock }}">
+
+                        <!-- Product Image -->
+                        <img class="product-image" src="{{ asset($product->image) }}" alt="{{ e($product->name) }}"
+                            loading="lazy">
+
+                        <!-- Brand Logo -->
+                        <div class="brand-logo">
+                            <img src="{{ asset('img/brand/' . strtolower($product->brand) . '.png') }}"
+                                alt="{{ e($product->brand) }}">
+                        </div>
+
+                        <!-- Product Info -->
+                        <h3>{{ $product->name }}</h3>
+                        <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+
+                        <!-- Hidden Specs (untuk modal saja, tidak tampil di card) -->
+                        <span class="hidden product-specs">{{ $product->specs }}</span>
+
+                        <!-- Button -->
+                        <button class="btn-detail">View Details</button>
                     </div>
-                    <h3>iPhone 15 Pro Max</h3>
-                    <p class="price">Rp 20.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+                @endforeach
+            </div>
 
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="habis" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone16plus.png" alt="iPhone 15" loading="lazy">
-                    <div class="brand-logo">
-                        <img src="img/brand/apple.png" alt="Apple">
-                    </div>
-                    <h3>iPhone 16 Plus</h3>
-                    <p class="price">Rp 15.999.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone16pro.png" alt="iPhone 15" loading="lazy">
-                    <div class="brand-logo">
-                        <img src="img/brand/apple.png" alt="Apple">
-                    </div>
-                    <h3>iPhone 16 Pro Max</h3>
-                    <p class="price">Rp 21.999.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="samsung" data-date="2025-08-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/samsung25.png" alt="Samsung Galaxy S26 Ultra"
-                        loading="lazy">
-                    <div class="brand-logo">
-                        <img src="img/brand/samsung.png" alt="Apple">
-                    </div>
-                    <h3>Samsung Galaxy S26 Ultra</h3>
-                    <p class="price">Rp 20.999.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="mid range" data-brand="samsung" data-date="2025-01-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/samsung55.png" alt="Samsung Galaxy A55"
-                        loading="lazy">
-                    <div class="brand-logo">
-                        <img src="img/brand/samsung.png" alt="Apple">
-                    </div>
-                    <h3>Samsung Galaxy A55</h3>
-                    <p class="price">Rp 5.899.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="mid range" data-brand="samsung" data-date="2025-06-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/samsung56.png" alt="Samsung Galaxy A56"
-                        loading="lazy">
-                    <div class="brand-logo">
-                        <img src="img/brand/samsung.png" alt="Apple">
-                    </div>
-                    <h3>Samsung Galaxy A56</h3>
-                    <p class="price">Rp 6.999.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="high range" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
-
-                <div class="product-card" data-category="flagship" data-brand="apple" data-date="2025-02-01"
-                    data-stock="tersedia" data-specs="Layar: 6.1 inci OLED<br>Kamera: 48MP<br>Baterai: 4000mAh">
-                    <img class="product-image" src="img/category/iphone15pm.png" alt="iPhone 15" loading="lazy">
-                    <h3>iPhone 15</h3>
-                    <p class="price">Rp 15.000.000</p>
-                    <button class="btn-detail">View Details</button>
-                </div>
+            <!-- Pagination -->
+            <div class="custom-pagination">
+                {{ $products->links() }}
             </div>
         </div>
-
-        <!-- Pagination -->
-        <div class="pagination">
-            <button class="prev-page">‹</button>
-            <div class="page-numbers"></div>
-            <button class="next-page">›</button>
-        </div>
 </section>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Render lucide icons
+        lucide.createIcons();
+
+        // Target tombol clear
+        const clearBtn = document.getElementById("clearAllFilters");
+
+        if (clearBtn) {
+            clearBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+
+                // Reset semua filter input
+                document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+                document.querySelectorAll('input[type="radio"][name="sort"]').forEach(r => {
+                    if (r.value === "default") r.checked = true;
+                });
+                const minPrice = document.getElementById("minPrice");
+                const maxPrice = document.getElementById("maxPrice");
+                if (minPrice) minPrice.value = "";
+                if (maxPrice) maxPrice.value = "";
+
+                // Animasi ikon refresh
+                const icon = clearBtn.querySelector("svg");
+                if (icon) {
+                    icon.classList.add("spin");
+                    setTimeout(() => icon.classList.remove("spin"), 500);
+                }
+
+                if (typeof applyFilters === "function") {
+                    applyFilters();
+                }
+            });
+        }
+    });
+</script>

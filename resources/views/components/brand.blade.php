@@ -4,7 +4,7 @@
         <h2 class="section-title fade-in">Brand Partner</h2>
         <div class="brand-logos fade-in">
             <img src="img/brand/asus.png" alt="ASUS" loading="lazy" />
-            <img src="img/brand/hp.png" alt="HP" loading="lazy" />
+            <img src="img/brand/hp2.png" alt="HP" loading="lazy" />
             <img src="img/brand/lenovo.png" alt="Lenovo" loading="lazy" />
             <img src="img/brand/dell.png" alt="Dell" loading="lazy" />
             <img src="img/brand/acer.png" alt="Acer" loading="lazy" />
