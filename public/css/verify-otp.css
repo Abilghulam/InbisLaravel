@@ -1,0 +1,149 @@
+/* Reset & Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    color: #333;
+}
+
+/* Container */
+.container {
+    max-width: 420px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+/* Card */
+.card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 35px 30px;
+    text-align: center;
+    animation: fadeInUp 0.6s ease;
+}
+
+/* Title */
+.title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111827;
+}
+.title span {
+    color: #dc2626;
+}
+
+/* Alert */
+.alert {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+}
+.alert-success {
+    background: #e6f9ec;
+    border-left: 4px solid #16a34a;
+    color: #166534;
+}
+.alert-error {
+    background: #fdecea;
+    border-left: 4px solid #dc2626;
+    color: #b91c1c;
+}
+
+/* Form */
+.form-group {
+    margin-bottom: 18px;
+    text-align: left;
+}
+label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    display: block;
+    color: #111827;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+input[type="text"]:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 8px rgba(220,38,38,0.3);
+    outline: none;
+}
+.input-error {
+    border-color: #dc2626;
+}
+.error-text {
+    color: #dc2626;
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* Timer */
+.timer {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 12px 0;
+    color: #555;
+}
+.timer span {
+    color: #dc2626;
+    font-weight: bold;
+}
+
+/* Button utama */
+.btn-primary {
+    width: 100%;
+    background: linear-gradient(45deg, #dc2626, #ef4444);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(220,38,38,0.4);
+}
+.btn-primary:active {
+    transform: scale(0.97);
+}
+
+/* Link button */
+.btn-link {
+    background: none;
+    border: none;
+    color: #dc2626;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.btn-link:hover {
+    color: #b91c1c;
+}
+
+.resend-form {
+    margin-top: 12px;
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to   { opacity: 1; transform: translateY(0); }
+}

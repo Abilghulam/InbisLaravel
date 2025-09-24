@@ -1,0 +1,162 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+/* Box login */
+.login-box {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.8s ease-in-out;
+    border-top: 5px solid #dc2626;
+    text-align: center;
+}
+
+/* Logo */
+.logo img {
+    max-width: 90px;
+    margin-bottom: 1rem;
+}
+
+/* Judul dan subtitle */
+.login-box h2 {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.login-box .subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+/* Pesan error */
+.error {
+    background: #ffe3e3;
+    padding: 12px 15px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    color: #d40000;
+    font-size: 0.9rem;
+    font-family: "Nunito Sans", sans-serif;
+    text-align: left;
+}
+
+/* Input */
+.login-box input {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.login-box input:focus {
+    border-color: #dc2626;
+    box-shadow: 0 0 6px rgba(220, 38, 38, 0.3);
+}
+
+/* Tombol */
+.login-box button {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(45deg, #dc2626, #ef4444);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Poppins", sans-serif;
+}
+
+.login-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(220, 38, 38, 0.4);
+}
+
+/* Extra links */
+.extra-links {
+    margin-top: 1rem;
+}
+
+.extra-links a {
+    color: #dc2626;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsif Tablet */
+@media (max-width: 768px) {
+    .login-box {
+        padding: 1.5rem;
+        max-width: 320px;
+    }
+
+    .login-box h2 {
+        font-size: 1.3rem;
+    }
+
+    .login-box input,
+    .login-box button {
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsif Mobile */
+@media (max-width: 480px) {
+    .login-box {
+        padding: 1.2rem;
+        max-width: 100%;
+    }
+
+    .login-box h2 {
+        font-size: 1.2rem;
+    }
+}
