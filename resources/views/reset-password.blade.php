@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Reset Password - PT. Indo Bismar</title>
+    <title>Reset Password - Indo Bismar Group</title>
     <link rel="stylesheet" href="{{ asset('css/password.css') }}">
 
     <!-- Font -->

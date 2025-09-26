@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Reset Password - Indo Bismar Group</title>
+    <title>Kode OTP - Indo Bismar Group</title>
 </head>
 
 <body style="font-family: 'Segoe UI', Arial, sans-serif; line-height:1.6; background-color:#f4f4f4; padding:20px;">
@@ -27,33 +27,26 @@
         <!-- Body -->
         <tr>
             <td style="padding:35px;">
-                <h3 style="font-size:20px;color:#111;margin:0 0 18px;">🔒 Permintaan Reset Password</h3>
+                <h3 style="font-size:20px;color:#111;margin:0 0 18px;">🔑 Kode OTP Login</h3>
 
                 <p style="font-size:15px; color:#444; margin:0 0 18px;">
-                    Halo, {{ $user->name }}
+                    Halo, {{ $name }}
                 </p>
 
                 <p style="font-size:15px; color:#444; margin:0 0 18px;">
-                    Kami menerima permintaan untuk <strong style="color:#ac0000;">reset password akun Anda</strong>.
-                    Demi keamanan, link ini hanya berlaku dalam <strong>60 menit</strong>.
+                    Berikut adalah <strong style="color:#ac0000;">kode OTP untuk login ke dashboard admin</strong>.
+                    Demi keamanan, kode ini hanya berlaku selama <strong>5 menit</strong>.
                 </p>
 
                 <p style="text-align:center; margin:35px 0;">
-                    <a href="{{ $url }}"
-                        style="background:#ac0000;color:#fff;padding:14px 34px;text-decoration:none;border-radius:32px;display:inline-block;font-weight:bold;font-size:15px;box-shadow:0 4px 10px rgba(220,38,38,0.35);">
-                        Reset Password Sekarang
-                    </a>
-                </p>
-
-                <p style="font-size:14px; color:#555; margin:0 0 12px;">Jika tombol di atas tidak berfungsi, salin dan
-                    tempel link berikut ke browser Anda:</p>
-                <p style="word-break: break-word; font-size:13px; color:#0066cc; margin:0 0 28px;">
-                    <a href="{{ $url }}" style="color:#0066cc;text-decoration:none;">{{ $url }}</a>
+                    <span
+                        style="display:inline-block;font-size:28px;font-weight:bold;color:#111;background:#f3f4f6;padding:16px 30px;border-radius:10px;letter-spacing:6px;box-shadow:0 4px 10px rgba(0,0,0,0.08);">
+                        {{ $otp }}
+                    </span>
                 </p>
 
                 <p style="font-size:14px; color:#555; margin:0 0 20px;">
-                    Jika Anda tidak meminta reset password, harap abaikan email ini.
-                    Tim kami memastikan akun Anda tetap <strong style="color:#111;">aman</strong>.
+                    Jangan pernah bagikan kode ini kepada siapa pun. Tim kami tidak akan pernah meminta kode OTP Anda.
                 </p>
 
                 <p style="font-size:15px; color:#111; margin:0;">

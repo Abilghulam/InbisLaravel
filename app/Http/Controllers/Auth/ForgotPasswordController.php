@@ -41,11 +41,14 @@ class ForgotPasswordController extends Controller
         $resetLink = url('/reset-password/' . $token);
 
         // Kirim email dengan template
-        Mail::send('emails.reset-password', ['url' => $resetLink], function ($message) use ($request) {
-            $message->to($request->email)->subject('Reset Password - PT. Indo Bismar');
+        Mail::send('emails.reset-password', [
+            'url'  => $resetLink,
+            'user' => $user   
+        ], function ($message) use ($request) {
+            $message->to($request->email)->subject('Reset Password - Indo Bismar Group');
         });
 
-        return back()->with('success', 'Link reset password sudah dikirim ke email Anda.');
+        return back()->with('success', 'Berhasil verifikasi, silahkan cek Email Anda.');
     }
 
     // Tampilkan form reset password

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authentication - PT. Indo Bismar Group</title>
+    <title>Authentication - Indo Bismar Group</title>
 
     <link rel="stylesheet" href="{{ asset('css/verify-otp.css') }}">
 
