@@ -30,5 +30,14 @@ class AdminSeeder extends Seeder
                 'role' => 'admin',
             ]
         );
+
+        User::updateOrCreate(
+            ['email' => 'achmadkhoirun1927@gmail.com'], 
+            [
+                'name' => 'Niam Al Junaid',
+                'password' => Hash::make('niam123'),
+                'role' => 'admin',
+            ]
+        );
     }
 }

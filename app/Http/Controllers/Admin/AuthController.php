@@ -53,7 +53,7 @@ class AuthController extends Controller
         return view('verify-otp');
     }
 
-    public function verifyOtp(Request $request)
+    /*public function verifyOtp(Request $request)
     {
         $request->validate(['otp' => 'required|digits:6']);
 
@@ -73,7 +73,7 @@ class AuthController extends Controller
         }
 
         return back()->withErrors(['otp' => 'Kode OTP salah atau sudah kedaluwarsa.']);
-    }
+    }*/
 
     public function logout(Request $request)
     {

@@ -49,9 +49,8 @@
             <button type="submit">Login</button>
         </form>
 
-        {{-- Forgot Password --}}
         <div class="extra-links">
-            <a href="#">Lupa Password?</a>
+            <a href="{{ route('password.request') }}">Lupa Password?</a>
         </div>
 
         {{-- Footer --}}

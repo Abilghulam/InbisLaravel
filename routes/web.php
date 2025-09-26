@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Auth\OtpController;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 // 🏠 Halaman Utama
 Route::get('/', function () {
@@ -50,3 +52,22 @@ Route::middleware(['auth', 'admin', 'otp.verified'])->group(function () {
         return view('dashboard', ['title' => 'Admin Dashboard']);
     })->name('admin.dashboard');
 });
+
+// Test Email Route
+Route::get('/tes-email', function () {
+    try {
+        Mail::raw('Tes kirim email via Gmail SMTP di Laravel Indo Bismar', function ($message) {
+            $message->to('abilghlm@gmail.com')
+                    ->subject('Tes Email Indo Bismar');
+        });
+        return "Email berhasil dikirim!";
+    } catch (\Exception $e) {
+        return "Gagal kirim email. Error: " . $e->getMessage();
+    }
+});
+
+Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
+Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
+
+Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
+Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');

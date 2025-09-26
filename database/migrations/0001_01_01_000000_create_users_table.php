@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');                      
             $table->string('email')->unique();           
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');                 
             $table->string('role')->default('admin');   
             $table->rememberToken();
             $table->timestamps();
+
+            // Kolom OTP
+            $table->string('two_factor_code')->nullable();
+            $table->dateTime('two_factor_expires_at')->nullable();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -35,15 +38,6 @@ return new class extends Migration
             $table->text('user_agent')->nullable();
             $table->longText('payload');
             $table->integer('last_activity')->index();
-        });
-
-        Schema::table('users', function (Blueprint $table) {
-            if (!Schema::hasColumn('users', 'two_factor_code')) {
-                $table->string('two_factor_code')->nullable();
-            }
-            if (!Schema::hasColumn('users', 'two_factor_expires_at')) {
-                $table->dateTime('two_factor_expires_at')->nullable();
-            }
         });
     }
 

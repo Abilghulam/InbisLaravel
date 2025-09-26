@@ -20,7 +20,7 @@ class EnsureOtpVerified
 
         // Kalau user login tapi belum verifikasi OTP
         if ($user && $user->two_factor_code !== null) {
-            return redirect()->route('admin.otp.form')
+            return redirect()->route('otp.form')
                 ->withErrors(['otp' => 'Silakan verifikasi OTP terlebih dahulu.']);
         }
 
