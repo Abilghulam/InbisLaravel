@@ -1,6 +1,6 @@
 <div class="section-header">
     <h3>{{ $title }}</h3>
-    <a href="{{ route('catalog.create') }}" class="btn btn-primary">+ Tambah Produk</a>
+    <a href="{{ route('admin.catalog.create') }}" class="btn btn-primary">+ Tambah Produk</a>
 </div>
 
 <table>
@@ -52,10 +52,10 @@
                 </td>
                 <td>
                     <div class="action-buttons">
-                        <a href="{{ route('catalog.edit', $product->id) }}" class="btn btn-warning btn-sm">
+                        <a href="{{ route('admin.catalog.edit', $product->id) }}" class="btn btn-warning btn-sm">
                             Edit
                         </a>
-                        <form action="{{ route('catalog.destroy', $product->id) }}" method="POST">
+                        <form action="{{ route('admin.catalog.destroy', $product->id) }}" method="POST">
                             @csrf @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"
                                 onclick="return confirm('Yakin ingin menghapus produk ini?')">

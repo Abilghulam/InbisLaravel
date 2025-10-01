@@ -29,8 +29,8 @@
         </div>
 
         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-        <a href="{{ route('home.index') }}">Kelola Home</a>
-        <a href="{{ route('catalog.index') }}">Kelola Catalog</a>
+        <a href="{{ route('admin.home.index') }}">Kelola Home</a>
+        <a href="{{ route('admin.catalog.index') }}">Kelola Catalog</a>
         <form action="{{ route('logout') }}" method="POST" style="margin-top:10px;">
             @csrf
             <button type="submit">

@@ -2,9 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class BrandPartner extends Model
 {
-    //
+    use HasFactory;
+
+    protected $table = 'brand_partners';
+
+
+    protected $fillable = [
+        'name',
+        'logo',
+        
+    ];
 }

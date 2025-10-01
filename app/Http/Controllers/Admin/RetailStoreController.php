@@ -1,65 +1,79 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\RetailStore;
 use Illuminate\Http\Request;
 
 class RetailStoreController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $retail_stores = RetailStore::all();
+        return view('admin.home.store.index', compact('retail_stores'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.home.store.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'        => 'required|string|max:255',
+            'description' => 'required|string',
+            'address'     => 'required|string',
+            'social_media'=> 'nullable|string',
+            'iframe'      => 'nullable|string',
+            'image'       => 'nullable|image|max:2048',
+        ]);
+
+        $data = $request->only(['name','description','address','social_media','iframe']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('stores', 'public');
+        }
+
+        RetailStore::create($data);
+
+        return redirect()->route('admin.home.store.index')->with('success', 'Store berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(RetailStore $retailStore)
+    public function edit($id)
     {
-        //
+        $store = RetailStore::findOrFail($id);
+        return view('admin.home.store.edit', compact('store'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(RetailStore $retailStore)
+    public function update(Request $request, $id)
     {
-        //
+        $store = RetailStore::findOrFail($id);
+
+        $request->validate([
+            'name'        => 'required|string|max:255',
+            'description' => 'required|string',
+            'address'     => 'required|string',
+            'social_media'=> 'nullable|string',
+            'iframe'      => 'nullable|string',
+            'image'       => 'nullable|image|max:2048',
+        ]);
+
+        $data = $request->only(['name','description','address','social_media','iframe']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('stores', 'public');
+        }
+
+        $store->update($data);
+
+        return redirect()->route('admin.home.store.index')->with('success', 'Store berhasil diperbarui.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, RetailStore $retailStore)
+    public function destroy($id)
     {
-        //
-    }
+        $store = RetailStore::findOrFail($id);
+        $store->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(RetailStore $retailStore)
-    {
-        //
+        return redirect()->route('admin.home.store.index')->with('success', 'Store berhasil dihapus.');
     }
 }

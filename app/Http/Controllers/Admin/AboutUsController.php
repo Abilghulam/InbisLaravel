@@ -10,7 +10,7 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        $about = AboutUs::first(); // cuma satu data
+        $about_us = AboutUs::all();
         return view('admin.home.about.index', compact('about'));
     }
 
@@ -22,16 +22,16 @@ class AboutUsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'description'      => 'required|string',
-            'rating'           => 'required|numeric|min:0|max:5',
-            'years_experience' => 'required|integer|min:0',
-            'brand_partners'   => 'required|integer|min:0',
-            'retail_stores'    => 'required|integer|min:0',
+            'description'     => 'required|string',
+            'rating'          => 'required|numeric|min:0|max:5',
+            'experience_years'=> 'required|integer|min:0',
+            'brand_partners'  => 'required|integer|min:0',
+            'retail_stores'   => 'required|integer|min:0',
         ]);
 
         AboutUs::create($request->all());
 
-        return redirect()->route('about-us.index')->with('success', 'About Us berhasil ditambahkan');
+        return redirect()->route('admin.home.about.index')->with('success', 'About berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -42,18 +42,19 @@ class AboutUsController extends Controller
 
     public function update(Request $request, $id)
     {
+        $about = AboutUs::findOrFail($id);
+
         $request->validate([
-            'description'      => 'required|string',
-            'rating'           => 'required|numeric|min:0|max:5',
-            'years_experience' => 'required|integer|min:0',
-            'brand_partners'   => 'required|integer|min:0',
-            'retail_stores'    => 'required|integer|min:0',
+            'description'     => 'required|string',
+            'rating'          => 'required|numeric|min:0|max:5',
+            'experience_years'=> 'required|integer|min:0',
+            'brand_partners'  => 'required|integer|min:0',
+            'retail_stores'   => 'required|integer|min:0',
         ]);
 
-        $about = AboutUs::findOrFail($id);
         $about->update($request->all());
 
-        return redirect()->route('about-us.index')->with('success', 'About Us berhasil diperbarui');
+        return redirect()->route('admin.home.about.index')->with('success', 'About berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -61,6 +62,6 @@ class AboutUsController extends Controller
         $about = AboutUs::findOrFail($id);
         $about->delete();
 
-        return redirect()->route('about-us.index')->with('success', 'About Us berhasil dihapus');
+        return redirect()->route('admin.home.about.index')->with('success', 'About berhasil dihapus.');
     }
 }

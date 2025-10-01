@@ -1,65 +1,65 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\CustomerReview;
 use Illuminate\Http\Request;
 
 class CustomerReviewController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $customer_reviews = CustomerReview::all();
+        return view('admin.home.review.index', compact('customer_reviews'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.home.review.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'    => 'required|string|max:255',
+            'rating'  => 'required|integer|min:1|max:5',
+            'date'    => 'required|date',
+            'content' => 'required|string',
+        ]);
+
+        CustomerReview::create($request->all());
+
+        return redirect()->route('admin.home.review.index')->with('success', 'Review berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(CustomerReview $customerReview)
+    public function edit($id)
     {
-        //
+        $review = CustomerReview::findOrFail($id);
+        return view('admin.home.review.edit', compact('review'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(CustomerReview $customerReview)
+    public function update(Request $request, $id)
     {
-        //
+        $review = CustomerReview::findOrFail($id);
+
+        $request->validate([
+            'name'    => 'required|string|max:255',
+            'rating'  => 'required|integer|min:1|max:5',
+            'date'    => 'required|date',
+            'content' => 'required|string',
+        ]);
+
+        $review->update($request->all());
+
+        return redirect()->route('admin.home.review.index')->with('success', 'Review berhasil diperbarui.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, CustomerReview $customerReview)
+    public function destroy($id)
     {
-        //
-    }
+        $review = CustomerReview::findOrFail($id);
+        $review->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(CustomerReview $customerReview)
-    {
-        //
+        return redirect()->route('admin.home.review.index')->with('success', 'Review berhasil dihapus.');
     }
 }

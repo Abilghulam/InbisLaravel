@@ -1,65 +1,71 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $galleries = Gallery::all();
+        return view('admin.home.gallery.index', compact('galleries'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.home.gallery.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'image' => 'required|image|max:2048',
+        ]);
+
+        $data = $request->only(['title']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('gallery', 'public');
+        }
+
+        Gallery::create($data);
+
+        return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Gallery $gallery)
+    public function edit($id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+        return view('admin.home.gallery.edit', compact('gallery'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Gallery $gallery)
+    public function update(Request $request, $id)
     {
-        //
+        $gallery = Gallery::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'image' => 'nullable|image|max:2048',
+        ]);
+
+        $data = $request->only(['title']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('gallery', 'public');
+        }
+
+        $gallery->update($data);
+
+        return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil diperbarui.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Gallery $gallery)
+    public function destroy($id)
     {
-        //
-    }
+        $gallery = Gallery::findOrFail($id);
+        $gallery->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Gallery $gallery)
-    {
-        //
+        return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil dihapus.');
     }
 }

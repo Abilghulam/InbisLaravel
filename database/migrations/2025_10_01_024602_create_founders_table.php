@@ -13,9 +13,13 @@ return new class extends Migration
     {
         Schema::create('founders', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->string('image')->nullable(); 
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

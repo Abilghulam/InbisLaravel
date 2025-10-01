@@ -1,65 +1,73 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Founder;
 use Illuminate\Http\Request;
 
 class FounderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $founders = Founder::all();
+        return view('admin.home.founder.index', compact('founders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('admin.home.founder.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'        => 'required|string|max:255',
+            'description' => 'required|string',
+            'image'       => 'nullable|image|max:2048',
+        ]);
+
+        $data = $request->only(['name','description']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('founder', 'public');
+        }
+
+        Founder::create($data);
+
+        return redirect()->route('admin.home.founder.index')->with('success', 'Founder berhasil ditambahkan.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Founder $founder)
+    public function edit($id)
     {
-        //
+        $founder = Founder::findOrFail($id);
+        return view('admin.home.founder.edit', compact('founder'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Founder $founder)
+    public function update(Request $request, $id)
     {
-        //
+        $founder = Founder::findOrFail($id);
+
+        $request->validate([
+            'name'        => 'required|string|max:255',
+            'description' => 'required|string',
+            'image'       => 'nullable|image|max:2048',
+        ]);
+
+        $data = $request->only(['name','description']);
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('founder', 'public');
+        }
+
+        $founder->update($data);
+
+        return redirect()->route('admin.home.founder.index')->with('success', 'Founder berhasil diperbarui.');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Founder $founder)
+    public function destroy($id)
     {
-        //
-    }
+        $founder = Founder::findOrFail($id);
+        $founder->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Founder $founder)
-    {
-        //
+        return redirect()->route('admin.home.founder.index')->with('success', 'Founder berhasil dihapus.');
     }
 }

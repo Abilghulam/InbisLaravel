@@ -6,9 +6,11 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Auth\OtpController;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Auth\ForgotPasswordController;
-use App\Http\Controllers\Admin\AdminController; 
+use App\Http\Controllers\Admin\AdminController;
 
-// 🏠 Halaman Utama
+// ===============================
+// 🏠 Halaman Utama (User)
+// ===============================
 Route::get('/', function () {
     return view('home', ['title' => 'Home - Indo Bismar Group']);
 })->name('home');
@@ -18,26 +20,26 @@ Route::get('/catalog/{type}', [CatalogController::class, 'show'])
     ->where('type', 'hp|laptop|pc|accessories')
     ->name('catalog.show');
 
-// 🔎 Fitur Search
+// 🔎 Search
 Route::get('/search/{type}', [CatalogController::class, 'search'])
     ->where('type', 'hp|laptop|pc|accessories')
     ->name('catalog.search');
 
-// 🔀 Redirect Routes Lama (SEO friendly)
+// 🔀 Redirect lama (SEO)
 Route::redirect('/catalog-hp', '/catalog/hp');
 Route::redirect('/catalog-laptop', '/catalog/laptop');
 Route::redirect('/catalog-pc', '/catalog/pc');
 Route::redirect('/catalog-accessories', '/catalog/accessories');
 
+// ===============================
 // 🔐 Admin Authentication
+// ===============================
 Route::get('/login-page', [AuthController::class, 'showLoginForm'])->name('login.page');
 
-// Proses login (dibatasi 5x percobaan per menit → cegah brute force)
 Route::post('/login', [AuthController::class, 'login'])
     ->middleware('throttle:5,1')
     ->name('login');
 
-// Logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // 🔑 OTP Verification (2FA)
@@ -47,25 +49,36 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/resend-otp', [OtpController::class, 'resend'])->name('otp.resend');
 });
 
-// 📊 Admin Dashboard (hanya admin + OTP sudah verified)
-Route::middleware(['auth', 'admin', 'otp.verified'])->group(function () {
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+// ===============================
+// 📊 Admin Dashboard & Management
+// ===============================
+Route::middleware(['auth', 'admin', 'otp.verified'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+    // Dashboard
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
     // CRUD Home Management
-    Route::prefix('home')->group(function () {
-        Route::resource('/about-us', \App\Http\Controllers\Admin\AboutUsController::class);
-        Route::resource('/founders', \App\Http\Controllers\Admin\FounderController::class);
-        Route::resource('/galleries', \App\Http\Controllers\Admin\GalleryController::class);
-        Route::resource('/brand-partners', \App\Http\Controllers\Admin\BrandPartnerController::class);
-        Route::resource('/retail-stores', \App\Http\Controllers\Admin\RetailStoreController::class);
-        Route::resource('/customer-reviews', \App\Http\Controllers\Admin\CustomerReviewController::class);
+    Route::prefix('home')->name('home.')->group(function () {
+        Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
+
+        Route::resource('about', \App\Http\Controllers\Admin\AboutUsController::class);
+        Route::resource('founder', \App\Http\Controllers\Admin\FounderController::class);
+        Route::resource('gallery', \App\Http\Controllers\Admin\GalleryController::class);
+        Route::resource('brand', \App\Http\Controllers\Admin\BrandPartnerController::class);
+        Route::resource('store', \App\Http\Controllers\Admin\RetailStoreController::class);
+        Route::resource('review', \App\Http\Controllers\Admin\CustomerReviewController::class);
     });
 
     // CRUD Catalog Management
-    Route::resource('/catalog', \App\Http\Controllers\Admin\CatalogController::class);
+    Route::resource('catalog', \App\Http\Controllers\Admin\CatalogController::class);
 });
 
-// Test Email Route
+// ===============================
+// 📧 Test Email
+// ===============================
 Route::get('/tes-email', function () {
     try {
         Mail::raw('Tes kirim email via Gmail SMTP di Laravel Indo Bismar', function ($message) {
@@ -78,6 +91,9 @@ Route::get('/tes-email', function () {
     }
 });
 
+// ===============================
+// 🔑 Forgot / Reset Password
+// ===============================
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
 

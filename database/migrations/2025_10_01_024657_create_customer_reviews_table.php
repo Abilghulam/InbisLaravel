@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('customer_reviews', function (Blueprint $table) {
             $table->id();
+            $table->string('name');             // Nama reviewer
+            $table->unsignedTinyInteger('stars'); // Jumlah bintang (1–5)
+            $table->date('review_date');        // Tanggal review
+            $table->text('description');        // Isi review
             $table->timestamps();
         });
     }

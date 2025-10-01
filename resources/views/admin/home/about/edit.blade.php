@@ -4,7 +4,7 @@
     <div class="form-container">
         <h2>Edit About Us</h2>
 
-        <form action="{{ route('about-us.update', $about->id) }}" method="POST">
+        <form action="{{ route('admin.home.about.update', $about->id) }}" method="POST">
             @csrf
             @method('PUT')
 
@@ -53,7 +53,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Perbarui</button>
-            <a href="{{ route('about-us.index') }}" class="btn btn-secondary">Batal</a>
+            <a href="{{ route('admin.home.about.index') }}" class="btn btn-secondary">Batal</a>
         </form>
     </div>
 @endsection

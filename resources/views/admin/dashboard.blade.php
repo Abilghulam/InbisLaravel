@@ -4,11 +4,11 @@
     <div class="dashboard-cards">
         <div class="card">
             <h3>Kelola Home</h3>
-            <p>Edit banner & promo di halaman utama.</p> <a href="{{ route('home.index') }}">Masuk</a>
+            <p>Edit banner & promo di halaman utama.</p> <a href="{{ route('admin.home.index') }}">Masuk</a>
         </div>
         <div class="card">
             <h3>Kelola Catalog</h3>
-            <p>Tambah, ubah, atau hapus produk katalog.</p> <a href="{{ route('catalog.index') }}">Masuk</a>
+            <p>Tambah, ubah, atau hapus produk katalog.</p> <a href="{{ route('admin.catalog.index') }}">Masuk</a>
         </div>
     </div>
 @endsection
