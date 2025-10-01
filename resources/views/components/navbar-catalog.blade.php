@@ -4,7 +4,7 @@
     <div class="nav-container">
         <!-- Logo -->
         <a href="/" class="logo">
-            <img src="{{ asset('img/logo.webp') }}" alt="Logo"
+            <img src="{{ asset('img/logo.png') }}" alt="Logo"
                 style="height: 45px; margin-right: 20px; vertical-align: bottom" />
             Bismar<span>Catalog</span>
         </a>

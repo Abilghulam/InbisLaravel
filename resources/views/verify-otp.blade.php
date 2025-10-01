@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/verify-otp.css') }}">
 
-    <!-- Font -->
+    <!-- Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet" />
@@ -28,7 +28,15 @@
                 {{ $title ?? 'Verifikasi OTP' }}
             </h2>
 
-            {{-- Alert sukses / error --}}
+            <div class="icon">
+                <img src="{{ asset('img/lock.webp') }}" alt="OTP Lock" style="width:60px; margin-bottom:15px;">
+            </div>
+
+            <div class="timer">
+                Kode OTP berlaku selama <span id="countdown">01:00</span>
+            </div>
+
+            {{-- Alerts --}}
             @if (session('success'))
                 <div class="alert alert-success">
                     {{ session('success') }}
@@ -41,13 +49,15 @@
                 </div>
             @endif
 
-            <div class="icon">
-                <img src="{{ asset('img/lock.webp') }}" alt="OTP Lock" style="width:60px; margin-bottom:15px;">
-            </div>
-
-            <div class="timer">
-                Kode OTP berlaku selama <span id="countdown">01:00</span>
-            </div>
+            @if ($errors->any())
+                <div class="alert alert-error">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             {{-- Form Verifikasi OTP --}}
             <form method="POST" action="{{ route('otp.verify') }}" class="form">
@@ -78,7 +88,8 @@
     </div>
 
     <script>
-        let duration = 1 * 60; // 5 menit
+        // Countdown Timer
+        let duration = 1 * 60; // 1 menit
         const display = document.getElementById("countdown");
 
         const timer = setInterval(() => {
@@ -93,8 +104,19 @@
                 display.textContent = "Waktu habis!";
             }
         }, 1000);
-    </script>
 
+        // Auto-hide alerts
+        document.addEventListener("DOMContentLoaded", () => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                setTimeout(() => {
+                    alert.style.transition = "opacity 0.5s ease";
+                    alert.style.opacity = "0";
+                    setTimeout(() => alert.remove(), 500);
+                }, 3000);
+            });
+        });
+    </script>
 
 </body>
 

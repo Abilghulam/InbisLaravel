@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Auth\OtpController;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Admin\AdminController; 
 
 // 🏠 Halaman Utama
 Route::get('/', function () {
@@ -48,9 +49,20 @@ Route::middleware(['auth'])->group(function () {
 
 // 📊 Admin Dashboard (hanya admin + OTP sudah verified)
 Route::middleware(['auth', 'admin', 'otp.verified'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard', ['title' => 'Admin Dashboard']);
-    })->name('admin.dashboard');
+    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+
+    // CRUD Home Management
+    Route::prefix('home')->group(function () {
+        Route::resource('/about-us', \App\Http\Controllers\Admin\AboutUsController::class);
+        Route::resource('/founders', \App\Http\Controllers\Admin\FounderController::class);
+        Route::resource('/galleries', \App\Http\Controllers\Admin\GalleryController::class);
+        Route::resource('/brand-partners', \App\Http\Controllers\Admin\BrandPartnerController::class);
+        Route::resource('/retail-stores', \App\Http\Controllers\Admin\RetailStoreController::class);
+        Route::resource('/customer-reviews', \App\Http\Controllers\Admin\CustomerReviewController::class);
+    });
+
+    // CRUD Catalog Management
+    Route::resource('/catalog', \App\Http\Controllers\Admin\CatalogController::class);
 });
 
 // Test Email Route

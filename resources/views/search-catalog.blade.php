@@ -150,19 +150,19 @@
                         @endif
                     </div>
 
-                    <!-- Product Grid -->
                     <div class="product-grid">
                         @if ($results->count())
                             @foreach ($results as $product)
                                 <div class="product-card {{ $product->section === 'promo' ? 'promo-card' : '' }}"
                                     data-name="{{ $product->name }}" data-brand="{{ $product->brand }}"
                                     data-category="{{ $product->category }}" data-level="{{ $product->level }}"
-                                    data-image="{{ asset($product->image) }}" data-price="{{ $product->price }}"
+                                    data-image="{{ asset('storage/' . $product->image) }}"
+                                    data-price="{{ $product->price }}"
                                     data-price-label="Rp {{ number_format($product->price, 0, ',', '.') }}"
                                     data-old-price="{{ $product->old_price }}" data-stock="{{ $product->stock }}">
 
                                     <!-- Product Image -->
-                                    <img class="product-image" src="{{ asset($product->image) }}"
+                                    <img class="product-image" src="{{ asset('storage/' . $product->image) }}"
                                         alt="{{ e($product->name) }}" loading="lazy">
 
                                     <!-- Brand Logo -->
@@ -177,14 +177,18 @@
                                     {{-- Jika produk promo --}}
                                     @if ($product->section === 'promo')
                                         @if (!empty($product->old_price))
-                                            <p class="old-price">Rp
-                                                {{ number_format($product->old_price, 0, ',', '.') }}</p>
+                                            <p class="old-price">
+                                                Rp {{ number_format($product->old_price, 0, ',', '.') }}
+                                            </p>
                                         @endif
-                                        <p class="price highlight">Rp
-                                            {{ number_format($product->price, 0, ',', '.') }}</p>
+                                        <p class="price highlight">
+                                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                                        </p>
                                         <span class="discount-badge">{{ $product->discount }}%</span>
                                     @else
-                                        <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
+                                        <p class="price">
+                                            Rp {{ number_format($product->price, 0, ',', '.') }}
+                                        </p>
                                     @endif
 
                                     <!-- Hidden Specs -->

@@ -26,7 +26,7 @@
     <div class="login-box">
         {{-- Logo --}}
         <div class="logo">
-            <img src="{{ asset('img/logo.webp') }}" alt="Logo Indo Bismar Group" loading="lazy">
+            <img src="{{ asset('img/logo.png') }}" alt="Logo Indo Bismar Group" loading="lazy">
         </div>
 
         <h2>Login Admin</h2>

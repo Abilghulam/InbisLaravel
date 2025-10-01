@@ -7,16 +7,14 @@
             <div class="promo-scroll">
                 @foreach ($promos as $promo)
                     @php
-                        // aman ambil field baik dari object ataupun array
-                        $priceRaw = isset($promo->price) ? $promo->price : $promo['price'] ?? 0;
-                        $oldPriceRaw = isset($promo->old_price) ? $promo->old_price : $promo['old_price'] ?? null;
-                        $discountRaw = isset($promo->discount) ? $promo->discount : $promo['discount'] ?? 0;
+                        $priceRaw = $promo->price ?? ($promo['price'] ?? 0);
+                        $oldPriceRaw = $promo->old_price ?? ($promo['old_price'] ?? null);
+                        $discountRaw = $promo->discount ?? ($promo['discount'] ?? 0);
 
                         $price = floatval($priceRaw ?: 0);
                         $oldPrice = $oldPriceRaw !== null ? floatval($oldPriceRaw) : null;
                         $discount = intval($discountRaw ?: 0);
 
-                        // finalPrice: jika 'price' sudah terisi gunakan itu; kalau tidak hitung dari oldPrice & discount
                         if ($price > 0) {
                             $finalPrice = $price;
                         } elseif ($oldPrice !== null && $discount > 0) {
@@ -27,45 +25,37 @@
                             $finalPrice = 0;
                         }
 
-                        // formatted labels
                         $finalPriceLabel = $finalPrice ? 'Rp ' . number_format($finalPrice, 0, ',', '.') : '';
                         $oldPriceLabel = $oldPrice ? 'Rp ' . number_format($oldPrice, 0, ',', '.') : '';
                     @endphp
 
                     <div class="promo-card" data-name="{{ e($promo->name) }}" data-brand="{{ e($promo->brand) }}"
                         data-category="{{ $promo->category }}" data-level="{{ $promo->level }}"
-                        data-image="{{ asset($promo->image ?? ($promo['image'] ?? '')) }}"
+                        data-image="{{ $promo->image ? asset('storage/' . $promo->image) : '' }}"
                         data-price="{{ $finalPrice }}" data-price-label="{{ $finalPriceLabel }}"
                         data-old-price="{{ $oldPrice ?? '' }}" data-stock="{{ e($promo->stock) }}"
                         data-specs="{!! $promo->specs ?? ($promo['specs'] ?? '') !!}">
 
-                        <!-- Diskon -->
                         @if ($discount > 0)
                             <div class="discount-badge">-{{ $discount }}%</div>
                         @endif
 
-                        <!-- Brand -->
                         <div class="brand-logo">
                             <img src="{{ asset('img/brand/' . strtolower($promo->brand) . '.png') }}"
                                 alt="{{ $promo->brand }}">
                         </div>
 
-                        <!-- Gambar Produk -->
-                        <img class="promo-image" src="{{ asset($promo->image ?? ($promo['image'] ?? '')) }}"
+                        <img class="promo-image" src="{{ $promo->image ? asset('storage/' . $promo->image) : '' }}"
                             alt="{{ $promo->name }}" loading="lazy">
 
-                        <!-- Nama Produk -->
                         <h3>{{ $promo->name }}</h3>
 
-                        <!-- Harga -->
                         @if ($oldPrice)
                             <p class="old-price">{{ $oldPriceLabel }}</p>
                         @endif
                         <p class="new-price">{{ $finalPriceLabel ?: '-' }}</p>
 
-                        <!-- Hidden Specs (untuk modal saja, tidak tampil di card) -->
                         <span class="hidden product-specs">{{ $promo->specs }}</span>
-
                         <button class="btn-detail">View Details</button>
                     </div>
                 @endforeach

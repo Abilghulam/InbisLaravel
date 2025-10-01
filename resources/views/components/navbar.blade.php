@@ -2,7 +2,8 @@
 <nav class="navbar" id="navbar">
     <div class="nav-container">
         <a href="#" class="logo">
-            <img src="img/logo.webp" alt="Logo" style="height: 45px; margin-right: 20px; vertical-align: bottom" />
+            <img src="{{ asset('img/logo.png') }}" alt="Logo"
+                style="height: 45px; margin-right: 20px; vertical-align: bottom" />
             Indo<span>Bismar</span></a>
         <ul class="nav-menu" id="nav-menu">
             <li><a href="#home" class="nav-link">Home</a></li>

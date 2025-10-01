@@ -33,12 +33,16 @@ class AuthController extends Controller
                 $user->save();
 
                 // Kirim OTP via email
-                Mail::raw("Kode OTP Login Anda adalah: {$user->two_factor_code}", function ($message) use ($user) {
+                Mail::send('emails.otp', [
+                    'otp'  => $user->two_factor_code,
+                    'name' => $user->name,
+                ], function ($message) use ($user) {
                     $message->to($user->email)
-                            ->subject('Kode OTP Login Admin');
+                            ->subject('Kode OTP Login PT. Indo Bismar');
                 });
 
-                return redirect()->route('otp.form');
+                return redirect()->route('otp.form')
+                 ->with('success', 'Kode OTP telah dikirim ke email Anda.');
             }
 
             Auth::logout();
