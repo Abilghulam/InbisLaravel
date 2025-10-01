@@ -11,7 +11,7 @@ class AboutUsController extends Controller
     public function index()
     {
         $about_us = AboutUs::all();
-        return view('admin.home.about.index', compact('about'));
+        return view('admin.home.about.index', compact('about_us'));
     }
 
     public function create()
