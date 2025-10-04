@@ -15,7 +15,7 @@ class CustomerReview extends Model
     protected $fillable = [
         'name',
         'stars',
-        'date',
-        'review',
+        'review_date',
+        'description',
     ];
 }

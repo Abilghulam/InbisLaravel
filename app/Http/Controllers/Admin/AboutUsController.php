@@ -10,7 +10,7 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        $about_us = AboutUs::all();
+        $about_us = AboutUs::first();
         return view('admin.home.about.index', compact('about_us'));
     }
 
@@ -24,7 +24,7 @@ class AboutUsController extends Controller
         $request->validate([
             'description'     => 'required|string',
             'rating'          => 'required|numeric|min:0|max:5',
-            'experience_years'=> 'required|integer|min:0',
+            'years_experience'=> 'required|integer|min:0',
             'brand_partners'  => 'required|integer|min:0',
             'retail_stores'   => 'required|integer|min:0',
         ]);
@@ -47,7 +47,7 @@ class AboutUsController extends Controller
         $request->validate([
             'description'     => 'required|string',
             'rating'          => 'required|numeric|min:0|max:5',
-            'experience_years'=> 'required|integer|min:0',
+            'years_experience'=> 'required|integer|min:0',
             'brand_partners'  => 'required|integer|min:0',
             'retail_stores'   => 'required|integer|min:0',
         ]);

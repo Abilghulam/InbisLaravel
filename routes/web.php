@@ -64,7 +64,7 @@ Route::middleware(['auth', 'admin', 'otp.verified'])
     Route::prefix('home')->name('home.')->group(function () {
         Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
 
-        Route::resource('about', \App\Http\Controllers\Admin\AboutUsController::class);
+        Route::resource('about',  \App\Http\Controllers\Admin\AboutUsController::class);
         Route::resource('founder', \App\Http\Controllers\Admin\FounderController::class);
         Route::resource('gallery', \App\Http\Controllers\Admin\GalleryController::class);
         Route::resource('brand', \App\Http\Controllers\Admin\BrandPartnerController::class);

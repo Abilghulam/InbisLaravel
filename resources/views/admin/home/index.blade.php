@@ -2,75 +2,49 @@
 
 @section('content')
     <h2>Kelola Halaman Home</h2>
+    <p>Pilih bagian yang ingin kamu kelola dari halaman utama website.</p>
 
-    <!-- Tabs -->
-    <div class="tabs">
-        <button class="tab-link active" data-tab="tab-about">About Us</button>
-        <button class="tab-link" data-tab="tab-founder">Founder</button>
-        <button class="tab-link" data-tab="tab-gallery">Gallery</button>
-        <button class="tab-link" data-tab="tab-brand">Brand Partner</button>
-        <button class="tab-link" data-tab="tab-store">Retail Store</button>
-        <button class="tab-link" data-tab="tab-review">Customer Reviews</button>
-    </div>
-
-    <!-- About Us -->
-    <div id="tab-about" class="tab-content active">
-        @include('admin.home.partials.about', ['about' => $about])
-        <div class="actions">
-            <a href="{{ route('admin.home.about.index') }}" class="btn btn-primary">Kelola About Us</a>
+    <div class="dashboard-cards" style="display: grid; grid-template-columns: repeat(2, 1fr);">
+        <!-- About Us -->
+        <div class="card">
+            <h3>Kelola About Us</h3>
+            <p>Edit deskripsi, rating, pengalaman, jumlah brand partner & retail store.</p>
+            <a href="{{ route('admin.home.about.index') }}" class="btn btn-danger">Masuk</a>
         </div>
-    </div>
 
-    <!-- Founder -->
-    <div id="tab-founder" class="tab-content">
-        @include('admin.home.partials.founder', ['founder' => $founder])
-        <div class="actions">
-            <a href="{{ route('admin.home.founder.index') }}" class="btn btn-primary">Kelola Founder</a>
+        <!-- Founder -->
+        <div class="card">
+            <h3>Kelola Founder</h3>
+            <p>Edit data founder (nama, deskripsi, dan gambar).</p>
+            <a href="{{ route('admin.home.founder.index') }}" class="btn btn-danger">Masuk</a>
         </div>
-    </div>
 
-    <!-- Gallery -->
-    <div id="tab-gallery" class="tab-content">
-        @include('admin.home.partials.gallery', ['gallery' => $gallery])
-        <div class="actions">
-            <a href="{{ route('admin.home.gallery.index') }}" class="btn btn-primary">Kelola Gallery</a>
+        <!-- Gallery -->
+        <div class="card">
+            <h3>Kelola Gallery</h3>
+            <p>Tambah, ubah, atau hapus gambar gallery.</p>
+            <a href="{{ route('admin.home.gallery.index') }}" class="btn btn-danger">Masuk</a>
         </div>
-    </div>
 
-    <!-- Brand Partner -->
-    <div id="tab-brand" class="tab-content">
-        @include('admin.home.partials.brand', ['brands' => $brands])
-        <div class="actions">
-            <a href="{{ route('admin.home.brand.index') }}" class="btn btn-primary">Kelola Brand Partner</a>
+        <!-- Brand Partner -->
+        <div class="card">
+            <h3>Kelola Brand Partner</h3>
+            <p>Kelola logo partner brand yang tampil di website.</p>
+            <a href="{{ route('admin.home.brand.index') }}" class="btn btn-danger">Masuk</a>
         </div>
-    </div>
 
-    <!-- Retail Store -->
-    <div id="tab-store" class="tab-content">
-        @include('admin.home.partials.store', ['stores' => $stores])
-        <div class="actions">
-            <a href="{{ route('admin.home.store.index') }}" class="btn btn-primary">Kelola Retail Store</a>
+        <!-- Retail Store -->
+        <div class="card">
+            <h3>Kelola Retail Store</h3>
+            <p>Edit daftar retail store (alamat, deskripsi, maps, dll).</p>
+            <a href="{{ route('admin.home.store.index') }}" class="btn btn-danger">Masuk</a>
         </div>
-    </div>
 
-    <!-- Customer Reviews -->
-    <div id="tab-review" class="tab-content">
-        @include('admin.home.partials.review', ['reviews' => $reviews])
-        <div class="actions">
-            <a href="{{ route('admin.home.review.index') }}" class="btn btn-primary">Kelola Customer Reviews</a>
+        <!-- Customer Reviews -->
+        <div class="card">
+            <h3>Kelola Customer Reviews</h3>
+            <p>Tambah dan kelola ulasan pelanggan.</p>
+            <a href="{{ route('admin.home.review.index') }}" class="btn btn-danger">Masuk</a>
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script>
-        document.querySelectorAll('.tab-link').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
-@endpush

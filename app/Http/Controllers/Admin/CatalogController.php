@@ -70,7 +70,7 @@ class CatalogController extends Controller
 
         $product->save();
 
-        return redirect()->route('catalog.index')->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()->route('admin.catalog.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -129,7 +129,7 @@ class CatalogController extends Controller
 
         $product->save();
 
-        return redirect()->route('catalog.index')->with('success',
+        return redirect()->route('admin.catalog.index')->with('success',
             'Produk berhasil diperbarui.' . (!empty($deleted) ? ' Gambar lama dihapus.' : '')
         );
     }
@@ -144,6 +144,6 @@ class CatalogController extends Controller
 
         $product->delete();
 
-        return redirect()->route('catalog.index')->with('success', 'Produk beserta gambarnya berhasil dihapus.');
+        return redirect()->route('admin.catalog.index')->with('success', 'Produk beserta gambarnya berhasil dihapus.');
     }
 }

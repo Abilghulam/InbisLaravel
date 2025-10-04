@@ -22,58 +22,63 @@ class RetailStoreController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'        => 'required|string|max:255',
-            'description' => 'required|string',
-            'address'     => 'required|string',
-            'social_media'=> 'nullable|string',
-            'iframe'      => 'nullable|string',
-            'image'       => 'nullable|image|max:2048',
+            'name'      => 'required|string|max:255',
+            'address'   => 'required|string',
+            'facebook'  => 'nullable|string|max:255',
+            'instagram' => 'nullable|string|max:255',
+            'map_iframe'=> 'nullable|string',
+            'image'     => 'nullable|image|max:2048',
         ]);
 
-        $data = $request->only(['name','description','address','social_media','iframe']);
+        $data = $request->only(['name', 'address', 'facebook', 'instagram', 'map_iframe']);
+
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('stores', 'public');
         }
 
         RetailStore::create($data);
 
-        return redirect()->route('admin.home.store.index')->with('success', 'Store berhasil ditambahkan.');
+        return redirect()->route('admin.home.store.index')
+            ->with('success', 'Retail store berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
-        $store = RetailStore::findOrFail($id);
-        return view('admin.home.store.edit', compact('store'));
+        $retail_stores = RetailStore::findOrFail($id);
+        return view('admin.home.store.edit', compact('retail_stores'));
     }
 
     public function update(Request $request, $id)
     {
-        $store = RetailStore::findOrFail($id);
+        $retail_stores = RetailStore::findOrFail($id);
 
         $request->validate([
-            'name'        => 'required|string|max:255',
-            'description' => 'required|string',
-            'address'     => 'required|string',
-            'social_media'=> 'nullable|string',
-            'iframe'      => 'nullable|string',
-            'image'       => 'nullable|image|max:2048',
+            'name'      => 'required|string|max:255',
+            'address'   => 'required|string',
+            'facebook'  => 'nullable|string|max:255',
+            'instagram' => 'nullable|string|max:255',
+            'map_iframe'=> 'nullable|string',
+            'image'     => 'nullable|image|max:2048',
         ]);
 
-        $data = $request->only(['name','description','address','social_media','iframe']);
+        $data = $request->only(['name', 'address', 'facebook', 'instagram', 'map_iframe']);
+
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('stores', 'public');
         }
 
-        $store->update($data);
+        $retail_stores->update($data);
 
-        return redirect()->route('admin.home.store.index')->with('success', 'Store berhasil diperbarui.');
+        return redirect()->route('admin.home.store.index')
+            ->with('success', 'Retail store berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $store = RetailStore::findOrFail($id);
-        $store->delete();
+        $retail_store = RetailStore::findOrFail($id);
+        $retail_store->delete();
 
-        return redirect()->route('admin.home.store.index')->with('success', 'Store berhasil dihapus.');
+        return redirect()->route('admin.home.store.index')
+            ->with('success', 'Retail store berhasil dihapus.');
     }
 }

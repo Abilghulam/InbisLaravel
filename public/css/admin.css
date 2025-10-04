@@ -368,6 +368,13 @@ table img {
     background: #c92a38;
 }
 
+.card p {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
 /* ======== PAGINATION ======== */
 .pagination {
     display: flex;

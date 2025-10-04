@@ -22,13 +22,13 @@ class CustomerReviewController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'    => 'required|string|max:255',
-            'rating'  => 'required|integer|min:1|max:5',
-            'date'    => 'required|date',
-            'content' => 'required|string',
+            'name'        => 'required|string|max:255',
+            'stars'       => 'required|integer|min:1|max:5',
+            'review_date' => 'required|date',
+            'description' => 'required|string',
         ]);
 
-        CustomerReview::create($request->all());
+        CustomerReview::create($request->only(['name', 'stars', 'review_date', 'description']));
 
         return redirect()->route('admin.home.review.index')->with('success', 'Review berhasil ditambahkan.');
     }
@@ -44,13 +44,13 @@ class CustomerReviewController extends Controller
         $review = CustomerReview::findOrFail($id);
 
         $request->validate([
-            'name'    => 'required|string|max:255',
-            'rating'  => 'required|integer|min:1|max:5',
-            'date'    => 'required|date',
-            'content' => 'required|string',
+            'name'        => 'required|string|max:255',
+            'stars'       => 'required|integer|min:1|max:5',
+            'review_date' => 'required|date',
+            'description' => 'required|string',
         ]);
 
-        $review->update($request->all());
+        $review->update($request->only(['name', 'stars', 'review_date', 'description']));
 
         return redirect()->route('admin.home.review.index')->with('success', 'Review berhasil diperbarui.');
     }

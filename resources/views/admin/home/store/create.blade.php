@@ -6,47 +6,37 @@
     <form action="{{ route('admin.home.store.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
-        <div>
-            <label>Nama Store:</label><br>
-            <input type="text" name="name" required>
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text" name="name" class="form-control" required>
         </div>
 
-        <div>
-            <label>Deskripsi:</label><br>
-            <textarea name="description"></textarea>
+        <div class="form-group">
+            <label>Alamat</label>
+            <textarea name="address" class="form-control" required></textarea>
         </div>
 
-        <div>
-            <label>Alamat:</label><br>
-            <input type="text" name="address">
+        <div class="form-group">
+            <label>Facebook</label>
+            <input type="url" name="facebook" class="form-control">
         </div>
 
-        <div>
-            <label>Upload Gambar:</label><br>
-            <input type="file" name="image">
+        <div class="form-group">
+            <label>Instagram</label>
+            <input type="url" name="instagram" class="form-control">
         </div>
 
-        <div>
-            <label>Facebook:</label><br>
-            <input type="url" name="facebook">
+        <div class="form-group">
+            <label>Embed Map (iframe)</label>
+            <textarea name="map_iframe" class="form-control"></textarea>
         </div>
 
-        <div>
-            <label>Instagram:</label><br>
-            <input type="url" name="instagram">
+        <div class="form-group">
+            <label>Gambar</label>
+            <input type="file" name="image" class="form-control">
         </div>
 
-        <div>
-            <label>WhatsApp (format: 628xxx):</label><br>
-            <input type="text" name="whatsapp">
-        </div>
-
-        <div>
-            <label>Google Maps Embed (iframe):</label><br>
-            <textarea name="map_iframe"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-success" style="margin-top:15px;">Simpan</button>
-        <a href="{{ route('admin.home.store.index') }}" class="btn btn-warning">Batal</a>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+        <a href="{{ route('admin.home.store.index') }}" class="btn btn-secondary">Batal</a>
     </form>
 @endsection

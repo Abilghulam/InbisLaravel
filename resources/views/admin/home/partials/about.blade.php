@@ -19,7 +19,7 @@
             <tr>
                 <td>{{ Str::limit($about->description, 50) }}</td>
                 <td>{{ $about->rating }} ★</td>
-                <td>{{ $about->experience_years }} Tahun</td>
+                <td>{{ $about->years_experience }} Tahun</td>
                 <td>{{ $about->brand_partners }}</td>
                 <td>{{ $about->retail_stores }}</td>
                 <td class="action-buttons">

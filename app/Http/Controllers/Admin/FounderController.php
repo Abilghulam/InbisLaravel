@@ -10,7 +10,7 @@ class FounderController extends Controller
 {
     public function index()
     {
-        $founders = Founder::all();
+        $founders = Founder::first();
         return view('admin.home.founder.index', compact('founders'));
     }
 

@@ -11,13 +11,12 @@ class RetailStore extends Model
 
     protected $table = 'retail_stores';
 
-
     protected $fillable = [
         'name',
-        'description',
-        'address',
         'image',
-        'social_media',
+        'address',
+        'facebook',
+        'instagram',
         'map_iframe',
     ];
 }

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>{{ $title ?? 'Admin Panel' }}</title>
+    <title>{{ $title ?? 'Dashboard Admin' }}</title>
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
 
     <!-- Font -->

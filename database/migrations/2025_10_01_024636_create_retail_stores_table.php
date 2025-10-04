@@ -14,13 +14,11 @@ return new class extends Migration
         Schema::create('retail_stores', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->string('image')->nullable(); // gambar toko
+            $table->string('image')->nullable(); 
             $table->string('address')->nullable();
             $table->string('facebook')->nullable();
             $table->string('instagram')->nullable();
-            $table->string('whatsapp')->nullable();
-            $table->text('map_iframe')->nullable(); // embed map
+            $table->text('map_iframe')->nullable(); 
             $table->timestamps();
         });
     }
