@@ -18,15 +18,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $about   = AboutUs::first();
-        $founder = Founder::first(); 
-        $gallery = Gallery::all();
-        $brands  = BrandPartner::all();
-        $stores  = RetailStore::all();
-        $reviews = CustomerReview::latest()->get();
+        $about_us   = AboutUs::first();
+        $founders = Founder::first(); 
+        $galleries = Gallery::all();
+        $brand_partners  = BrandPartner::all();
+        $retail_stores  = RetailStore::all();
+        $customer_reviews = CustomerReview::latest()->get();
 
         return view('admin.home.index', compact(
-            'about', 'founder', 'gallery', 'brands', 'stores', 'reviews'
+            'about_us', 'founders', 'galleries', 'brand_partners', 'retail_stores', 'customer_reviews'
         ));
     }
 }

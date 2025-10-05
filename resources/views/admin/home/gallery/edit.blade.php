@@ -3,17 +3,17 @@
 @section('content')
     <h2>Edit Gambar Gallery</h2>
 
-    <form action="{{ route('admin.home.gallery.update', $gallery->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.home.gallery.update', $galleries->id) }}" method="POST" enctype="multipart/form-data">
         @csrf @method('PUT')
 
         <div>
             <label>Judul Gambar:</label><br>
-            <input type="text" name="title" value="{{ old('title', $gallery->title) }}" required>
+            <input type="text" name="title" value="{{ old('title', $galleries->title) }}" required>
         </div>
 
         <div style="margin-top:10px;">
             <label>Gambar:</label><br>
-            <img src="{{ asset('storage/' . $gallery->image) }}" width="120" style="margin-bottom:10px;"><br>
+            <img src="{{ asset('storage/' . $galleries->image) }}" width="120" style="margin-bottom:10px;"><br>
             <input type="file" name="image">
         </div>
 

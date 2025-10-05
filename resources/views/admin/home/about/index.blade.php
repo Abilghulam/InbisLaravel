@@ -7,9 +7,14 @@
     <div class="section-header">
         <div class="section-title">
             <h3>About Us Section</h3>
-            <p>Kelola data deskripsi, rating, tahun pengalaman, jumlah brand partner, & jumlah retail store</p>
+            <p>Kelola deskripsi, rating, pengalaman, brand partner, retail store, video, dan jumlah ulasan.</p>
         </div>
-        <a href="{{ route('admin.home.about.create') }}" class="btn btn-primary">+ Tambah About Us</a>
+
+        @if ($about_us)
+            <a href="{{ route('admin.home.about.edit', $about_us->id) }}" class="btn btn-warning">Edit About Us</a>
+        @else
+            <a href="{{ route('admin.home.about.create') }}" class="btn btn-primary">+ Tambah About Us</a>
+        @endif
     </div>
 
     <style>
@@ -57,15 +62,16 @@
     </style>
     <!-- Section Header End -->
 
-
     <table class="table">
         <thead>
             <tr>
                 <th>Deskripsi</th>
                 <th>Rating</th>
+                <th>Jumlah Ulasan</th>
                 <th>Tahun Pengalaman</th>
                 <th>Brand Partner</th>
                 <th>Retail Store</th>
+                <th>Video URL</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -74,9 +80,17 @@
                 <tr>
                     <td>{{ Str::limit($about_us->description, 50) }}</td>
                     <td>{{ $about_us->rating }}</td>
-                    <td>{{ $about_us->years_experience }} Tahun</td>
+                    <td>{{ $about_us->reviews_count ?? '-' }}</td>
+                    <td>{{ $about_us->experience_years }} Tahun</td>
                     <td>{{ $about_us->brand_partners }}</td>
                     <td>{{ $about_us->retail_stores }}</td>
+                    <td>
+                        @if ($about_us->video_url)
+                            <a href="{{ $about_us->video_url }}" target="_blank">Lihat Video</a>
+                        @else
+                            <em>Tidak ada</em>
+                        @endif
+                    </td>
                     <td class="action-buttons">
                         <a href="{{ route('admin.home.about.edit', $about_us->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('admin.home.about.destroy', $about_us->id) }}" method="POST"
@@ -89,7 +103,7 @@
                 </tr>
             @else
                 <tr>
-                    <td colspan="6" class="text-center">
+                    <td colspan="8" class="text-center">
                         <em>Belum ada data About Us.</em>
                     </td>
                 </tr>

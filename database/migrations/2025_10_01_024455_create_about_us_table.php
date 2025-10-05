@@ -11,7 +11,9 @@ return new class extends Migration
         Schema::create('about_us', function (Blueprint $table) {
             $table->id();
             $table->text('description')->nullable();
-            $table->decimal('rating', 3, 1)->default(0); // contoh: 4.8
+            $table->string('video_url')->nullable();
+            $table->decimal('rating', 3, 1)->default(0); 
+            $table->integer('reviews_count')->default(0); 
             $table->integer('years_experience')->default(0);
             $table->integer('brand_partners')->default(0);
             $table->integer('retail_stores')->default(0);

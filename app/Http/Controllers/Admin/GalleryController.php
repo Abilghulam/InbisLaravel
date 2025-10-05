@@ -38,13 +38,13 @@ class GalleryController extends Controller
 
     public function edit($id)
     {
-        $gallery = Gallery::findOrFail($id);
-        return view('admin.home.gallery.edit', compact('gallery'));
+        $galleries = Gallery::findOrFail($id);
+        return view('admin.home.gallery.edit', compact('galleries'));
     }
 
     public function update(Request $request, $id)
     {
-        $gallery = Gallery::findOrFail($id);
+        $galleries = Gallery::findOrFail($id);
 
         $request->validate([
             'title' => 'required|string|max:255',
@@ -56,15 +56,15 @@ class GalleryController extends Controller
             $data['image'] = $request->file('image')->store('gallery', 'public');
         }
 
-        $gallery->update($data);
+        $galleries->update($data);
 
         return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $gallery = Gallery::findOrFail($id);
-        $gallery->delete();
+        $galleries = Gallery::findOrFail($id);
+        $galleries->delete();
 
         return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil dihapus.');
     }

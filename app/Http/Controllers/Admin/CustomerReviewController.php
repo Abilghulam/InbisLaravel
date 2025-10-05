@@ -35,13 +35,13 @@ class CustomerReviewController extends Controller
 
     public function edit($id)
     {
-        $review = CustomerReview::findOrFail($id);
-        return view('admin.home.review.edit', compact('review'));
+        $customer_reviews = CustomerReview::findOrFail($id);
+        return view('admin.home.review.edit', compact('customer_reviews'));
     }
 
     public function update(Request $request, $id)
     {
-        $review = CustomerReview::findOrFail($id);
+        $customer_reviews = CustomerReview::findOrFail($id);
 
         $request->validate([
             'name'        => 'required|string|max:255',
@@ -50,15 +50,15 @@ class CustomerReviewController extends Controller
             'description' => 'required|string',
         ]);
 
-        $review->update($request->only(['name', 'stars', 'review_date', 'description']));
+        $customer_reviews->update($request->only(['name', 'stars', 'review_date', 'description']));
 
         return redirect()->route('admin.home.review.index')->with('success', 'Review berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $review = CustomerReview::findOrFail($id);
-        $review->delete();
+        $customer_reviews = CustomerReview::findOrFail($id);
+        $customer_reviews->delete();
 
         return redirect()->route('admin.home.review.index')->with('success', 'Review berhasil dihapus.');
     }

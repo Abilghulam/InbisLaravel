@@ -39,13 +39,13 @@ class FounderController extends Controller
 
     public function edit($id)
     {
-        $founder = Founder::findOrFail($id);
-        return view('admin.home.founder.edit', compact('founder'));
+        $founders = Founder::findOrFail($id);
+        return view('admin.home.founder.edit', compact('founders'));
     }
 
     public function update(Request $request, $id)
     {
-        $founder = Founder::findOrFail($id);
+        $founders = Founder::findOrFail($id);
 
         $request->validate([
             'name'        => 'required|string|max:255',
@@ -58,15 +58,15 @@ class FounderController extends Controller
             $data['image'] = $request->file('image')->store('founder', 'public');
         }
 
-        $founder->update($data);
+        $founders->update($data);
 
         return redirect()->route('admin.home.founder.index')->with('success', 'Founder berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $founder = Founder::findOrFail($id);
-        $founder->delete();
+        $founders = Founder::findOrFail($id);
+        $founders->delete();
 
         return redirect()->route('admin.home.founder.index')->with('success', 'Founder berhasil dihapus.');
     }

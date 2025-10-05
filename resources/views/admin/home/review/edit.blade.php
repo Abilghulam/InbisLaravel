@@ -13,29 +13,30 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.home.review.update', $review->id) }}" method="POST">
+    <form action="{{ route('admin.home.review.update', $customer_reviews->id) }}" method="POST">
         @csrf @method('PUT')
 
         <div class="form-group">
             <label>Nama:</label>
-            <input type="text" name="name" class="form-control" value="{{ old('name', $review->name) }}" required>
+            <input type="text" name="name" class="form-control" value="{{ old('name', $customer_reviews->name) }}"
+                required>
         </div>
 
         <div class="form-group">
             <label>Bintang (1-5):</label>
             <input type="number" name="stars" min="1" max="5" class="form-control"
-                value="{{ old('stars', $review->stars) }}" required>
+                value="{{ old('stars', $customer_reviews->stars) }}" required>
         </div>
 
         <div class="form-group">
             <label>Tanggal Review:</label>
             <input type="date" name="review_date" class="form-control"
-                value="{{ old('review_date', $review->review_date) }}" required>
+                value="{{ old('review_date', $customer_reviews->review_date) }}" required>
         </div>
 
         <div class="form-group">
             <label>Deskripsi:</label>
-            <textarea name="description" class="form-control" rows="4" required>{{ old('description', $review->description) }}</textarea>
+            <textarea name="description" class="form-control" rows="4" required>{{ old('description', $customer_reviews->description) }}</textarea>
         </div>
 
         <button type="submit" class="btn btn-success">Update</button>

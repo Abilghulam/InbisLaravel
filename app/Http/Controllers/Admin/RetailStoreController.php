@@ -75,8 +75,8 @@ class RetailStoreController extends Controller
 
     public function destroy($id)
     {
-        $retail_store = RetailStore::findOrFail($id);
-        $retail_store->delete();
+        $retail_stores = RetailStore::findOrFail($id);
+        $retail_stores->delete();
 
         return redirect()->route('admin.home.store.index')
             ->with('success', 'Retail store berhasil dihapus.');

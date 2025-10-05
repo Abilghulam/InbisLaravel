@@ -23,10 +23,22 @@ class AboutUsController extends Controller
     {
         $request->validate([
             'description'     => 'required|string',
+            'video_url'       => 'nullable|string|max:255',
             'rating'          => 'required|numeric|min:0|max:5',
+            'reviews_count'   => 'nullable|integer|min:0',
             'years_experience'=> 'required|integer|min:0',
             'brand_partners'  => 'required|integer|min:0',
             'retail_stores'   => 'required|integer|min:0',
+        ]);
+
+        $data = $request->only([
+            'description',
+            'rating',
+            'experience_years',
+            'brand_partners',
+            'retail_stores',
+            'video_url',
+            'reviews_count',
         ]);
 
         AboutUs::create($request->all());
@@ -36,31 +48,33 @@ class AboutUsController extends Controller
 
     public function edit($id)
     {
-        $about = AboutUs::findOrFail($id);
-        return view('admin.home.about.edit', compact('about'));
+        $about_us = AboutUs::findOrFail($id);
+        return view('admin.home.about.edit', compact('about_us'));
     }
 
     public function update(Request $request, $id)
     {
-        $about = AboutUs::findOrFail($id);
+        $about_us = AboutUs::findOrFail($id);
 
         $request->validate([
             'description'     => 'required|string',
+            'video_url'       => 'nullable|string|max:255',
             'rating'          => 'required|numeric|min:0|max:5',
+            'reviews_count'   => 'nullable|integer|min:0',
             'years_experience'=> 'required|integer|min:0',
             'brand_partners'  => 'required|integer|min:0',
             'retail_stores'   => 'required|integer|min:0',
         ]);
 
-        $about->update($request->all());
+        $about_us->update($request->all());
 
         return redirect()->route('admin.home.about.index')->with('success', 'About berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $about = AboutUs::findOrFail($id);
-        $about->delete();
+        $about_us = AboutUs::findOrFail($id);
+        $about_us->delete();
 
         return redirect()->route('admin.home.about.index')->with('success', 'About berhasil dihapus.');
     }

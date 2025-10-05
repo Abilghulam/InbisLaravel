@@ -6,7 +6,7 @@
     <!-- Section Header -->
     <div class="section-header">
         <div class="section-title">
-            <h3>Retail Store Resource Section</h3>
+            <h3>Retail Store Section</h3>
             <p>Kelola data daftar retail store melalui nama, gambar, alamat, media sosial, dan map embed</p>
         </div>
         <a href="{{ route('admin.home.store.create') }}" class="btn btn-primary">+ Tambah Store</a>

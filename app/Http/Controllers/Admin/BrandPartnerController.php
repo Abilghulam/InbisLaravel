@@ -38,13 +38,13 @@ class BrandPartnerController extends Controller
 
     public function edit($id)
     {
-        $brand = BrandPartner::findOrFail($id);
-        return view('admin.home.brand.edit', compact('brand'));
+        $brand_partners = BrandPartner::findOrFail($id);
+        return view('admin.home.brand.edit', compact('brand_partners'));
     }
 
     public function update(Request $request, $id)
     {
-        $brand = BrandPartner::findOrFail($id);
+        $brand_partners = BrandPartner::findOrFail($id);
 
         $request->validate([
             'name' => 'required|string|max:255',
@@ -56,15 +56,15 @@ class BrandPartnerController extends Controller
             $data['logo'] = $request->file('logo')->store('brands', 'public');
         }
 
-        $brand->update($data);
+        $brand_partners->update($data);
 
         return redirect()->route('admin.home.brand.index')->with('success', 'Brand berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
-        $brand = BrandPartner::findOrFail($id);
-        $brand->delete();
+        $brand_partners = BrandPartner::findOrFail($id);
+        $brand_partners->delete();
 
         return redirect()->route('admin.home.brand.index')->with('success', 'Brand berhasil dihapus.');
     }

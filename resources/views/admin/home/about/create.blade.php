@@ -25,6 +25,15 @@
             </div>
 
             <div class="form-group">
+                <label for="reviews_count">Jumlah Ulasan</label>
+                <input type="number" name="reviews_count" id="reviews_count" min="0"
+                    value="{{ old('reviews_count') }}" class="form-control">
+                @error('reviews_count')
+                    <p class="error-text">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="form-group">
                 <label for="years_experience">Tahun Pengalaman</label>
                 <input type="number" name="years_experience" id="years_experience" min="0"
                     value="{{ old('years_experience') }}" class="form-control" required>
@@ -47,6 +56,15 @@
                 <input type="number" name="retail_stores" id="retail_stores" min="0"
                     value="{{ old('retail_stores') }}" class="form-control" required>
                 @error('retail_stores')
+                    <p class="error-text">{{ $message }}</p>
+                @enderror
+            </div>
+
+            <div class="form-group">
+                <label for="video_url">URL Video (Embed YouTube)</label>
+                <input type="url" name="video_url" id="video_url" placeholder="https://www.youtube.com/embed/..."
+                    value="{{ old('video_url') }}" class="form-control">
+                @error('video_url')
                     <p class="error-text">{{ $message }}</p>
                 @enderror
             </div>

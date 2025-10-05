@@ -3,7 +3,7 @@
     <div class="container">
         <div class="footer-container">
             <div class="footer-column">
-                <img src="img/logo.webp" alt="Indo Bismar Logo">
+                <img src="{{ asset('img/logo.png') }}" alt="Indo Bismar Logo">
                 <h4>IndoBismar <span>Group</span></h4>
                 <p>
                     Jl. Bendul Merisi Selatan XI No.59-61, Bendul Merisi, Kec.

@@ -10,7 +10,9 @@ class AboutUs extends Model
 
     protected $fillable = [
         'description',
+        'video_url',
         'rating',
+        'reviews_count',
         'years_experience',
         'brand_partners',
         'retail_stores',

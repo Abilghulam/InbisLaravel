@@ -3,23 +3,23 @@
 @section('content')
     <h2>Edit Founder</h2>
 
-    <form action="{{ route('admin.home.founder.update', $founder->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.home.founder.update', $founders->id) }}" method="POST" enctype="multipart/form-data">
         @csrf @method('PUT')
 
         <div>
             <label>Nama Founder:</label><br>
-            <input type="text" name="name" value="{{ old('name', $founder->name) }}" required>
+            <input type="text" name="name" value="{{ old('name', $founders->name) }}" required>
         </div>
 
         <div style="margin-top:10px;">
             <label>Deskripsi:</label><br>
-            <textarea name="description" rows="4">{{ old('description', $founder->description) }}</textarea>
+            <textarea name="description" rows="4">{{ old('description', $founders->description) }}</textarea>
         </div>
 
         <div style="margin-top:10px;">
             <label>Gambar:</label><br>
-            @if ($founder->image)
-                <img src="{{ asset('storage/' . $founder->image) }}" width="100" style="margin-bottom:10px;">
+            @if ($founders->image)
+                <img src="{{ asset('storage/' . $founders->image) }}" width="100" style="margin-bottom:10px;">
             @endif
             <input type="file" name="image">
         </div>

@@ -1,3 +1,14 @@
+@props([
+    'title',
+    'about_us' => null,
+    'founders' => null,
+    'galleries' => null,
+    'brand_partners' => null,
+    'retail_stores' => null,
+    'customer_reviews' => null,
+])
+
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -8,14 +19,14 @@
 <body>
     <x-navbar></x-navbar>
     <x-hero></x-hero>
-    <x-about></x-about>
-    <x-founder></x-founder>
-    <x-gallery></x-gallery>
-    <x-brand></x-brand>
+    <x-about :about_us="$about_us"></x-about>
+    <x-founder :founders="$founders"></x-founder>
+    <x-gallery :galleries="$galleries"></x-gallery>
+    <x-brand :brand_partners="$brand_partners"></x-brand>
     <x-product></x-product>
-    <x-store></x-store>
+    <x-store :retail_stores="$retail_stores"></x-store>
     <x-modal></x-modal>
-    <x-review></x-review>
+    <x-review :customer_reviews="$customer_reviews"></x-review>
     <x-company></x-company>
     <x-footer></x-footer>
     <x-foot></x-foot>
