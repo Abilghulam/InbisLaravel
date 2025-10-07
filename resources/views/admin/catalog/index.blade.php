@@ -1,55 +1,26 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h2>Kelola Catalog</h2>
+    <h2>Kelola Halaman Catalog</h2>
+    <p>Pilih bagian catalog yang ingin kamu kelola di bawah ini.</p>
 
-    <!-- Tabs -->
-    <div class="tabs">
-        <button class="tab-link active" data-tab="tab-hp">Handphone</button>
-        <button class="tab-link" data-tab="tab-laptop">Laptop & Notebook</button>
-        <button class="tab-link" data-tab="tab-pc">Dekstop Computer</button>
-        <button class="tab-link" data-tab="tab-accessories">Accessories</button>
-    </div>
+    <div class="dashboard-cards">
+        <div class="card">
+            <h3>Hero Section</h3>
+            <p>Edit banner gambar carousel pada halaman catalog.</p>
+            <a href="{{ route('admin.catalog.hero.index') }}">Masuk</a>
+        </div>
 
-    <!-- HP -->
-    <div id="tab-hp" class="tab-content active">
-        @include('admin.catalog.partials.table', ['products' => $hp, 'title' => 'Catalog Handphone'])
-    </div>
+        <div class="card">
+            <h3>Promo Title Section</h3>
+            <p>Ubah judul dan deskripsi promo section pada halaman catalog.</p>
+            <a href="{{ route('admin.catalog.promo.index') }}">Masuk</a>
+        </div>
 
-    <!-- Laptop -->
-    <div id="tab-laptop" class="tab-content">
-        @include('admin.catalog.partials.table', [
-            'products' => $laptop,
-            'title' => 'Catalog Laptop & Notebook',
-        ])
-    </div>
-
-    <!-- PC -->
-    <div id="tab-pc" class="tab-content">
-        @include('admin.catalog.partials.table', [
-            'products' => $pc,
-            'title' => 'Catalog Dekstop Computer',
-        ])
-    </div>
-
-    <!-- Accessories -->
-    <div id="tab-accessories" class="tab-content">
-        @include('admin.catalog.partials.table', [
-            'products' => $accessories,
-            'title' => 'Catalog Accessories',
-        ])
+        <div class="card">
+            <h3>Brand Category Section</h3>
+            <p>Tambah atau ubah logo brand yang digunakan sebagai filter catalog.</p>
+            <a href="{{ route('admin.catalog.brand.index') }}">Masuk</a>
+        </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script>
-        document.querySelectorAll('.tab-link').forEach(btn => {
-            btn.addEventListener('click', () => {
-                document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-            });
-        });
-    </script>
-@endpush

@@ -3,7 +3,7 @@
 @section('content')
     <h2>Tambah Produk</h2>
 
-    <form action="{{ route('admin.catalog.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div>
@@ -87,7 +87,7 @@
         </div>
 
         <button type="submit" class="btn btn-success" style="margin-top:15px;">Simpan</button>
-        <a href="{{ route('admin.catalog.index') }}" class="btn btn-warning">Batal</a>
+        <a href="{{ route('admin.product.index') }}" class="btn btn-warning">Batal</a>
     </form>
 @endsection
 

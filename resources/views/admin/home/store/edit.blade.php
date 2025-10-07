@@ -39,7 +39,7 @@
             <input type="file" name="image" class="form-control">
         </div>
 
-        <button type="submit" class="btn btn-primary">Update</button>
-        <a href="{{ route('admin.home.store.index') }}" class="btn btn-secondary">Batal</a>
+        <button type="submit" class="btn btn-success" style="margin-top:15px;">Update</button>
+        <a href="{{ route('admin.home.store.index') }}" class="btn btn-warning">Batal</a>
     </form>
 @endsection

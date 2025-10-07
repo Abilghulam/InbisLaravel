@@ -30,6 +30,7 @@
 
         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         <a href="{{ route('admin.home.index') }}">Kelola Home</a>
+        <a href="{{ route('admin.product.index') }}">Kelola Product</a>
         <a href="{{ route('admin.catalog.index') }}">Kelola Catalog</a>
         <form action="{{ route('logout') }}" method="POST" style="margin-top:10px;">
             @csrf

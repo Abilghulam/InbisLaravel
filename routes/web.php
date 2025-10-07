@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Auth\OtpController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\HomeController; 
+use App\Http\Controllers\HomeController;
 
 // ===============================
 // 🏠 Halaman Utama (User) — Dinamis dari DB
@@ -15,13 +15,12 @@ use App\Http\Controllers\HomeController;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // ===============================
-// 📦 Catalog Dinamis
+// 📦 Catalog Dinamis (Frontend)
 // ===============================
 Route::get('/catalog/{type}', [CatalogController::class, 'show'])
     ->where('type', 'hp|laptop|pc|accessories')
     ->name('catalog.show');
 
-// 🔎 Search
 Route::get('/search/{type}', [CatalogController::class, 'search'])
     ->where('type', 'hp|laptop|pc|accessories')
     ->name('catalog.search');
@@ -36,7 +35,9 @@ Route::redirect('/catalog-accessories', '/catalog/accessories');
 // 🔐 Admin Authentication
 // ===============================
 Route::get('/login-page', [AuthController::class, 'showLoginForm'])->name('login.page');
-Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:5,1')->name('login');
+Route::post('/login', [AuthController::class, 'login'])
+    ->middleware('throttle:5,1')
+    ->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // 🔑 OTP Verification (2FA)
@@ -69,8 +70,18 @@ Route::middleware(['auth', 'admin', 'otp.verified'])
             Route::resource('review',  \App\Http\Controllers\Admin\CustomerReviewController::class);
         });
 
-        // CRUD Catalog Management
-        Route::resource('catalog', \App\Http\Controllers\Admin\CatalogController::class);
+        // CRUD Product Management
+        Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+
+        // ===============================
+        // 🧩 CRUD Catalog Management (Hero, Promo, Brand)
+        // ===============================
+        Route::prefix('catalog')->name('catalog.')->group(function () {
+            Route::get('/', [\App\Http\Controllers\Admin\Catalog\CatalogController::class, 'index'])->name('index');
+            Route::resource('hero', \App\Http\Controllers\Admin\Catalog\CatalogHeroController::class);
+            Route::resource('promo', \App\Http\Controllers\Admin\Catalog\CatalogPromoController::class);
+            Route::resource('brand', \App\Http\Controllers\Admin\Catalog\CatalogBrandController::class);
+        });
     });
 
 // ===============================
@@ -79,8 +90,7 @@ Route::middleware(['auth', 'admin', 'otp.verified'])
 Route::get('/tes-email', function () {
     try {
         Mail::raw('Tes kirim email via Gmail SMTP di Laravel Indo Bismar', function ($message) {
-            $message->to('abilghlm@gmail.com')
-                ->subject('Tes Email Indo Bismar');
+            $message->to('abilghlm@gmail.com')->subject('Tes Email Indo Bismar');
         });
         return "Email berhasil dikirim!";
     } catch (\Exception $e) {
@@ -93,6 +103,5 @@ Route::get('/tes-email', function () {
 // ===============================
 Route::get('/forgot-password', [ForgotPasswordController::class, 'showForgotForm'])->name('password.request');
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLink'])->name('password.email');
-
 Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showResetForm'])->name('password.reset');
 Route::post('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('password.update');

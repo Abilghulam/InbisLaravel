@@ -3,7 +3,7 @@
         <div class="container">
             <div class="footer-top">
                 <div class="footer-logo">
-                    <img src="{{ asset('img/logo.webp') }}" alt="Indo Bismar Group" />
+                    <img src="{{ asset('img/logo.png') }}" alt="Indo Bismar Group" />
                     <h1>IndoBismar <span class="highlight">Group</span></h1>
                 </div>
                 <div class="footer-social">

@@ -7,7 +7,7 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class CatalogController extends Controller
+class ProductController extends Controller
 {
     public function index()
     {
@@ -16,12 +16,12 @@ class CatalogController extends Controller
         $pc = Product::where('category', 'pc')->latest()->paginate(10, ['*'], 'pc_page');
         $accessories = Product::where('category', 'accessories')->latest()->paginate(10, ['*'], 'accessories_page');
 
-        return view('admin.catalog.index', compact('hp', 'laptop', 'pc', 'accessories'));
+        return view('admin.product.index', compact('hp', 'laptop', 'pc', 'accessories'));
     }
 
     public function create()
     {
-        return view('admin.catalog.create');
+        return view('admin.product.create');
     }
 
     public function store(Request $request)
@@ -70,13 +70,13 @@ class CatalogController extends Controller
 
         $product->save();
 
-        return redirect()->route('admin.catalog.index')->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()->route('admin.product.index')->with('success', 'Produk berhasil ditambahkan.');
     }
 
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        return view('admin.catalog.edit', compact('product'));
+        return view('admin.product.edit', compact('product'));
     }
 
     public function update(Request $request, $id)
@@ -129,7 +129,7 @@ class CatalogController extends Controller
 
         $product->save();
 
-        return redirect()->route('admin.catalog.index')->with('success',
+        return redirect()->route('admin.product.index')->with('success',
             'Produk berhasil diperbarui.' . (!empty($deleted) ? ' Gambar lama dihapus.' : '')
         );
     }
@@ -144,6 +144,6 @@ class CatalogController extends Controller
 
         $product->delete();
 
-        return redirect()->route('admin.catalog.index')->with('success', 'Produk beserta gambarnya berhasil dihapus.');
+        return redirect()->route('admin.product.index')->with('success', 'Produk beserta gambarnya berhasil dihapus.');
     }
 }

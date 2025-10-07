@@ -36,7 +36,7 @@
             <textarea name="description" class="form-control" rows="4" required>{{ old('description') }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-success">Simpan</button>
-        <a href="{{ route('admin.home.review.index') }}" class="btn btn-secondary">Batal</a>
+        <button type="submit" class="btn btn-success" style="margin-top:15px;">Simpan</button>
+        <a href="{{ route('admin.home.review.index') }}" class="btn btn-warning">Batal</a>
     </form>
 @endsection

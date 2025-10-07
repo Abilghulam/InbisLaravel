@@ -1,76 +1,25 @@
-@php
-    $catalogMap = [
-        'hp' => [
-            'url' => '/catalog-hp',
-            'label' => 'Catalog HP',
-            'posters' => [
-                'img/poster/hp1.jpg',
-                'img/poster/hp2.jpg',
-                'img/poster/hp3.jpg',
-                'img/poster/hp4.jpg',
-                'img/poster/hp5.jpg',
-                'img/poster/hp6.jpg',
-                'img/poster/hp7.jpg',
-            ],
-        ],
-        'pc' => [
-            'url' => '/catalog-pc',
-            'label' => 'Catalog PC',
-            'posters' => [
-                'img/poster/pc1.jpg',
-                'img/poster/pc2.jpg',
-                'img/poster/pc3.jpg',
-                'img/poster/pc4.png',
-                'img/poster/pc5.jpg',
-                'img/poster/pc6.jpg',
-            ],
-        ],
-        'laptop' => [
-            'url' => '/catalog-laptop',
-            'label' => 'Catalog Laptop',
-            'posters' => [
-                'img/poster/laptop1.jpg',
-                'img/poster/laptop2.jpg',
-                'img/poster/laptop3.jpg',
-                'img/poster/laptop4.jpg',
-                'img/poster/laptop6.jpg',
-                'img/poster/laptop7.jpg',
-                'img/poster/laptop8.png',
-                'img/poster/laptop9.jpg',
-            ],
-        ],
-        'accessories' => [
-            'url' => '/catalog-accessories',
-            'label' => 'Catalog Accessories',
-            'posters' => [
-                'img/poster/acc1.jpg',
-                'img/poster/acc2.png',
-                'img/poster/acc3.jpg',
-                'img/poster/acc4.jpg',
-                'img/poster/acc5.png',
-            ],
-        ],
-    ];
+@props(['heroes' => null])
 
-    // Fallback (Console Log)
-    $catalog = $catalogMap[$type ?? ''] ?? [
-        'url' => '/catalog',
-        'label' => 'Catalog',
-        'posters' => ['img/poster/poster1.jpg', 'img/poster/poster2.jpg', 'img/poster/poster3.jpg'],
-    ];
-@endphp
-
-<!-- Hero Section -->
+<!-- Hero Section Dinamis -->
 <section class="hero-section">
-    <div class="hero-slider">
-        @foreach ($catalog['posters'] as $index => $poster)
+    @if (isset($heroes) && $heroes instanceof \Illuminate\Support\Collection && $heroes->count())
+        <div class="hero-slider">
+            @foreach ($heroes as $index => $hero)
+                <div class="slide">
+                    <img src="{{ asset('storage/' . $hero->image) }}" alt="Hero {{ $index + 1 }}" loading="lazy">
+                </div>
+            @endforeach
+        </div>
+    @else
+        <div class="hero-slider">
             <div class="slide">
-                <img src="{{ asset($poster) }}" alt="Promotion {{ $index + 1 }}" loading="lazy">
+                <img src="{{ asset('img/poster/default.jpg') }}" alt="Default Hero" loading="lazy">
+                <div class="hero-caption">Tidak ada promo untuk kategori ini</div>
             </div>
-        @endforeach
-    </div>
+        </div>
+    @endif
 
-    <!-- Navigation -->
+    <!-- Navigasi -->
     <button class="prev">&#10094;</button>
     <button class="next">&#10095;</button>
 
@@ -82,7 +31,7 @@
 <nav class="breadcrumb-card-section">
     <a href="/">Home</a>
     <span class="separator">›</span>
-    <a href="{{ $catalog['url'] }}">{{ $catalog['label'] }}</a>
+    <a href="/catalog/{{ $type }}">Catalog {{ ucfirst($type) }}</a>
     <span class="separator">›</span>
     <span class="current">Semua Produk</span>
 </nav>

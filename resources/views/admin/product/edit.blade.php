@@ -3,7 +3,7 @@
 @section('content')
     <h2>Edit Produk</h2>
 
-    <form action="{{ route('admin.catalog.update', $product->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf @method('PUT')
 
         <div>
@@ -86,7 +86,7 @@
         </div>
 
         <button type="submit" class="btn btn-success" style="margin-top:15px;">Update</button>
-        <a href="{{ route('admin.catalog.index') }}" class="btn btn-warning">Batal</a>
+        <a href="{{ route('admin.product.index') }}" class="btn btn-warning">Batal</a>
     </form>
 @endsection
 
