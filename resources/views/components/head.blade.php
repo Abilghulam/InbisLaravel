@@ -3,6 +3,9 @@
  <title>{{ $slot }}</title>
  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+ <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
+
+
  <!-- Font -->
  <link
      href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
