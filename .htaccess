@@ -1,3 +1,10 @@
+# Lindungi file sensitif Laravel
+<FilesMatch "^(\.env|artisan|composer\.(json|lock)|package\.json|webpack\.mix\.js)$">
+  Order allow,deny
+  Deny from all
+</FilesMatch>
+
+
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
