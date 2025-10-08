@@ -17,6 +17,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nata+Sans:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
         rel="stylesheet">
+
+    <!-- Font Awesome (untuk ikon dropdown) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -28,16 +31,49 @@
             <span class="logo-text"><span style="color:black">Bismar</span>Admin</span>
         </div>
 
+        <!-- Navigasi Utama -->
         <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         <a href="{{ route('admin.home.index') }}">Kelola Home</a>
         <a href="{{ route('admin.product.index') }}">Kelola Product</a>
         <a href="{{ route('admin.catalog.index') }}">Kelola Catalog</a>
-        <form action="{{ route('logout') }}" method="POST" style="margin-top:10px;">
-            @csrf
-            <button type="submit">
-                Logout
-            </button>
-        </form>
+
+        <!-- Profil Admin di Sidebar Bawah -->
+        <div class="admin-profile">
+            <div class="profile-info" id="profileToggle">
+                <img src="https://ui-avatars.com/api/?name={{ urlencode(Auth::user()->name ?? 'Admin Indo Bismar') }}&background=dc3545&color=fff"
+                    alt="Admin" class="profile-pic">
+                <div class="profile-text">
+                    <h4>{{ Auth::user()->name ?? 'Admin Indo Bismar' }}</h4>
+                    <small>{{ Auth::user()->role ?? 'Administrator' }}</small>
+                </div>
+            </div>
+
+            <ul class="profile-menu" id="profileMenu">
+                <li class="email-item">
+                    <svg class="w-5 h-5 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-width="2"
+                            d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                    </svg>
+                    <span>{{ Auth::user()->email ?? 'admin@example.com' }}</span>
+                </li>
+                <li>
+                    <form action="{{ route('logout') }}" method="POST" style="background: #f8f9fa;">
+                        @csrf
+                        <button type="submit" class="logout-btn">
+                            <svg class="w-5 h-5 text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M20 12H8m12 0-4 4m4-4-4-4M9 4H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h2" />
+                            </svg>
+                            Logout
+                        </button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+
     </div>
 
     <!-- Content -->
@@ -76,6 +112,25 @@
         <!-- Stacks -->
         @stack('scripts')
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileInfo = document.getElementById('profileToggle');
+            const profileMenu = document.getElementById('profileMenu');
+
+            profileInfo.addEventListener('click', () => {
+                profileMenu.classList.toggle('show');
+            });
+
+            // Klik di luar untuk menutup
+            document.addEventListener('click', (e) => {
+                if (!profileInfo.contains(e.target) && !profileMenu.contains(e.target)) {
+                    profileMenu.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

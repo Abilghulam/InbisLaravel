@@ -57,6 +57,157 @@ body {
     font-weight: 600;
 }
 
+/* ======== PROFIL ADMIN ======== */
+.admin-profile {
+    position: relative; 
+    margin-top: auto;
+    background: #ffffff;
+    border-top: 1px solid #e5e5e5;
+    padding: 12px 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 8px;
+    padding: 6px 8px;
+}
+
+.profile-info:hover {
+    background: #eef1f4;
+}
+
+.profile-pic {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+    border: 2px solid #ddd;
+}
+
+.profile-text {
+    flex: 1;
+    overflow: hidden;
+}
+
+.profile-text h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #222;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Role di bawah nama */
+.profile-text small {
+    display: block;
+    margin-top: 2px;
+    font-size: 12px;
+    color: #777;
+}
+
+/* Dropdown menu */
+.profile-menu {
+    list-style: none;
+    margin: 0;
+    padding: 8px 0;
+    position: absolute;
+    bottom: 60px; 
+    left: 10px;  
+    right: 10px; 
+    background: #f8f9fa; 
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 5;
+}
+
+.profile-menu.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+/* Item di dalam menu */
+.profile-menu li {
+    margin: 0;
+}
+
+/* Tombol umum di menu profil */
+.profile-menu li a,
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #444;
+    width: 100%;
+    padding: 10px 15px;
+    transition: background 0.2s ease, color 0.2s ease;
+    border-radius: 6px;
+}
+
+.profile-menu li a:hover,
+.logout-btn:hover {
+    background: #ffecec;
+    color: #d9534f;
+}
+
+/* Email item di menu */
+.profile-menu .email-item {
+    font-size: 13px;
+    color: #555;
+    padding: 10px 15px;
+    border-bottom: 1px solid #dedede;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ======== IKON DALAM PROFILE MENU ======== */
+.profile-menu svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: #555;
+    vertical-align: middle;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+/* Hover animasi ikon logout */
+.logout-btn:hover svg {
+    color: #d9534f;
+    transform: translateX(2px);
+}
+
+/* Penyesuaian ikon email */
+.profile-menu .email-item svg {
+    color: #666;
+}
+
+/* Penyesuaian teks setelah ikon */
+.profile-menu .email-item span,
+.logout-btn span {
+    line-height: 1;
+    display: inline-block;
+    vertical-align: middle;
+}
+
 /* ======== LOGO BRANDING ======== */
 .admin-logo {
     text-align: center;

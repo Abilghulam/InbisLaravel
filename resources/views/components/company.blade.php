@@ -7,7 +7,7 @@
                 <div class="logo-wrapper">
                     <img src="img/partner/bismaredu.png" alt="PT. Indo Bismar Education" />
                 </div>
-                <p>PT. Indo Bismar Education</p>
+                <p>Bismar Education</p>
             </div>
 
             <div class="business-partner-card">
