@@ -19,7 +19,7 @@
         <div style="margin-top:10px;">
             <label>Gambar:</label><br>
             @if ($founders->image)
-                <img src="{{ asset('uploads/' . $founders->image) }}" width="100" style="margin-bottom:10px;">
+                <img src="{{ asset($founders->image) }}" width="100" style="margin-bottom:10px;">
             @endif
             <input type="file" name="image">
         </div>
