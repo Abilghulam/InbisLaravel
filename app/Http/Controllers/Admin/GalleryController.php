@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use App\Helpers\FileHelper; 
 
 class GalleryController extends Controller
 {
@@ -29,22 +30,8 @@ class GalleryController extends Controller
         $data = $request->only(['title']);
 
         if ($request->hasFile('image')) {
-            // Path ke folder uploads/gallery di root (bukan public)
-            $folderPath = base_path('uploads/gallery');
-
-            // Buat folder kalau belum ada
-            if (!file_exists($folderPath)) {
-                mkdir($folderPath, 0775, true);
-            }
-
-            // Buat nama file unik
-            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
-
-            // Pindahkan file ke /uploads/gallery
-            $request->file('image')->move($folderPath, $fileName);
-
-            // Simpan path relatif ke database
-            $data['image'] = 'uploads/gallery/' . $fileName;
+            // Upload menggunakan helper ke folder "uploads/gallery"
+            $data['image'] = FileHelper::uploadToRootUploads($request->file('image'), 'gallery');
         }
 
         Gallery::create($data);
@@ -71,16 +58,13 @@ class GalleryController extends Controller
         $data = $request->only(['title']);
 
         if ($request->hasFile('image')) {
-            $folderPath = base_path('uploads/gallery');
-
-            if (!file_exists($folderPath)) {
-                mkdir($folderPath, 0775, true);
+            // Hapus gambar lama jika ada
+            if ($galleries->image) {
+                FileHelper::deleteFromBoth($galleries->image);
             }
 
-            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move($folderPath, $fileName);
-
-            $data['image'] = 'uploads/gallery/' . $fileName;
+            // Upload gambar baru ke folder gallery
+            $data['image'] = FileHelper::uploadToRootUploads($request->file('image'), 'gallery');
         }
 
         $galleries->update($data);
@@ -92,6 +76,12 @@ class GalleryController extends Controller
     public function destroy($id)
     {
         $galleries = Gallery::findOrFail($id);
+
+        // Hapus file fisik jika ada
+        if ($galleries->image) {
+            FileHelper::deleteFromBoth($galleries->image);
+        }
+
         $galleries->delete();
 
         return redirect()->route('admin.home.gallery.index')

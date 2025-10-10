@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Founder;
 use Illuminate\Http\Request;
+use App\Helpers\FileHelper; 
 
 class FounderController extends Controller
 {
@@ -30,18 +31,8 @@ class FounderController extends Controller
         $data = $request->only(['name', 'description']);
 
         if ($request->hasFile('image')) {
-            // Simpan langsung ke /uploads/founder di root
-            $folderPath = base_path('uploads/founder');
-
-            if (!file_exists($folderPath)) {
-                mkdir($folderPath, 0775, true);
-            }
-
-            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move($folderPath, $fileName);
-
-            // Simpan path relatif untuk database
-            $data['image'] = 'uploads/founder/' . $fileName;
+            // Gunakan helper untuk upload file ke /uploads/founder
+            $data['image'] = FileHelper::uploadToRootUploads($request->file('image'), 'founder');
         }
 
         Founder::create($data);
@@ -69,16 +60,13 @@ class FounderController extends Controller
         $data = $request->only(['name', 'description']);
 
         if ($request->hasFile('image')) {
-            $folderPath = base_path('uploads/founder');
-
-            if (!file_exists($folderPath)) {
-                mkdir($folderPath, 0775, true);
+            // Hapus gambar lama jika ada
+            if ($founders->image) {
+                FileHelper::deleteFromBoth($founders->image);
             }
 
-            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move($folderPath, $fileName);
-
-            $data['image'] = 'uploads/founder/' . $fileName;
+            // Upload gambar baru dengan format “uploads/founder/nomor_NamaFile”
+            $data['image'] = FileHelper::uploadToRootUploads($request->file('image'), 'founder');
         }
 
         $founders->update($data);
@@ -92,10 +80,7 @@ class FounderController extends Controller
         $founders = Founder::findOrFail($id);
 
         if ($founders->image) {
-            $path = base_path($founders->image);
-            if (file_exists($path)) {
-                unlink($path);
-            }
+            FileHelper::deleteFromBoth($founders->image);
         }
 
         $founders->delete();
