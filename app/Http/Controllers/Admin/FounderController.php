@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Founder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class FounderController extends Controller
 {
@@ -27,9 +28,24 @@ class FounderController extends Controller
             'image'       => 'nullable|image|max:2048',
         ]);
 
-        $data = $request->only(['name','description']);
+        $data = $request->only(['name', 'description']);
+
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('founder', 'public');
+            // 1️⃣ Simpan di storage/app/public/founder
+            $path = $request->file('image')->store('founder', 'public');
+            $data['image'] = $path;
+
+            // 2️⃣ Copy ke public/uploads/founder
+            $source = storage_path('app/public/' . $path);
+            $destination = public_path('uploads/' . $path);
+
+            // Buat folder tujuan jika belum ada
+            if (!file_exists(dirname($destination))) {
+                mkdir(dirname($destination), 0777, true);
+            }
+
+            // Salin file
+            copy($source, $destination);
         }
 
         Founder::create($data);
@@ -53,9 +69,22 @@ class FounderController extends Controller
             'image'       => 'nullable|image|max:2048',
         ]);
 
-        $data = $request->only(['name','description']);
+        $data = $request->only(['name', 'description']);
+
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('founder', 'public');
+            // 1️⃣ Simpan di storage/app/public/founder
+            $path = $request->file('image')->store('founder', 'public');
+            $data['image'] = $path;
+
+            // 2️⃣ Copy ke public/uploads/founder
+            $source = storage_path('app/public/' . $path);
+            $destination = public_path('uploads/' . $path);
+
+            if (!file_exists(dirname($destination))) {
+                mkdir(dirname($destination), 0777, true);
+            }
+
+            copy($source, $destination);
         }
 
         $founders->update($data);
@@ -66,6 +95,17 @@ class FounderController extends Controller
     public function destroy($id)
     {
         $founders = Founder::findOrFail($id);
+
+        // Hapus juga dari kedua lokasi (jika ada)
+        if ($founders->image) {
+            Storage::disk('public')->delete($founders->image);
+
+            $uploadsPath = public_path('uploads/' . $founders->image);
+            if (file_exists($uploadsPath)) {
+                unlink($uploadsPath);
+            }
+        }
+
         $founders->delete();
 
         return redirect()->route('admin.home.founder.index')->with('success', 'Founder berhasil dihapus.');

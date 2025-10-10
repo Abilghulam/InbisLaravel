@@ -10,7 +10,7 @@
                 <div class="founder-image-container">
                     <div class="founder-image-bg"></div>
                     @if ($founders->image)
-                        <img src="{{ asset('storage/' . $founders->image) }}" alt="{{ $founders->name }}"
+                        <img src="{{ asset('uploads/' . $founders->image) }}" alt="{{ $founders->name }}"
                             class="founder-image" />
                     @else
                         <img src="{{ asset('img/sis.jpg') }}" alt="Founder" class="founder-image" />
