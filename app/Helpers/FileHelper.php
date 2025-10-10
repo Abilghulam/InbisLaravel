@@ -26,7 +26,7 @@ class FileHelper
         // Salin ke root/uploads/<folder>
         copy($source, $destination);
 
-        return $path;
+        return 'uploads/' . $path;
     }
 
     /**
