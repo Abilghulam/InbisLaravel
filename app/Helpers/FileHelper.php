@@ -7,14 +7,14 @@ use Illuminate\Support\Facades\Storage;
 class FileHelper
 {
     /**
-     * Simpan file ke storage dan salin ke public/uploads.
+     * Simpan file ke storage dan salin ke root/uploads.
      */
     public static function uploadToRootUploads($file, $folder)
     {
         // Simpan ke storage/app/public/<folder>
-        $path = $file->store($folder, 'public');
+        $path = $file->store($folder, 'public'); // contoh: brands/nama.jpg
 
-        // Path sumber & tujuan
+        // Path sumber (storage) & tujuan (root/uploads)
         $source = storage_path('app/public/' . $path);
         $destination = base_path('uploads/' . $path);
 
@@ -26,21 +26,25 @@ class FileHelper
         // Salin ke root/uploads/<folder>
         copy($source, $destination);
 
-        return 'uploads/' . $path;
+        // Kembalikan path yang akan disimpan di database
+        return 'uploads/' . $path; // contoh: uploads/brands/nama.jpg
     }
 
     /**
-     * Hapus file dari storage & public/uploads.
+     * Hapus file dari storage & root/uploads (jika ada).
      */
     public static function deleteFromBoth($path)
     {
         if (!$path) return;
 
-        // Hapus dari storage
-        Storage::disk('public')->delete($path);
+        // Hilangkan "uploads/" dari depan path jika ada (biar bisa akses ke storage)
+        $relativePath = str_replace('uploads/', '', $path);
 
-        // Hapus dari public/uploads
-        $uploadsPath = public_path('uploads/' . $path);
+        // Hapus dari storage/app/public
+        Storage::disk('public')->delete($relativePath);
+
+        // Hapus dari root/uploads
+        $uploadsPath = base_path($path);
         if (file_exists($uploadsPath)) {
             unlink($uploadsPath);
         }
