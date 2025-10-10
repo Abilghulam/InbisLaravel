@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Reset Password - Indo Bismar Group</title>
     <link rel="stylesheet" href="{{ asset('css/password.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
 
     <!-- Font -->
     <link
