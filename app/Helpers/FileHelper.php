@@ -16,7 +16,7 @@ class FileHelper
 
         // Path sumber & tujuan
         $source = storage_path('app/public/' . $path);
-        $destination = public_path('uploads/' . $path);
+        $destination = base_path('uploads/' . $path);
 
         // Buat folder jika belum ada
         if (!file_exists(dirname($destination))) {
