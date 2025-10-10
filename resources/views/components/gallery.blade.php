@@ -11,7 +11,7 @@
                 <div class="gallery-track">
                     @foreach ($galleries as $item)
                         <div class="gallery-item">
-                            <img src="{{ asset('uploads/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy" />
+                            <img src="{{ asset('uploads/' . $gallery->image) }}" alt="{{ $gallery->title }}">
                             <div class="caption">{{ $item->title }}</div>
                         </div>
                     @endforeach
