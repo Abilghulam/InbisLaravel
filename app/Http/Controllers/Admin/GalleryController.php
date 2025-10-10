@@ -29,15 +29,28 @@ class GalleryController extends Controller
         $data = $request->only(['title']);
 
         if ($request->hasFile('image')) {
-            $path = 'uploads/gallery';
+            // Path ke folder uploads/gallery di root (bukan public)
+            $folderPath = base_path('uploads/gallery');
+
+            // Buat folder kalau belum ada
+            if (!file_exists($folderPath)) {
+                mkdir($folderPath, 0775, true);
+            }
+
+            // Buat nama file unik
             $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path($path), $fileName);
-            $data['image'] = 'gallery/' . $fileName;
+
+            // Pindahkan file ke /uploads/gallery
+            $request->file('image')->move($folderPath, $fileName);
+
+            // Simpan path relatif ke database
+            $data['image'] = 'uploads/gallery/' . $fileName;
         }
 
         Gallery::create($data);
 
-        return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil ditambahkan.');
+        return redirect()->route('admin.home.gallery.index')
+            ->with('success', 'Gambar berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -58,15 +71,22 @@ class GalleryController extends Controller
         $data = $request->only(['title']);
 
         if ($request->hasFile('image')) {
-            $path = 'uploads/gallery';
+            $folderPath = base_path('uploads/gallery');
+
+            if (!file_exists($folderPath)) {
+                mkdir($folderPath, 0775, true);
+            }
+
             $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path($path), $fileName);
-            $data['image'] = 'gallery/' . $fileName;
+            $request->file('image')->move($folderPath, $fileName);
+
+            $data['image'] = 'uploads/gallery/' . $fileName;
         }
 
         $galleries->update($data);
 
-        return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil diperbarui.');
+        return redirect()->route('admin.home.gallery.index')
+            ->with('success', 'Gambar berhasil diperbarui.');
     }
 
     public function destroy($id)
@@ -74,6 +94,7 @@ class GalleryController extends Controller
         $galleries = Gallery::findOrFail($id);
         $galleries->delete();
 
-        return redirect()->route('admin.home.gallery.index')->with('success', 'Gambar berhasil dihapus.');
+        return redirect()->route('admin.home.gallery.index')
+            ->with('success', 'Gambar berhasil dihapus.');
     }
 }
