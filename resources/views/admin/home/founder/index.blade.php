@@ -73,7 +73,7 @@
                     <td>{{ \Illuminate\Support\Str::limit($founders->description, 80) }}</td>
                     <td>
                         @if ($founders->image)
-                            <img src="{{ asset('storage/' . $founders->image) }}" width="80">
+                            <img src="{{ asset('uploads/' . $founders->image) }}" width="80">
                         @else
                             <em>Tidak ada gambar</em>
                         @endif
