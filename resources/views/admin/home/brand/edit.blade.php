@@ -13,7 +13,7 @@
 
         <div style="margin-top:10px;">
             <label>Logo:</label><br>
-            <img src="{{ asset('uploads/' . $brand_partners->logo) }}" width="120" style="margin-bottom:10px;"><br>
+            <img src="{{ asset($brand_partners->logo) }}" width="120" style="margin-bottom:10px;"><br>
             <input type="file" name="logo">
         </div>
 

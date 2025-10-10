@@ -69,7 +69,7 @@
             @forelse($brand_partners as $brand)
                 <tr>
                     <td>{{ $brand->name }}</td>
-                    <td><img src="{{ asset('uploads/' . $brand->logo) }}" width="100"></td>
+                    <td><img src="{{ asset($brand->logo) }}" width="100"></td>
                     <td class="action-buttons">
                         <a href="{{ route('admin.home.brand.edit', $brand->id) }}" class="btn btn-warning">Edit</a>
                         <form action="{{ route('admin.home.brand.destroy', $brand->id) }}" method="POST">

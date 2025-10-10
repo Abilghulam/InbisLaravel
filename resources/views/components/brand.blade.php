@@ -8,7 +8,7 @@
             @foreach ($brand_partners as $brand)
                 <div class="brand-logo-item">
                     @if ($brand->logo)
-                        <img src="{{ asset('uploads/' . $brand->logo) }}" alt="{{ $brand->name }}" loading="lazy" />
+                        <img src="{{ asset($brand->logo) }}" alt="{{ $brand->name }}" loading="lazy" />
                     @else
                         <em>{{ $brand->name }}</em>
                     @endif
