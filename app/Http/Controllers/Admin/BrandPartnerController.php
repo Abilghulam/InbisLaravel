@@ -30,7 +30,11 @@ class BrandPartnerController extends Controller
         $data = $request->only(['name']);
 
         if ($request->hasFile('logo')) {
-            $data['logo'] = FileHelper::uploadToRootUploads($request->file('logo'), 'brands');
+            $data['logo'] = FileHelper::uploadToRootUploads(
+                $request->file('logo'),
+                'brands',
+                $request->name 
+            );
         }
 
         BrandPartner::create($data);
@@ -57,11 +61,11 @@ class BrandPartnerController extends Controller
         $data = $request->only(['name']);
 
         if ($request->hasFile('logo')) {
-            // hapus file lama
-            FileHelper::deleteFromBoth($brand_partners->logo);
-
-            // upload file baru
-            $data['logo'] = FileHelper::uploadToRootUploads($request->file('logo'), 'brands');
+            $data['logo'] = FileHelper::uploadToRootUploads(
+                $request->file('logo'),
+                'brands',
+                $request->name // ini nama brand, jadi hasilnya 1760075732_Lenovo.jpg
+            );
         }
 
         $brand_partners->update($data);

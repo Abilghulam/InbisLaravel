@@ -9,26 +9,39 @@ class FileHelper
     /**
      * Simpan file ke storage dan salin ke root/uploads.
      */
-    public static function uploadToRootUploads($file, $folder)
-    {
-        // Simpan ke storage/app/public/<folder>
-        $path = $file->store($folder, 'public'); // contoh: brands/nama.jpg
+    public static function uploadToRootUploads($file, $folder, $customName = null)
+  {
+    // Ambil ekstensi file
+    $extension = $file->getClientOriginalExtension();
 
-        // Path sumber (storage) & tujuan (root/uploads)
-        $source = storage_path('app/public/' . $path);
-        $destination = base_path('uploads/' . $path);
+    // Gunakan nama custom (kalau ada), atau nama asli file
+    $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
 
-        // Buat folder jika belum ada
-        if (!file_exists(dirname($destination))) {
-            mkdir(dirname($destination), 0777, true);
-        }
+    // Bersihkan nama file dari spasi & karakter aneh
+    $safeName = preg_replace('/[^A-Za-z0-9_\-]/', '_', $customName ?? $originalName);
 
-        // Salin ke root/uploads/<folder>
-        copy($source, $destination);
+    // Buat nama file baru
+    $fileName = time() . '_' . $safeName . '.' . $extension;
 
-        // Kembalikan path yang akan disimpan di database
-        return 'uploads/' . $path; // contoh: uploads/brands/nama.jpg
+    // Path final
+    $relativePath = "uploads/{$folder}/{$fileName}";
+    $storagePath = storage_path('app/public/' . $folder . '/' . $fileName);
+    $uploadPath = base_path($relativePath);
+
+    // Simpan file ke storage/app/public/<folder>
+    $file->storeAs($folder, $fileName, 'public');
+
+    // Pastikan folder di root/uploads/<folder> ada
+    if (!file_exists(dirname($uploadPath))) {
+        mkdir(dirname($uploadPath), 0777, true);
     }
+
+    // Copy ke root/uploads
+    copy(storage_path('app/public/' . $folder . '/' . $fileName), $uploadPath);
+
+    // Return path yang disimpan di DB
+    return $relativePath;
+  }
 
     /**
      * Hapus file dari storage & root/uploads (jika ada).
