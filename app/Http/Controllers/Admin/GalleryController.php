@@ -27,8 +27,12 @@ class GalleryController extends Controller
         ]);
 
         $data = $request->only(['title']);
+
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('gallery', 'public');
+            $path = 'uploads/gallery';
+            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path($path), $fileName);
+            $data['image'] = 'gallery/' . $fileName;
         }
 
         Gallery::create($data);
@@ -52,8 +56,12 @@ class GalleryController extends Controller
         ]);
 
         $data = $request->only(['title']);
+
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('gallery', 'public');
+            $path = 'uploads/gallery';
+            $fileName = time() . '_' . $request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path($path), $fileName);
+            $data['image'] = 'gallery/' . $fileName;
         }
 
         $galleries->update($data);

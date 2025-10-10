@@ -13,7 +13,7 @@
 
         <div style="margin-top:10px;">
             <label>Gambar:</label><br>
-            <img src="{{ asset('storage/' . $galleries->image) }}" width="120" style="margin-bottom:10px;"><br>
+            <img src="{{ asset('uploads/' . $galleries->image) }}" width="120" style="margin-bottom:10px;"><br>
             <input type="file" name="image">
         </div>
 

@@ -70,7 +70,7 @@
                 <tr>
                     <td>{{ $gallery->title }}</td>
                     <td>
-                        <img src="{{ asset('storage/' . $gallery->image) }}" width="100">
+                        <img src="{{ asset('uploads/' . $gallery->image) }}" width="100">
                     </td>
                     <td class="action-buttons">
                         <a href="{{ route('admin.home.gallery.edit', $gallery->id) }}" class="btn btn-warning">Edit</a>
