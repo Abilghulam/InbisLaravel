@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BrandPartner;
 use Illuminate\Http\Request;
+use App\Helpers\FileHelper; 
 
 class BrandPartnerController extends Controller
 {
@@ -27,13 +28,15 @@ class BrandPartnerController extends Controller
         ]);
 
         $data = $request->only(['name']);
+
         if ($request->hasFile('logo')) {
-            $data['logo'] = $request->file('logo')->store('brands', 'public');
+            $data['logo'] = FileHelper::uploadToRootUploads($request->file('logo'), 'brands');
         }
 
         BrandPartner::create($data);
 
-        return redirect()->route('admin.home.brand.index')->with('success', 'Brand berhasil ditambahkan.');
+        return redirect()->route('admin.home.brand.index')
+            ->with('success', 'Brand berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -52,20 +55,31 @@ class BrandPartnerController extends Controller
         ]);
 
         $data = $request->only(['name']);
+
         if ($request->hasFile('logo')) {
-            $data['logo'] = $request->file('logo')->store('brands', 'public');
+            // hapus file lama
+            FileHelper::deleteFromBoth($brand_partners->logo);
+
+            // upload file baru
+            $data['logo'] = FileHelper::uploadToRootUploads($request->file('logo'), 'brands');
         }
 
         $brand_partners->update($data);
 
-        return redirect()->route('admin.home.brand.index')->with('success', 'Brand berhasil diperbarui.');
+        return redirect()->route('admin.home.brand.index')
+            ->with('success', 'Brand berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
         $brand_partners = BrandPartner::findOrFail($id);
+
+        // hapus file logo juga
+        FileHelper::deleteFromBoth($brand_partners->logo);
+
         $brand_partners->delete();
 
-        return redirect()->route('admin.home.brand.index')->with('success', 'Brand berhasil dihapus.');
+        return redirect()->route('admin.home.brand.index')
+            ->with('success', 'Brand berhasil dihapus.');
     }
 }
