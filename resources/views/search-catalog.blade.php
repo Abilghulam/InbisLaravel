@@ -156,13 +156,12 @@
                                 <div class="product-card {{ $product->section === 'promo' ? 'promo-card' : '' }}"
                                     data-name="{{ $product->name }}" data-brand="{{ $product->brand }}"
                                     data-category="{{ $product->category }}" data-level="{{ $product->level }}"
-                                    data-image="{{ asset('storage/' . $product->image) }}"
-                                    data-price="{{ $product->price }}"
+                                    data-image="{{ asset($product->image) }}" data-price="{{ $product->price }}"
                                     data-price-label="Rp {{ number_format($product->price, 0, ',', '.') }}"
                                     data-old-price="{{ $product->old_price }}" data-stock="{{ $product->stock }}">
 
                                     <!-- Product Image -->
-                                    <img class="product-image" src="{{ asset('storage/' . $product->image) }}"
+                                    <img class="product-image" src="{{ asset($product->image) }}"
                                         alt="{{ e($product->name) }}" loading="lazy">
 
                                     <!-- Brand Logo -->
