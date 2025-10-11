@@ -6,7 +6,7 @@
         <div class="hero-slider">
             @foreach ($heroes as $index => $hero)
                 <div class="slide">
-                    <img src="{{ asset('storage/' . $hero->image) }}" alt="Hero {{ $index + 1 }}" loading="lazy">
+                    <img src="{{ asset($hero->image) }}" alt="Hero {{ $index + 1 }}" loading="lazy">
                 </div>
             @endforeach
         </div>
