@@ -19,8 +19,8 @@
             </div>
 
             <div class="form-group">
-                <label>Gambar Sekarang</label><br>
-                <img src="{{ asset('storage/' . $hero->image) }}" alt="Hero" width="150"><br><br>
+                <label>Gambar Caraousel</label><br>
+                <img src="{{ asset($hero->image) }}" alt="Hero" width="150"><br><br>
                 <input type="file" name="image" class="form-control" accept="image/*">
             </div>
 

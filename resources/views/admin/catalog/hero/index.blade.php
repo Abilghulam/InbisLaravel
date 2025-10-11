@@ -69,7 +69,7 @@
         <tbody>
             @forelse ($heroes as $hero)
                 <tr>
-                    <td><img src="{{ asset('storage/' . $hero->image) }}" alt="Hero" width="120"></td>
+                    <td><img src="{{ asset($hero->image) }}" alt="Hero" width="120"></td>
                     <td>{{ strtoupper($hero->category) }}</td>
                     <td>{{ $hero->caption ?? '-' }}</td>
                     <td>
