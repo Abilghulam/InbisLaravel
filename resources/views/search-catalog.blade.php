@@ -10,7 +10,7 @@
                         <input type="hidden" name="q" value="{{ request('q') }}">
                         <div class="filter-header">
                             <h3>Filter Produk</h3>
-                            <button type="button" id="clearAllFilters" class="clear-btn">
+                            <button type="button" id="clearFiltersBtn" class="clear-btn">
                                 <i data-lucide="refresh-ccw"></i>
                                 Clear Filter</button>
                         </div>
