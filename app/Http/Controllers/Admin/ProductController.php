@@ -49,12 +49,13 @@ class ProductController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
+        // buat produk baru
         $product = new Product();
         $product->fill($request->only([
             'name', 'brand', 'category', 'level', 'section', 'stock', 'old_price', 'specs'
         ]));
 
-        // Hitung harga
+        // hitung harga
         if ($request->section === 'promo') {
             $product->discount = $request->discount;
             $product->price    = $request->old_price - ($request->old_price * $request->discount / 100);
@@ -63,9 +64,12 @@ class ProductController extends Controller
             $product->price    = $request->old_price;
         }
 
-        // Upload gambar menggunakan FileHelper
+        // pastikan kategori sudah di-set sebelum upload gambar
         if ($request->hasFile('image')) {
-            $product->image = FileHelper::uploadToRootUploads($request->file('image'), 'product/' . $request->category);
+            $product->image = FileHelper::uploadToRootUploads(
+                $request->file('image'),
+                "product/{$product->category}"
+            );
         }
 
         $product->save();
@@ -108,7 +112,7 @@ class ProductController extends Controller
             'name', 'brand', 'category', 'level', 'section', 'stock', 'old_price', 'specs'
         ]));
 
-        // Hitung harga
+        // hitung ulang harga
         if ($request->section === 'promo') {
             $product->discount = $request->discount;
             $product->price    = $request->old_price - ($request->old_price * $request->discount / 100);
@@ -117,12 +121,16 @@ class ProductController extends Controller
             $product->price    = $request->old_price;
         }
 
-        // Ganti gambar lama
+        // update gambar jika ada file baru
         if ($request->hasFile('image')) {
             if ($product->image) {
                 FileHelper::deleteFromBoth($product->image);
             }
-            $product->image = FileHelper::uploadToRootUploads($request->file('image'), 'product/' . $request->category);
+
+            $product->image = FileHelper::uploadToRootUploads(
+                $request->file('image'),
+                "product/{$product->category}"
+            );
         }
 
         $product->save();
