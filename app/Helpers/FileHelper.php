@@ -7,41 +7,45 @@ use Illuminate\Support\Facades\Storage;
 class FileHelper
 {
     /**
-     * Simpan file ke storage dan salin ke root/uploads.
+     * Simpan file ke storage/app/public/<folder> dan salin ke root/uploads/<folder>.
+     * Mendukung struktur folder bertingkat (misal: product/hp).
      */
     public static function uploadToRootUploads($file, $folder, $customName = null)
-  {
-    // Ambil ekstensi file
-    $extension = $file->getClientOriginalExtension();
+    {
+        // Pastikan folder tidak mengandung karakter aneh
+        $folder = trim($folder, '/');
 
-    // Gunakan nama custom (kalau ada), atau nama asli file
-    $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+        // Ambil ekstensi file
+        $extension = $file->getClientOriginalExtension();
 
-    // Bersihkan nama file dari spasi & karakter aneh
-    $safeName = preg_replace('/[^A-Za-z0-9_\-]/', '_', $customName ?? $originalName);
+        // Gunakan nama custom (kalau ada), atau nama asli file
+        $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
 
-    // Buat nama file baru
-    $fileName = time() . '_' . $safeName . '.' . $extension;
+        // Bersihkan nama file dari spasi & karakter aneh
+        $safeName = preg_replace('/[^A-Za-z0-9_\-]/', '_', $customName ?? $originalName);
 
-    // Path final
-    $relativePath = "uploads/{$folder}/{$fileName}";
-    $storagePath = storage_path('app/public/' . $folder . '/' . $fileName);
-    $uploadPath = base_path($relativePath);
+        // Buat nama file baru unik
+        $fileName = time() . '_' . $safeName . '.' . $extension;
 
-    // Simpan file ke storage/app/public/<folder>
-    $file->storeAs($folder, $fileName, 'public');
+        // Path penyimpanan
+        $storagePath = "public/{$folder}/{$fileName}"; // untuk Storage Laravel
+        $publicPath = "uploads/{$folder}/{$fileName}"; // untuk root publik (Hostinger)
+        $fullPublicPath = base_path($publicPath); // full path absolut
 
-    // Pastikan folder di root/uploads/<folder> ada
-    if (!file_exists(dirname($uploadPath))) {
-        mkdir(dirname($uploadPath), 0777, true);
+        // Simpan ke storage Laravel
+        $file->storeAs($folder, $fileName, 'public');
+
+        // Pastikan folder di root/uploads/<folder> ada
+        if (!file_exists(dirname($fullPublicPath))) {
+            mkdir(dirname($fullPublicPath), 0777, true);
+        }
+
+        // Salin ke root/uploads
+        copy(storage_path('app/public/' . $folder . '/' . $fileName), $fullPublicPath);
+
+        // Return path relatif yang disimpan di database
+        return $publicPath;
     }
-
-    // Copy ke root/uploads
-    copy(storage_path('app/public/' . $folder . '/' . $fileName), $uploadPath);
-
-    // Return path yang disimpan di DB
-    return $relativePath;
-  }
 
     /**
      * Hapus file dari storage & root/uploads (jika ada).
@@ -50,7 +54,7 @@ class FileHelper
     {
         if (!$path) return;
 
-        // Hilangkan "uploads/" dari depan path jika ada (biar bisa akses ke storage)
+        // Pastikan path diawali "uploads/"
         $relativePath = str_replace('uploads/', '', $path);
 
         // Hapus dari storage/app/public
