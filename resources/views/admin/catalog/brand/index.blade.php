@@ -69,7 +69,7 @@
         <tbody>
             @forelse ($brands as $brand)
                 <tr>
-                    <td><img src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->name }}" width="100"></td>
+                    <td><img src="{{ asset($brand->image) }}" alt="{{ $brand->name }}" width="100"></td>
                     <td>{{ $brand->name }}</td>
                     <td>{{ strtoupper($brand->category) }}</td>
                     <td>

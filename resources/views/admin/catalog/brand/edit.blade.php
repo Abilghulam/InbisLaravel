@@ -29,8 +29,8 @@
             </div>
 
             <div class="form-group">
-                <label>Logo Sekarang</label><br>
-                <img src="{{ asset('storage/' . $brand->image) }}" alt="{{ $brand->name }}" width="150" class="mb-2">
+                <label>Logo Brand</label><br>
+                <img src="{{ asset($brand->image) }}" alt="{{ $brand->name }}" width="150" class="mb-2">
                 <input type="file" name="image" id="image" class="form-control" accept="image/*">
                 <small class="text-muted">Kosongkan jika tidak ingin mengubah logo.</small>
             </div>

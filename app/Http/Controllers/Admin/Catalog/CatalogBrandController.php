@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Catalog;
 use App\Http\Controllers\Controller;
 use App\Models\CatalogBrand;
 use Illuminate\Http\Request;
+use App\Helpers\FileHelper; 
 
 class CatalogBrandController extends Controller
 {
@@ -27,7 +28,13 @@ class CatalogBrandController extends Controller
             'image' => 'required|image|mimes:jpg,jpeg,png,webp|max:2048',
         ]);
 
-        $data['image'] = $request->file('image')->store('catalog/brand', 'public');
+        // ✅ Simpan menggunakan FileHelper
+        $data['image'] = FileHelper::uploadToRootUploads(
+            $request->file('image'),
+            'catalog/brand',
+            $request->name // nama file berdasarkan nama brand
+        );
+
         CatalogBrand::create($data);
 
         return redirect()->route('admin.catalog.brand.index')->with('success', 'Brand berhasil ditambahkan.');
@@ -47,15 +54,28 @@ class CatalogBrandController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('catalog/brand', 'public');
+            // ✅ Hapus gambar lama
+            \App\Helpers\FileHelper::deleteFromBoth($brand->image);
+
+            // ✅ Upload gambar baru ke root/uploads/catalog/brand
+            $data['image'] = \App\Helpers\FileHelper::uploadToRootUploads(
+                $request->file('image'),
+                'catalog/brand',
+                $request->name
+            );
         }
 
         $brand->update($data);
-        return redirect()->route('admin.catalog.brand.index')->with('success', 'Brand berhasil diperbarui.');
+
+        return redirect()->route('admin.catalog.brand.index')
+            ->with('success', 'Brand berhasil diperbarui.');
     }
 
     public function destroy(CatalogBrand $brand)
     {
+        // ✅ Hapus file fisik
+        FileHelper::deleteFromBoth($brand->image);
+
         $brand->delete();
         return back()->with('success', 'Brand berhasil dihapus.');
     }

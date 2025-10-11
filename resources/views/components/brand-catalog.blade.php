@@ -13,7 +13,7 @@
                 @foreach ($brands as $brand)
                     <a href="{{ route('catalog.show', $type) }}?brand={{ strtolower($brand->slug ?? Str::slug($brand->name)) }}"
                         class="brand-card" data-brand="{{ strtolower($brand->slug ?? Str::slug($brand->name)) }}">
-                        <img src="{{ $brand->image ? asset('storage/' . $brand->image) : asset('img/no-image.png') }}"
+                        <img src="{{ $brand->image ? asset($brand->image) : asset('img/no-image.png') }}"
                             alt="{{ $brand->name }}" loading="lazy">
                     </a>
                 @endforeach
