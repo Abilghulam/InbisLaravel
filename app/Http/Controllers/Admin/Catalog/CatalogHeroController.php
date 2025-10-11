@@ -11,7 +11,7 @@ class CatalogHeroController extends Controller
 {
     public function index()
     {
-        $heroes = CatalogHero::all();
+        $heroes = CatalogHero::latest()->paginate(10);
         return view('admin.catalog.hero.index', compact('heroes'));
     }
 
