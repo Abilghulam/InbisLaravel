@@ -260,6 +260,17 @@
 
                     // submit form (q tetap dikirim karena hidden input q ada)
                     submitForm();
+
+                    // Animasi ikon refresh
+                    const icon = clearBtn.querySelector("svg");
+                    if (icon) {
+                        icon.classList.add("spin");
+                        setTimeout(() => icon.classList.remove("spin"), 500);
+                    }
+
+                    if (typeof applyFilters === "function") {
+                        applyFilters();
+                    }
                 });
             }
         });
