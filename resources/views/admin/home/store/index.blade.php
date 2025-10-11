@@ -76,7 +76,7 @@
                     <td>{{ $store->address }}</td>
                     <td>
                         @if ($store->image)
-                            <img src="{{ asset('storage/' . $store->image) }}" width="80">
+                            <img src="{{ asset($store->image) }}" width="80">
                         @else
                             <em>Tidak ada gambar</em>
                         @endif

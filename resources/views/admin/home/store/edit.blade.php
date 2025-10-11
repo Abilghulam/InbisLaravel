@@ -34,7 +34,7 @@
         <div class="form-group">
             <label>Gambar</label><br>
             @if ($retail_stores->image)
-                <img src="{{ asset('storage/' . $retail_stores->image) }}" width="100"><br><br>
+                <img src="{{ asset($retail_stores->image) }}" width="100"><br><br>
             @endif
             <input type="file" name="image" class="form-control">
         </div>

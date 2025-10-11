@@ -11,7 +11,7 @@
             <div class="gallery-grid">
                 @foreach ($retail_stores as $store)
                     <div class="store-card fade-in">
-                        <img src="{{ asset('storage/' . $store->image) }}" alt="{{ $store->name }}" loading="lazy" />
+                        <img src="{{ asset($store->image) }}" alt="{{ $store->name }}" loading="lazy" />
                         <div class="overlay">
                             <h3>{{ $store->name }}</h3>
                             <button class="btn-see" data-store="{{ $store->name }}"

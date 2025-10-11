@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\RetailStore;
 use Illuminate\Http\Request;
+use App\Helpers\FileHelper; 
 
 class RetailStoreController extends Controller
 {
@@ -22,18 +23,19 @@ class RetailStoreController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'      => 'required|string|max:255',
-            'address'   => 'required|string',
-            'facebook'  => 'nullable|string|max:255',
-            'instagram' => 'nullable|string|max:255',
-            'map_iframe'=> 'nullable|string',
-            'image'     => 'nullable|image|max:2048',
+            'name'       => 'required|string|max:255',
+            'address'    => 'required|string',
+            'facebook'   => 'nullable|string|max:255',
+            'instagram'  => 'nullable|string|max:255',
+            'map_iframe' => 'nullable|string',
+            'image'      => 'nullable|image|max:2048',
         ]);
 
         $data = $request->only(['name', 'address', 'facebook', 'instagram', 'map_iframe']);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('stores', 'public');
+            // Upload pakai helper ke folder /uploads/stores
+            $data['image'] = FileHelper::uploadToRootUploads($request->file('image'), 'stores');
         }
 
         RetailStore::create($data);
@@ -53,18 +55,24 @@ class RetailStoreController extends Controller
         $retail_stores = RetailStore::findOrFail($id);
 
         $request->validate([
-            'name'      => 'required|string|max:255',
-            'address'   => 'required|string',
-            'facebook'  => 'nullable|string|max:255',
-            'instagram' => 'nullable|string|max:255',
-            'map_iframe'=> 'nullable|string',
-            'image'     => 'nullable|image|max:2048',
+            'name'       => 'required|string|max:255',
+            'address'    => 'required|string',
+            'facebook'   => 'nullable|string|max:255',
+            'instagram'  => 'nullable|string|max:255',
+            'map_iframe' => 'nullable|string',
+            'image'      => 'nullable|image|max:2048',
         ]);
 
         $data = $request->only(['name', 'address', 'facebook', 'instagram', 'map_iframe']);
 
         if ($request->hasFile('image')) {
-            $data['image'] = $request->file('image')->store('stores', 'public');
+            // Hapus gambar lama jika ada
+            if ($retail_stores->image) {
+                FileHelper::deleteFromBoth($retail_stores->image);
+            }
+
+            // Upload gambar baru
+            $data['image'] = FileHelper::uploadToRootUploads($request->file('image'), 'stores');
         }
 
         $retail_stores->update($data);
@@ -76,6 +84,12 @@ class RetailStoreController extends Controller
     public function destroy($id)
     {
         $retail_stores = RetailStore::findOrFail($id);
+
+        // Hapus file image jika ada
+        if ($retail_stores->image) {
+            FileHelper::deleteFromBoth($retail_stores->image);
+        }
+
         $retail_stores->delete();
 
         return redirect()->route('admin.home.store.index')
