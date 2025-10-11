@@ -91,6 +91,6 @@
 
     <!-- Pagination -->
     <div class="pagination-wrapper">
-        {{ $brand->links('vendor.pagination.admin') }}
+        {{ $brands->links('vendor.pagination.admin') }}
     </div>
 @endsection
