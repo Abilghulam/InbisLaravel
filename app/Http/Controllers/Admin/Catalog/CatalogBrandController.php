@@ -11,7 +11,7 @@ class CatalogBrandController extends Controller
 {
     public function index()
     {
-        $brands = CatalogBrand::all();
+        $brands = CatalogBrand::latest()->paginate(10);
         return view('admin.catalog.brand.index', compact('brands'));
     }
 
