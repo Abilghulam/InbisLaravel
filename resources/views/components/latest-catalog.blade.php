@@ -8,7 +8,7 @@
                 @foreach ($latest as $item)
                     <div class="latest-card" data-name="{{ $item->name }}" data-brand="{{ $item->brand }}"
                         data-category="{{ $item->category }}" data-level="{{ $item->level }}"
-                        data-image="{{ asset('storage/' . $item->image) }}" data-price="{{ $item->price }}"
+                        data-image="{{ asset($item->image) }}" data-price="{{ $item->price }}"
                         data-price-label="Rp {{ number_format($item->price, 0, ',', '.') }}" data-old-price=""
                         data-stock="{{ $item->stock }}" data-specs="{!! $item->specs !!}">
 
@@ -17,8 +17,8 @@
                                 alt="{{ $item->brand }}">
                         </div>
 
-                        <img class="latest-image" src="{{ asset('storage/' . $item->image) }}"
-                            alt="{{ $item->name }}" loading="lazy">
+                        <img class="latest-image" src="{{ asset($item->image) }}" alt="{{ $item->name }}"
+                            loading="lazy">
 
                         <h3>{{ $item->name }}</h3>
                         <p class="price">Rp {{ number_format($item->price, 0, ',', '.') }}</p>

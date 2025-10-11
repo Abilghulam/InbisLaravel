@@ -57,7 +57,7 @@
 
                         <div class="promo-card" data-name="{{ e($promo->name) }}" data-brand="{{ e($promo->brand) }}"
                             data-category="{{ e($promo->category) }}" data-level="{{ e($promo->level ?? '') }}"
-                            data-image="{{ $promo->image ? asset('storage/' . $promo->image) : asset('img/no-image.png') }}"
+                            data-image="{{ $promo->image ? asset($promo->image) : asset('img/no-image.png') }}"
                             data-price="{{ $finalPrice }}" data-price-label="{{ $finalPriceLabel }}"
                             data-old-price="{{ $oldPrice ?? '' }}" data-stock="{{ e($promo->stock ?? '-') }}"
                             data-specs="{!! $promo->specs ?? '' !!}">
@@ -75,7 +75,7 @@
 
                             {{-- Gambar Produk --}}
                             <img class="promo-image"
-                                src="{{ $promo->image ? asset('storage/' . $promo->image) : asset('img/no-image.png') }}"
+                                src="{{ $promo->image ? asset($promo->image) : asset('img/no-image.png') }}"
                                 alt="{{ $promo->name }}" loading="lazy">
 
                             {{-- Nama Produk --}}

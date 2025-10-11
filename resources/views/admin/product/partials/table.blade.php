@@ -45,7 +45,7 @@
                 <td>{{ \Illuminate\Support\Str::limit($product->specs, 50) }}</td>
                 <td>
                     @if ($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" width="80">
+                        <img src="{{ asset($product->image) }}" width="80">
                     @else
                         <em>Tidak ada gambar</em>
                     @endif

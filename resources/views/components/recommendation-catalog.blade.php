@@ -12,7 +12,7 @@
                 @foreach ($recommendations as $item)
                     <div class="recommendation-card" data-name="{{ $item->name }}" data-brand="{{ $item->brand }}"
                         data-category="{{ $item->category }}" data-level="{{ $item->level }}"
-                        data-image="{{ asset('storage/' . $item->image) }}" data-price="{{ $item->price }}"
+                        data-image="{{ asset($item->image) }}" data-price="{{ $item->price }}"
                         data-price-label="Rp {{ number_format($item->price, 0, ',', '.') }}"
                         data-old-price="{{ $item->old_price }}" data-stock="{{ $item->stock }}"
                         data-specs="{!! $item->specs !!}">
@@ -24,8 +24,8 @@
                         </div>
 
                         <!-- Product Image -->
-                        <img class="recommendation-image" src="{{ asset('storage/' . $item->image) }}"
-                            alt="{{ $item->name }}" loading="lazy">
+                        <img class="recommendation-image" src="{{ asset($item->image) }}" alt="{{ $item->name }}"
+                            loading="lazy">
 
                         <!-- Product Info -->
                         <h3>{{ $item->name }}</h3>
