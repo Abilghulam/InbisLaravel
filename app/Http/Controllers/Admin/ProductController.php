@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use App\Helpers\FileHelper;
 
 class ProductController extends Controller
 {
@@ -26,7 +27,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name'      => 'required|string|max:255',
             'brand'     => 'required|string|max:255',
             'category'  => 'required|string',
@@ -44,17 +45,16 @@ class ProductController extends Controller
             'image'     => 'nullable|image|max:2048',
         ]);
 
-        $product = new Product();
-        $product->name      = $request->name;
-        $product->brand     = $request->brand;
-        $product->category  = $request->category;
-        $product->level     = $request->level;
-        $product->section   = $request->section;
-        $product->stock     = $request->stock;
-        $product->old_price = $request->old_price;
-        $product->specs     = $request->specs;
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
-        // hitung harga
+        $product = new Product();
+        $product->fill($request->only([
+            'name', 'brand', 'category', 'level', 'section', 'stock', 'old_price', 'specs'
+        ]));
+
+        // Hitung harga
         if ($request->section === 'promo') {
             $product->discount = $request->discount;
             $product->price    = $request->old_price - ($request->old_price * $request->discount / 100);
@@ -63,9 +63,9 @@ class ProductController extends Controller
             $product->price    = $request->old_price;
         }
 
-        // simpan gambar
+        // Upload gambar menggunakan FileHelper
         if ($request->hasFile('image')) {
-            $product->image = $request->file('image')->store('products', 'public');
+            $product->image = FileHelper::uploadToRootUploads($request->file('image'), 'product/' . $request->category);
         }
 
         $product->save();
@@ -81,7 +81,7 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'name'      => 'required|string|max:255',
             'brand'     => 'required|string|max:255',
             'category'  => 'required|string',
@@ -99,17 +99,16 @@ class ProductController extends Controller
             'image'     => 'nullable|image|max:2048',
         ]);
 
-        $product = Product::findOrFail($id);
-        $product->name      = $request->name;
-        $product->brand     = $request->brand;
-        $product->category  = $request->category;
-        $product->level     = $request->level;
-        $product->section   = $request->section;
-        $product->stock     = $request->stock;
-        $product->old_price = $request->old_price;
-        $product->specs     = $request->specs;
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
-        // hitung harga
+        $product = Product::findOrFail($id);
+        $product->fill($request->only([
+            'name', 'brand', 'category', 'level', 'section', 'stock', 'old_price', 'specs'
+        ]));
+
+        // Hitung harga
         if ($request->section === 'promo') {
             $product->discount = $request->discount;
             $product->price    = $request->old_price - ($request->old_price * $request->discount / 100);
@@ -118,28 +117,25 @@ class ProductController extends Controller
             $product->price    = $request->old_price;
         }
 
-        // hapus gambar lama & simpan baru
+        // Ganti gambar lama
         if ($request->hasFile('image')) {
-            if ($product->image && Storage::disk('public')->exists($product->image)) {
-                Storage::disk('public')->delete($product->image);
-                $deleted = true;
+            if ($product->image) {
+                FileHelper::deleteFromBoth($product->image);
             }
-            $product->image = $request->file('image')->store('products', 'public');
+            $product->image = FileHelper::uploadToRootUploads($request->file('image'), 'product/' . $request->category);
         }
 
         $product->save();
 
-        return redirect()->route('admin.product.index')->with('success',
-            'Produk berhasil diperbarui.' . (!empty($deleted) ? ' Gambar lama dihapus.' : '')
-        );
+        return redirect()->route('admin.product.index')->with('success', 'Produk berhasil diperbarui.');
     }
 
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
 
-        if ($product->image && Storage::disk('public')->exists($product->image)) {
-            Storage::disk('public')->delete($product->image);
+        if ($product->image) {
+            FileHelper::deleteFromBoth($product->image);
         }
 
         $product->delete();
