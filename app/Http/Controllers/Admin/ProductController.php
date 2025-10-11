@@ -72,8 +72,6 @@ class ProductController extends Controller
             );
         }
 
-        dd($product->toArray());
-
         $product->save();
 
         return redirect()->route('admin.product.index')->with('success', 'Produk berhasil ditambahkan.');
