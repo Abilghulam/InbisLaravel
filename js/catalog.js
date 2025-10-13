@@ -118,8 +118,8 @@ initScroll(
 // ========================
 const products = Array.from(document.querySelectorAll(".product-card"));
 const grid = document.querySelector(".product-grid");
-const itemsPerPage = 15;
-let currentPage = 1;
+//const itemsPerPage = 15;
+//let currentPage = 1;
 let filteredProducts = [...products];
 
 // Filter elements
@@ -137,10 +137,11 @@ const sortRadios = document.querySelectorAll('input[name="sort"]');
 const brandCards = document.querySelectorAll(".brand-card");
 let selectedBrand = null;
 
-// Pagination elements
+/* Pagination elements
 const paginationContainer = document.querySelector(".pagination");
 const prevPageBtn = document.getElementById("prevPage");
 const nextPageBtn = document.getElementById("nextPage");
+*/
 
 // Clear All Filters
 const clearAllBtn = document.getElementById("clearAllFilters");
@@ -163,10 +164,10 @@ if (clearAllBtn) {
     });
 }
 
-function renderGrid() {
+function renderGrid(items = filteredProducts) {
     if (!grid) return;
     grid.innerHTML = "";
-    filteredProducts.forEach((p) => grid.appendChild(p));
+    items.forEach((p) => grid.appendChild(p));
 }
 
 function applyFilters() {
@@ -265,12 +266,10 @@ function applyFilters() {
         });
     }
 
-    renderGrid();
-    currentPage = 1;
-    showPage();
+    renderGrid(filteredProducts);
 }
 
-function renderPagination(totalItems) {
+/*function renderPagination(totalItems) {
     if (!paginationContainer) return;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     paginationContainer.innerHTML = "";
@@ -300,7 +299,7 @@ function showPage() {
     });
 
     renderPagination(filteredProducts.length);
-}
+}*/
 
 // Event listeners filter
 categoryCheckboxes.forEach((cb) => cb.addEventListener("change", applyFilters));
