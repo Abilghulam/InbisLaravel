@@ -138,12 +138,10 @@ body {
     transform: translateY(0);
 }
 
-/* Item di dalam menu */
 .profile-menu li {
     margin: 0;
 }
 
-/* Tombol umum di menu profil */
 .profile-menu li a,
 .logout-btn {
     display: flex;
@@ -167,7 +165,6 @@ body {
     color: #d9534f;
 }
 
-/* Email item di menu */
 .profile-menu .email-item {
     font-size: 13px;
     color: #555;
@@ -189,18 +186,15 @@ body {
     transition: color 0.2s ease, transform 0.2s ease;
 }
 
-/* Hover animasi ikon logout */
 .logout-btn:hover svg {
     color: #d9534f;
     transform: translateX(2px);
 }
 
-/* Penyesuaian ikon email */
 .profile-menu .email-item svg {
     color: #666;
 }
 
-/* Penyesuaian teks setelah ikon */
 .profile-menu .email-item span,
 .logout-btn span {
     line-height: 1;
@@ -299,7 +293,7 @@ h1, h2, h3 {
 /* ======== BUTTONS ======== */
 .action-buttons {
     display: flex;
-    gap: 8px; /* jarak antar tombol */
+    gap: 8px; 
     align-items: center;
     justify-content: center;
 }
@@ -315,7 +309,7 @@ h1, h2, h3 {
 .action-buttons button {
     display: inline-flex;
     align-items: center;
-    gap: 4px; /* jarak teks dan ikon */
+    gap: 4px; 
     padding: 6px 12px;
     border-radius: 6px;
     font-size: 14px;
@@ -421,7 +415,7 @@ form textarea {
 }
 
 .tab-link.active {
-    background: #e63946;   /* warna utama brand */
+    background: #e63946; 
     color: #fff;
     border-color: #e63946;
 }
@@ -437,7 +431,6 @@ form textarea {
     animation: fadeIn 0.3s ease;
 }
 
-/* Animasi smooth saat ganti tab */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(5px); }
     to   { opacity: 1; transform: translateY(0); }
