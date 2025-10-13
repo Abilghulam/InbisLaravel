@@ -189,7 +189,7 @@ svg {
     width: 18px;
     height: 18px;
     flex-shrink: 0;
-    color: #ff0000;
+    color: #555;
     vertical-align: middle;
     transition: color 0.2s ease, transform 0.2s ease;
 }
