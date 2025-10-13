@@ -6,9 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kode OTP - Indo Bismar Group</title>
+
+    <!-- Font -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nata+Sans:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Nata+Sans:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+        rel="stylesheet">
 </head>
 
-<body style="font-family: 'Segoe UI', Arial, sans-serif; line-height:1.6; background-color:#f4f4f4; padding:20px;">
+<body
+    style="font-family: 'Montserrat', 'Nunito Sans', Arial, sans-serif; line-height:1.6; background-color:#f4f4f4; padding:20px;">
 
     <table width="100%" cellpadding="0" cellspacing="0"
         style="max-width:600px;margin:auto;background:#fff;border:1px solid #e5e7eb;border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.08);">
@@ -40,13 +53,9 @@
 
                 <p style="text-align:center; margin:35px 0;">
                     <span
-                        style="display:inline-block;font-size:28px;font-weight:bold;color:#111;background:#f3f4f6;padding:16px 30px;border-radius:10px;letter-spacing:6px;box-shadow:0 4px 10px rgba(0,0,0,0.08); user-select:all;">
+                        style="display:inline-block;font-size:28px;font-weight:bold;color:#111;background:#f3f4f6;padding:16px 30px;border-radius:10px;letter-spacing:6px;box-shadow:0 4px 10px rgba(0,0,0,0.08);">
                         {{ $otp }}
                     </span>
-                    <br>
-                    <small style="font-size:13px;color:#888;display:block;margin-top:10px;">
-                        Klik atau seleksi kode untuk menyalin
-                    </small>
                 </p>
 
                 <p style="font-size:14px; color:#555; margin:0 0 20px;">
