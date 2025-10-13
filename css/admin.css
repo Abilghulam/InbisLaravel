@@ -188,6 +188,7 @@ body {
 svg {
     width: 18px;
     height: 18px;
+    margin-bottom: 5px;
     flex-shrink: 0;
     color: #555;
     vertical-align: middle;
