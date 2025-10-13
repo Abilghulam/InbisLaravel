@@ -112,8 +112,8 @@
             </div>
         </div>
         <!-- Pagination -->
-        <div class="custom-pagination">
-            {{ $products->links() }}
+        <div class="pagination-wrapper">
+            {{ $products->links('vendor.pagination.admin') }}
         </div>
 </section>
 
