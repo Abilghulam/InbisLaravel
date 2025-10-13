@@ -31,18 +31,15 @@ class CatalogController extends Controller
 
         $recommendations = Product::where('category', $type)
             ->where('section', 'recommendation')
-            ->take(8)
             ->get();
 
         // Promo Section
         $promos = Product::where('category', $type)
             ->where('section', 'promo')
-            ->take(8)
             ->get();
 
         $latest = Product::where('category', $type)
             ->where('section', 'latest')
-            ->take(8)
             ->get();
 
         $products = Product::where('category', $type)
