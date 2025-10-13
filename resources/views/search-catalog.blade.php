@@ -202,10 +202,10 @@
                         @endif
                     </div>
                 </div>
-                <!-- Pagination -->
-                <div class="custom-pagination">
-                    {{ $results->links() }}
-                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="custom-pagination">
+                {{ $results->links() }}
             </div>
     </section>
 
