@@ -111,10 +111,9 @@
                 @endforeach
             </div>
         </div>
-
         <!-- Pagination -->
-        <div class="pagination-wrapper">
-            {{ $products->links('vendor.pagination.admin') }}
+        <div class="custom-pagination">
+            {{ $products->links() }}
         </div>
 </section>
 
