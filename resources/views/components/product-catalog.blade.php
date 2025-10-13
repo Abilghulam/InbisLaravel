@@ -113,7 +113,7 @@
 
             <!-- Pagination -->
             <div class="pagination-wrapper">
-                {{ $heroes->links('vendor.pagination.admin') }}
+                {{ $products->links('vendor.pagination.admin') }}
             </div>
         </div>
 </section>
