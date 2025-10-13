@@ -204,7 +204,7 @@
                 </div>
                 <!-- Pagination -->
                 <div class="custom-pagination">
-                    {{ $products->links() }}
+                    {{ $results->links() }}
                 </div>
             </div>
     </section>
