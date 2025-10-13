@@ -31,7 +31,7 @@ class CatalogController extends Controller
 
         $recommendations = Product::where('category', $type)
             ->where('section', 'recommendation')
-            ->take(8)
+            ->take()
             ->get();
 
         // Promo Section
