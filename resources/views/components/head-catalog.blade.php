@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>Catalog - Indo Bismar Group</title>
 <link rel="stylesheet" href="{{ asset('css/catalog.css') }}">
-<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+
 
 <link rel="icon" type="image/png" href="{{ asset('img/logo.png') }}">
 
