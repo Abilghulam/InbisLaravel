@@ -204,8 +204,8 @@
                 </div>
             </div>
             <!-- Pagination -->
-            <div class="custom-pagination">
-                {{ $results->links() }}
+            <div class="pagination-wrapper">
+                {{ $results->links('vendor.pagination.user') }}
             </div>
     </section>
 
