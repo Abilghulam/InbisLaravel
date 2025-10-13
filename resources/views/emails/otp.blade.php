@@ -40,9 +40,13 @@
 
                 <p style="text-align:center; margin:35px 0;">
                     <span
-                        style="display:inline-block;font-size:28px;font-weight:bold;color:#111;background:#f3f4f6;padding:16px 30px;border-radius:10px;letter-spacing:6px;box-shadow:0 4px 10px rgba(0,0,0,0.08);">
+                        style="display:inline-block;font-size:28px;font-weight:bold;color:#111;background:#f3f4f6;padding:16px 30px;border-radius:10px;letter-spacing:6px;box-shadow:0 4px 10px rgba(0,0,0,0.08); user-select:all;">
                         {{ $otp }}
                     </span>
+                    <br>
+                    <small style="font-size:13px;color:#888;display:block;margin-top:10px;">
+                        Klik atau seleksi kode untuk menyalin
+                    </small>
                 </p>
 
                 <p style="font-size:14px; color:#555; margin:0 0 20px;">
