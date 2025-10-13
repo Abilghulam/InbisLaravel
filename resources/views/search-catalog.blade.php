@@ -201,11 +201,10 @@
                             @endforeach
                         @endif
                     </div>
-
-                    <!-- Pagination -->
-                    <div class="pagination">
-                        {{ $results->appends(request()->input())->links() }}
-                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="custom-pagination">
+                    {{ $products->links() }}
                 </div>
             </div>
     </section>
