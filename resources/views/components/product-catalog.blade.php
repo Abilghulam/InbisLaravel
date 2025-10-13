@@ -115,66 +115,6 @@
         <div class="custom-pagination">
             {{ $products->links() }}
         </div>
-
-        <style>
-            .custom-pagination {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                margin-top: 40px;
-                margin-bottom: 40px;
-            }
-
-            .custom-pagination nav {
-                display: flex;
-                justify-content: center;
-            }
-
-            .custom-pagination .pagination {
-                display: flex;
-                gap: 8px;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            .custom-pagination .pagination li {
-                display: inline-flex;
-            }
-
-            .custom-pagination .pagination li a,
-            .custom-pagination .pagination li span {
-                display: inline-block;
-                padding: 8px 14px;
-                border-radius: 8px;
-                border: 1px solid #ddd;
-                text-decoration: none;
-                color: #333;
-                font-size: 14px;
-                transition: all 0.3s ease;
-            }
-
-            .custom-pagination .pagination li a:hover {
-                background-color: #e63946;
-                /* merah seperti tombol kamu */
-                color: #fff;
-                border-color: #e63946;
-            }
-
-            .custom-pagination .pagination li.active span {
-                background-color: #e63946;
-                color: #fff;
-                border-color: #e63946;
-                font-weight: 600;
-            }
-
-            .custom-pagination .pagination li.disabled span {
-                color: #aaa;
-                border-color: #ddd;
-                background-color: #f9f9f9;
-                cursor: not-allowed;
-            }
-        </style>
 </section>
 
 <script src="https://unpkg.com/lucide@latest"></script>
