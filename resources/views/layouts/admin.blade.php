@@ -34,10 +34,19 @@
         </div>
 
         <!-- Navigasi Utama -->
-        <a href="{{ route('admin.dashboard') }}">Dashboard</a>
-        <a href="{{ route('admin.home.index') }}">Kelola Home</a>
-        <a href="{{ route('admin.product.index') }}">Kelola Product</a>
-        <a href="{{ route('admin.catalog.index') }}">Kelola Catalog</a>
+        <a href="{{ route('admin.dashboard') }}"
+            class="{{ Route::is('admin.dashboard') ? 'active' : '' }}">Dashboard</a>
+
+        <a href="{{ route('admin.home.index') }}" class="{{ Route::is('admin.home.index') ? 'active' : '' }}">Kelola
+            Home</a>
+
+        <a href="{{ route('admin.product.index') }}"
+            class="{{ Route::is('admin.product.index') ? 'active' : '' }}">Kelola
+            Product</a>
+
+        <a href="{{ route('admin.catalog.index') }}"
+            class="{{ Route::is('admin.catalog.index') ? 'active' : '' }}">Kelola
+            Catalog</a>
 
         <!-- Profil Admin di Sidebar Bawah -->
         <div class="admin-profile">
@@ -75,7 +84,6 @@
                 </li>
             </ul>
         </div>
-
     </div>
 
     <!-- Content -->

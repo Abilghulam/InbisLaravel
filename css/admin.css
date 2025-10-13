@@ -57,6 +57,18 @@ body {
     font-weight: 600;
 }
 
+.sidebar a.active {
+    background: #f4f4f4;
+    border-left: 3px solid #e63946;
+    color: #e63946;
+    font-weight: 600;
+}
+
+.sidebar a.active:hover {
+    background: #f4f4f4; 
+}
+
+
 /* ======== PROFIL ADMIN ======== */
 .admin-profile {
     position: relative; 
