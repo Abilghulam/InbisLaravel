@@ -98,11 +98,9 @@
 
 <!-- Pagination -->
 <div class="pagination-wrapper">
-    <div class="pagination-links" data-category="{{ $category ?? request('category') }}">
-        {{-- Tambahkan query agar tetap di kategori & halaman aktif --}}
-        {{ $products->appends([
-                'category' => request('category'),
-                request('category') . '_page' => request(request('category') . '_page', 1),
-            ])->links('vendor.pagination.admin') }}
-    </div>
+    {{-- Tambahkan query agar tetap di kategori & halaman aktif --}}
+    {{ $products->appends([
+            'category' => request('category'),
+            request('category') . '_page' => request(request('category') . '_page', 1),
+        ])->links('vendor.pagination.admin') }}
 </div>

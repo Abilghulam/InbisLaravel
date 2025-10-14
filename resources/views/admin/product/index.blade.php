@@ -89,45 +89,5 @@
                 });
             }
         }
-
-        // ====== Handle AJAX Pagination ======
-        document.addEventListener('click', function(e) {
-            const link = e.target.closest('.pagination a');
-            if (link) {
-                e.preventDefault();
-                const url = link.getAttribute('href');
-                const wrapper = link.closest('.pagination-links');
-                const category = wrapper.getAttribute('data-category');
-                const container = document.querySelector(`#tab-${category}`);
-
-                // Loading indikator (opsional)
-                container.style.opacity = '0.5';
-
-                fetch(url, {
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest'
-                        }
-                    })
-                    .then(res => res.text())
-                    .then(html => {
-                        // Ambil bagian tabel dari HTML hasil fetch
-                        const parser = new DOMParser();
-                        const doc = parser.parseFromString(html, 'text/html');
-                        const newTable = doc.querySelector(`#tab-${category} table`);
-                        const newPagination = doc.querySelector(`#tab-${category} .pagination-wrapper`);
-
-                        // Replace tabel dan pagination di tab aktif
-                        container.querySelector('table').outerHTML = newTable.outerHTML;
-                        container.querySelector('.pagination-wrapper').outerHTML = newPagination.outerHTML;
-
-                        // Kembalikan opacity
-                        container.style.opacity = '1';
-                    })
-                    .catch(err => {
-                        console.error('Gagal memuat halaman:', err);
-                        container.style.opacity = '1';
-                    });
-            }
-        });
     </script>
 @endpush
