@@ -6,6 +6,10 @@
     <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf @method('PUT')
 
+        {{-- Hidden Input Redirect --}}
+        <input type="hidden" name="category" value="{{ $product->category }}">
+        <input type="hidden" name="{{ $product->category }}_page" value="{{ request($product->category . '_page', 1) }}">
+
         <div>
             <label>Nama Produk:</label><br>
             <input type="text" name="name" value="{{ old('name', $product->name) }}" required>
@@ -74,10 +78,6 @@
             @endif
             <input type="file" name="image">
         </div>
-
-        {{-- Hidden Input Redirect --}}
-        <input type="hidden" name="category" value="{{ request('category', $product->category) }}">
-        <input type="hidden" name="{{ $product->category }}_page" value="{{ request($product->category . '_page', 1) }}">
 
         <button type="submit" class="btn btn-success" style="margin-top:15px;">Update</button>
         <a href="{{ route('admin.product.index', ['category' => $product->category]) }}" class="btn btn-warning">Batal</a>

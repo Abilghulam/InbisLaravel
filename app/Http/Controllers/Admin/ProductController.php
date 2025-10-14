@@ -139,8 +139,7 @@ class ProductController extends Controller
         return redirect()
             ->route('admin.product.index', [
                 'category' => $request->input('category', $product->category),
-                $product->category . '_page' => $request->input($product->category . '_page', 1),
-            ])
+            ] + $request->only($product->category . '_page')) 
             ->with('success', "Produk kategori {$product->category} berhasil diperbarui.");
     }
 
