@@ -6,6 +6,9 @@
     <form action="{{ route('admin.product.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        {{-- Auto isi kategori sesuai tab aktif --}}
+        <input type="hidden" name="category" value="{{ request('category') ?? 'hp' }}">
+
         <div>
             <label>Nama Produk:</label><br>
             <input type="text" name="name" value="{{ old('name') }}" required>
@@ -19,15 +22,11 @@
         <div style="margin-top:10px;">
             <label>Section:</label><br>
             <select id="section" name="section" required>
-                <option value="product" {{ old('section', $product->section ?? '') == 'product' ? 'selected' : '' }}>
-                    Product</option>
-                <option value="recommendation"
-                    {{ old('section', $product->section ?? '') == 'recommendation' ? 'selected' : '' }}>Recommendation
+                <option value="product" {{ old('section') == 'product' ? 'selected' : '' }}>Product</option>
+                <option value="recommendation" {{ old('section') == 'recommendation' ? 'selected' : '' }}>Recommendation
                 </option>
-                <option value="promo" {{ old('section', $product->section ?? '') == 'promo' ? 'selected' : '' }}>Promo
-                </option>
-                <option value="latest" {{ old('section', $product->section ?? '') == 'latest' ? 'selected' : '' }}>Latest
-                </option>
+                <option value="promo" {{ old('section') == 'promo' ? 'selected' : '' }}>Promo</option>
+                <option value="latest" {{ old('section') == 'latest' ? 'selected' : '' }}>Latest</option>
             </select>
         </div>
 
@@ -38,24 +37,13 @@
 
         <div style="margin-top:10px;">
             <label>Diskon (%):</label><br>
-            <input type="number" id="discount" name="discount" value="{{ old('discount', $product->discount ?? '') }}"
-                disabled>
+            <input type="number" id="discount" name="discount" value="{{ old('discount') }}" disabled>
         </div>
 
         <div style="margin-top:10px;">
             <label>Harga Baru:</label><br>
-            <input type="number" step="0.01" id="price" name="price"
-                value="{{ old('price', $product->price ?? '') }}" readonly disabled>
-        </div>
-
-        <div style="margin-top:10px;">
-            <label>Kategori:</label><br>
-            <select name="category" required>
-                <option value="hp">HP</option>
-                <option value="laptop">Laptop</option>
-                <option value="pc">PC</option>
-                <option value="accessories">Accessories</option>
-            </select>
+            <input type="number" step="0.01" id="price" name="price" value="{{ old('price') }}" readonly
+                disabled>
         </div>
 
         <div style="margin-top:10px;">
@@ -87,7 +75,8 @@
         </div>
 
         <button type="submit" class="btn btn-success" style="margin-top:15px;">Simpan</button>
-        <a href="{{ route('admin.product.index') }}" class="btn btn-warning">Batal</a>
+        <a href="{{ route('admin.product.index', ['category' => request('category') ?? 'hp']) }}"
+            class="btn btn-warning">Batal</a>
     </form>
 @endsection
 

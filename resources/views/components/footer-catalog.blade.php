@@ -8,8 +8,11 @@
                 </div>
                 <div class="footer-social">
                     <span>Ikuti Kami :</span>
-                    <a href="#"><img src="{{ asset('img/social/instagram.png') }}" alt="Instagram"></a>
-                    <a href="#"><img src="{{ asset('img/social/tiktok.png') }}" alt="Tiktok"></a>
+                    <a
+                        href="https://www.instagram.com/indobismar.store?utm_source=ig_web_button_share_sheet&igsh=c3c1b2tzNXc3am4="><img
+                            src="{{ asset('img/social/instagram.png') }}" alt="Instagram"></a>
+                    <a href="https://www.tiktok.com/@indobismar.store?is_from_webapp=1&sender_device=pc"><img
+                            src="{{ asset('img/social/tiktok.png') }}" alt="Tiktok"></a>
                     <a href="#"><img src="{{ asset('img/social/whatsapp.png') }}" alt="WhatsApp"></a>
                     <a href="#"><img src="{{ asset('img/social/facebook.png') }}" alt="Facebook"></a>
                     <a href="#"><img src="{{ asset('img/social/x.webp') }}" alt="X"></a>

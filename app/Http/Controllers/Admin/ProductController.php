@@ -10,14 +10,16 @@ use App\Helpers\FileHelper;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $activeCategory = $request->query('category', 'hp');
+
         $hp = Product::where('category', 'hp')->latest()->paginate(10, ['*'], 'hp_page');
         $laptop = Product::where('category', 'laptop')->latest()->paginate(10, ['*'], 'laptop_page');
         $pc = Product::where('category', 'pc')->latest()->paginate(10, ['*'], 'pc_page');
         $accessories = Product::where('category', 'accessories')->latest()->paginate(10, ['*'], 'accessories_page');
 
-        return view('admin.product.index', compact('hp', 'laptop', 'pc', 'accessories'));
+        return view('admin.product.index', compact('hp', 'laptop', 'pc', 'accessories', 'activeCategory'));
     }
 
     public function create()
@@ -49,13 +51,11 @@ class ProductController extends Controller
             return back()->withErrors($validator)->withInput();
         }
 
-        // buat produk baru
         $product = new Product();
         $product->fill($request->only([
             'name', 'brand', 'category', 'level', 'section', 'stock', 'old_price', 'specs'
         ]));
 
-        // hitung harga
         if ($request->section === 'promo') {
             $product->discount = $request->discount;
             $product->price    = $request->old_price - ($request->old_price * $request->discount / 100);
@@ -64,7 +64,6 @@ class ProductController extends Controller
             $product->price    = $request->old_price;
         }
 
-        // pastikan kategori sudah di-set sebelum upload gambar
         if ($request->hasFile('image')) {
             $product->image = FileHelper::uploadToRootUploads(
                 $request->file('image'),
@@ -74,7 +73,9 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('admin.product.index')->with('success', 'Produk berhasil ditambahkan.');
+        return redirect()
+            ->route('admin.product.index', ['category' => $product->category])
+            ->with('success', 'Produk berhasil ditambahkan.');
     }
 
     public function edit($id)
@@ -112,7 +113,7 @@ class ProductController extends Controller
             'name', 'brand', 'category', 'level', 'section', 'stock', 'old_price', 'specs'
         ]));
 
-        // hitung ulang harga
+        
         if ($request->section === 'promo') {
             $product->discount = $request->discount;
             $product->price    = $request->old_price - ($request->old_price * $request->discount / 100);
@@ -121,7 +122,7 @@ class ProductController extends Controller
             $product->price    = $request->old_price;
         }
 
-        // update gambar jika ada file baru
+        
         if ($request->hasFile('image')) {
             if ($product->image) {
                 FileHelper::deleteFromBoth($product->image);
@@ -135,12 +136,15 @@ class ProductController extends Controller
 
         $product->save();
 
-        return redirect()->route('admin.product.index')->with('success', 'Produk berhasil diperbarui.');
+        return redirect()
+            ->route('admin.product.index', ['category' => $product->category])
+            ->with('success', "Produk kategori {$product->category} berhasil diperbarui.");
     }
 
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
+        $category = $product->category; // simpan dulu kategorinya sebelum dihapus
 
         if ($product->image) {
             FileHelper::deleteFromBoth($product->image);
@@ -148,6 +152,8 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return redirect()->route('admin.product.index')->with('success', 'Produk beserta gambarnya berhasil dihapus.');
+        return redirect()
+            ->route('admin.product.index', ['category' => $category])
+            ->with('success', "Produk kategori {$category} berhasil dihapus.");
     }
 }

@@ -1,6 +1,8 @@
 <div class="section-header">
     <h3>{{ $title }}</h3>
-    <a href="{{ route('admin.product.create') }}" class="btn btn-primary">+ Tambah Produk</a>
+    <a href="{{ route('admin.product.create', ['category' => request('category') ?? 'hp']) }}" class="btn btn-primary">
+        + Tambah Produk
+    </a>
 </div>
 
 <table>
@@ -52,11 +54,18 @@
                 </td>
                 <td>
                     <div class="action-buttons">
-                        <a href="{{ route('admin.product.edit', $product->id) }}" class="btn btn-warning btn-sm">
+                        {{-- tombol edit dengan kategori aktif --}}
+                        <a href="{{ route('admin.product.edit', ['product' => $product->id, 'category' => request('category') ?? $product->category]) }}"
+                            class="btn btn-warning btn-sm">
                             Edit
                         </a>
-                        <form action="{{ route('admin.product.destroy', $product->id) }}" method="POST">
-                            @csrf @method('DELETE')
+
+                        {{-- tombol hapus dengan kategori aktif --}}
+                        <form
+                            action="{{ route('admin.product.destroy', ['product' => $product->id, 'category' => request('category') ?? $product->category]) }}"
+                            method="POST">
+                            @csrf
+                            @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"
                                 onclick="return confirm('Yakin ingin menghapus produk ini?')">
                                 Hapus
@@ -75,5 +84,6 @@
 
 <!-- Pagination -->
 <div class="pagination-wrapper">
-    {{ $products->links('vendor.pagination.admin') }}
+    {{-- tambahkan query agar tetap di tab kategori --}}
+    {{ $products->appends(['category' => request('category')])->links('vendor.pagination.admin') }}
 </div>

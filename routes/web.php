@@ -61,7 +61,6 @@ Route::middleware(['auth', 'admin', 'otp.verified'])
         // CRUD Home Management
         Route::prefix('home')->name('home.')->group(function () {
             Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('index');
-
             Route::resource('about',  \App\Http\Controllers\Admin\AboutUsController::class);
             Route::resource('founder', \App\Http\Controllers\Admin\FounderController::class);
             Route::resource('gallery', \App\Http\Controllers\Admin\GalleryController::class);
@@ -70,12 +69,13 @@ Route::middleware(['auth', 'admin', 'otp.verified'])
             Route::resource('review',  \App\Http\Controllers\Admin\CustomerReviewController::class);
         });
 
-        // CRUD Product Management
-        Route::resource('product', \App\Http\Controllers\Admin\ProductController::class);
+        // CRUD Product Management (dengan kategori opsional)
+        Route::get('product/{category?}', [\App\Http\Controllers\Admin\ProductController::class, 'index'])
+            ->where('category', 'hp|laptop|pc|accessories')
+            ->name('product.index');
+        Route::resource('product', \App\Http\Controllers\Admin\ProductController::class)->except(['index']);
 
-        // ===============================
-        // 🧩 CRUD Catalog Management (Hero, Promo, Brand)
-        // ===============================
+        // CRUD Catalog Management (Hero, Promo, Brand)
         Route::prefix('catalog')->name('catalog.')->group(function () {
             Route::get('/', [\App\Http\Controllers\Admin\Catalog\CatalogController::class, 'index'])->name('index');
             Route::resource('hero', \App\Http\Controllers\Admin\Catalog\CatalogHeroController::class);

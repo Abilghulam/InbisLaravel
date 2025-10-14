@@ -6,6 +6,9 @@
     <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf @method('PUT')
 
+        {{-- Hidden input agar redirect dan kategori konsisten --}}
+        <input type="hidden" name="category" value="{{ $product->category }}">
+
         <div>
             <label>Nama Produk:</label><br>
             <input type="text" name="name" value="{{ old('name', $product->name) }}" required>
@@ -34,16 +37,6 @@
         </div>
 
         <div style="margin-top:10px;">
-            <label>Kategori:</label><br>
-            <select name="category" required>
-                <option value="hp" {{ $product->category == 'hp' ? 'selected' : '' }}>HP</option>
-                <option value="laptop" {{ $product->category == 'laptop' ? 'selected' : '' }}>Laptop</option>
-                <option value="pc" {{ $product->category == 'pc' ? 'selected' : '' }}>PC</option>
-                <option value="accessories" {{ $product->category == 'accessories' ? 'selected' : '' }}>Accessories</option>
-            </select>
-        </div>
-
-        <div style="margin-top:10px;">
             <label>Level:</label><br>
             <select name="level" required>
                 <option value="flagship" {{ $product->level == 'flagship' ? 'selected' : '' }}>Flagship</option>
@@ -55,7 +48,7 @@
 
         <div style="margin-top:10px;">
             <label>Section:</label><br>
-            <select name="section" required>
+            <select id="section" name="section" required>
                 <option value="product" {{ $product->section == 'product' ? 'selected' : '' }}>Product</option>
                 <option value="recommendation" {{ $product->section == 'recommendation' ? 'selected' : '' }}>Recommendation
                 </option>
@@ -86,7 +79,7 @@
         </div>
 
         <button type="submit" class="btn btn-success" style="margin-top:15px;">Update</button>
-        <a href="{{ route('admin.product.index') }}" class="btn btn-warning">Batal</a>
+        <a href="{{ route('admin.product.index', ['category' => $product->category]) }}" class="btn btn-warning">Batal</a>
     </form>
 @endsection
 
@@ -127,7 +120,6 @@
             discount.addEventListener("input", calculatePrice);
             section.addEventListener("change", togglePromoFields);
 
-            // jalankan saat load halaman
             togglePromoFields();
         });
     </script>
