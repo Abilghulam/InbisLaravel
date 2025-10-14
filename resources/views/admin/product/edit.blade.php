@@ -7,7 +7,6 @@
         @csrf @method('PUT')
 
         {{-- Hidden Input Redirect --}}
-        <input type="hidden" name="category" value="{{ $product->category }}">
         <input type="hidden" name="{{ $product->category }}_page" value="{{ request($product->category . '_page', 1) }}">
 
         <div>
