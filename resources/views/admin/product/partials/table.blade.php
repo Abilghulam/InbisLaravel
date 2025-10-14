@@ -55,12 +55,10 @@
                 <td>
                     <div class="action-buttons">
                         {{-- tombol edit dengan kategori aktif --}}
-                        <a href="{{ route('admin.product.edit', [
-                            'product' => $product->id,
-                            $category . '_page' => request($category . '_page', 1),
-                            'category' => $category,
-                        ]) }}"
-                            class="btn btn-sm btn-primary">Edit</a>
+                        <a href="{{ route('admin.product.edit', ['product' => $product->id, 'category' => request('category') ?? $product->category]) }}"
+                            class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
 
                         {{-- tombol hapus dengan kategori aktif --}}
                         <form
