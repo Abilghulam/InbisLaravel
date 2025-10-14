@@ -136,11 +136,18 @@ class ProductController extends Controller
 
         $product->save();
 
+        // Ambil kategori dan halaman aktif
+        $category = $request->input('category', $product->category);
+        $pageParam = $category . '_page';
+        $page = $request->input($pageParam, 1);
+
+        // Redirect kembali ke kategori & halaman semula
         return redirect()
             ->route('admin.product.index', [
-                'category' => $request->input('category', $product->category),
-            ] + $request->only($product->category . '_page')) 
-            ->with('success', "Produk kategori {$product->category} berhasil diperbarui.");
+                'category' => $category,
+                $pageParam => $page,
+            ])
+            ->with('success', "Produk kategori {$category} berhasil diperbarui.");
     }
 
     public function destroy($id)

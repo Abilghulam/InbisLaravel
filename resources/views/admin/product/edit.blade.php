@@ -79,8 +79,18 @@
             <input type="file" name="image">
         </div>
 
-        <button type="submit" class="btn btn-success" style="margin-top:15px;">Update</button>
-        <a href="{{ route('admin.product.index', ['category' => $product->category]) }}" class="btn btn-warning">Batal</a>
+        <div style="margin-top:15px;">
+            <button type="submit" class="btn btn-success">Update</button>
+
+            {{-- Tombol Batal tetap di halaman & kategori yang sama --}}
+            @php
+                $category = $product->category;
+                $pageParam = $category . '_page';
+                $currentPage = request($pageParam, 1);
+            @endphp
+            <a href="{{ route('admin.product.index', ['category' => $category, $pageParam => $currentPage]) }}"
+                class="btn btn-warning">Batal</a>
+        </div>
     </form>
 @endsection
 

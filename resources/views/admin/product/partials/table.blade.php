@@ -23,6 +23,12 @@
     </thead>
     <tbody>
         @forelse($products as $product)
+            @php
+                $category = request('category') ?? $product->category;
+                $pageParam = $category . '_page';
+                $currentPage = request($pageParam, 1);
+            @endphp
+
             <tr>
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->brand }}</td>
@@ -54,15 +60,23 @@
                 </td>
                 <td>
                     <div class="action-buttons">
-                        {{-- tombol edit dengan kategori aktif --}}
-                        <a href="{{ route('admin.product.edit', ['product' => $product->id, 'category' => request('category') ?? $product->category]) }}"
+                        {{-- Tombol Edit menyertakan kategori & halaman aktif --}}
+                        <a href="{{ route('admin.product.edit', [
+                            'product' => $product->id,
+                            'category' => $category,
+                            $pageParam => $currentPage,
+                        ]) }}"
                             class="btn btn-warning btn-sm">
                             Edit
                         </a>
 
-                        {{-- tombol hapus dengan kategori aktif --}}
+                        {{-- Tombol Hapus menyertakan kategori & halaman aktif --}}
                         <form
-                            action="{{ route('admin.product.destroy', ['product' => $product->id, 'category' => request('category') ?? $product->category]) }}"
+                            action="{{ route('admin.product.destroy', [
+                                'product' => $product->id,
+                                'category' => $category,
+                                $pageParam => $currentPage,
+                            ]) }}"
                             method="POST">
                             @csrf
                             @method('DELETE')
@@ -84,6 +98,9 @@
 
 <!-- Pagination -->
 <div class="pagination-wrapper">
-    {{-- tambahkan query agar tetap di tab kategori --}}
-    {{ $products->appends(['category' => request('category')])->links('vendor.pagination.admin') }}
+    {{-- Tambahkan query agar tetap di kategori & halaman aktif --}}
+    {{ $products->appends([
+            'category' => request('category'),
+            request('category') . '_page' => request(request('category') . '_page', 1),
+        ])->links('vendor.pagination.admin') }}
 </div>
