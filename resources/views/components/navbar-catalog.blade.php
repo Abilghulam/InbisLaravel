@@ -32,10 +32,6 @@
 
         <!-- Menu -->
         <ul class="nav-menu" id="nav-menu">
-            <li>
-                <a href="{{ route('home') }}?scroll=products" class="nav-link">Home</a>
-            </li>
-
             <!-- Dropdown Catalog -->
             <li class="dropdown">
                 <a href="javascript:void(0);" class="nav-link" onclick="toggleDropdown()" aria-expanded="false">
@@ -46,12 +42,18 @@
                             d="m19 9-7 7-7-7" />
                     </svg>
                 </a>
+
+                <!-- Back to Home -->
                 <ul class="dropdown-menu" id="dropdownMenu">
                     <li><a href="{{ route('catalog.show', ['type' => 'laptop']) }}">Laptop & Notebook</a></li>
                     <li><a href="{{ route('catalog.show', ['type' => 'pc']) }}">Dekstop Computer</a></li>
                     <li><a href="{{ route('catalog.show', ['type' => 'hp']) }}">Handphone</a></li>
                     <li><a href="{{ route('catalog.show', ['type' => 'accessories']) }}"> IT Accessories</a></li>
                 </ul>
+            </li>
+
+            <li>
+                <a href="{{ route('home') }}?scroll=products" class="nav-link">Home</a>
             </li>
         </ul>
     </div>
