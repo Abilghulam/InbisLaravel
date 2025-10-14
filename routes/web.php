@@ -70,10 +70,11 @@ Route::middleware(['auth', 'admin', 'otp.verified'])
         });
 
         // CRUD Product Management (dengan kategori opsional)
-        Route::get('product/{category?}', [\App\Http\Controllers\Admin\ProductController::class, 'index'])
+        Route::get('product/{category}', [\App\Http\Controllers\Admin\ProductController::class, 'index'])
             ->where('category', 'hp|laptop|pc|accessories')
             ->name('product.index');
-        Route::resource('product', \App\Http\Controllers\Admin\ProductController::class)->except(['index']);
+        Route::resource('product', \App\Http\Controllers\Admin\ProductController::class)
+            ->except(['index']);
 
         // CRUD Catalog Management (Hero, Promo, Brand)
         Route::prefix('catalog')->name('catalog.')->group(function () {

@@ -4,11 +4,12 @@
     <h2>Edit Produk</h2>
 
     <form action="{{ route('admin.product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf @method('PUT')
+        @csrf
+        @method('PUT')
 
         {{-- Hidden Input Redirect --}}
         <input type="hidden" name="category" value="{{ $product->category }}">
-        <input type="hidden" name="{{ $product->category }}_page" value="{{ request($product->category . '_page', 1) }}">
+        <input type="hidden" name="page" value="{{ request('page', 1) }}">
 
         <div>
             <label>Nama Produk:</label><br>
@@ -82,13 +83,12 @@
         <div style="margin-top:15px;">
             <button type="submit" class="btn btn-success">Update</button>
 
-            {{-- Tombol Batal tetap di halaman & kategori yang sama --}}
+            {{-- Tombol Batal tetap di kategori & halaman yang sama --}}
             @php
                 $category = $product->category;
-                $pageParam = $category . '_page';
-                $currentPage = request($pageParam, 1);
+                $currentPage = request('page', 1);
             @endphp
-            <a href="{{ route('admin.product.index', ['category' => $category, $pageParam => $currentPage]) }}"
+            <a href="{{ route('admin.product.index', ['category' => $category, 'page' => $currentPage]) }}"
                 class="btn btn-warning">Batal</a>
         </div>
     </form>
