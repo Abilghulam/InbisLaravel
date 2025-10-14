@@ -57,6 +57,14 @@ body {
     justify-content: space-between;
 }
 
+.nav-link svg {
+    margin-left: 6px;
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+}
+
 /* Logo */
 .logo {
     font-size: 22px;
