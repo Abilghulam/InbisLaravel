@@ -60,16 +60,24 @@
                 </td>
                 <td>
                     <div class="action-buttons">
-                        {{-- tombol edit (tetap di kategori aktif + halaman aktif) --}}
-                        <a href="{{ route('admin.product.edit', ['product' => $product->id, 'category' => $product->category]) }}?page={{ request('page', 1) }}"
+                        {{-- Tombol Edit menyertakan kategori & halaman aktif --}}
+                        <a href="{{ route('admin.product.edit', [
+                            'product' => $product->id,
+                            'category' => $category,
+                            $pageParam => $currentPage,
+                        ]) }}"
                             class="btn btn-warning btn-sm">
                             Edit
                         </a>
 
-                        {{-- tombol hapus (tetap di kategori aktif + halaman aktif) --}}
+                        {{-- Tombol Hapus menyertakan kategori & halaman aktif --}}
                         <form
-                            action="{{ route('admin.product.destroy', ['product' => $product->id, 'category' => $product->category]) }}?page={{ request('page', 1) }}"
-                            method="POST" style="display:inline-block;">
+                            action="{{ route('admin.product.destroy', [
+                                'product' => $product->id,
+                                'category' => $category,
+                                $pageParam => $currentPage,
+                            ]) }}"
+                            method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger btn-sm"
@@ -91,6 +99,8 @@
 <!-- Pagination -->
 <div class="pagination-wrapper">
     {{-- Tambahkan query agar tetap di kategori & halaman aktif --}}
-    {{ $products->links('vendor.pagination.admin') }}
-
+    {{ $products->appends([
+            'category' => request('category'),
+            request('category') . '_page' => request(request('category') . '_page', 1),
+        ])->links('vendor.pagination.admin') }}
 </div>

@@ -10,25 +10,16 @@ use App\Helpers\FileHelper;
 
 class ProductController extends Controller
 {
-   public function index($category = 'hp')
+    public function index(Request $request)
     {
-        // Validasi kategori yang diperbolehkan
-        $validCategories = ['hp', 'laptop', 'pc', 'accessories'];
-        if (!in_array($category, $validCategories)) {
-            abort(404);
-        }
+        $activeCategory = $request->query('category', 'hp');
 
-        // Ambil produk berdasarkan kategori
-        $products = Product::where('category', $category)
-            ->orderBy('created_at', 'desc')
-            ->paginate(10);
+        $hp = Product::where('category', 'hp')->latest()->paginate(10, ['*'], 'hp_page');
+        $laptop = Product::where('category', 'laptop')->latest()->paginate(10, ['*'], 'laptop_page');
+        $pc = Product::where('category', 'pc')->latest()->paginate(10, ['*'], 'pc_page');
+        $accessories = Product::where('category', 'accessories')->latest()->paginate(10, ['*'], 'accessories_page');
 
-        // Kirim data ke view
-        return view('admin.product.index', [
-            'title' => ucfirst($category),
-            'products' => $products,
-            'category' => $category,
-        ]);
+        return view('admin.product.index', compact('hp', 'laptop', 'pc', 'accessories', 'activeCategory'));
     }
 
     public function create()
@@ -122,16 +113,16 @@ class ProductController extends Controller
             'name', 'brand', 'category', 'level', 'section', 'stock', 'old_price', 'specs'
         ]));
 
-        // Hitung harga
+        
         if ($request->section === 'promo') {
             $product->discount = $request->discount;
-            $product->price = $request->old_price - ($request->old_price * $request->discount / 100);
+            $product->price    = $request->old_price - ($request->old_price * $request->discount / 100);
         } else {
             $product->discount = null;
-            $product->price = $request->old_price;
+            $product->price    = $request->old_price;
         }
 
-        // Upload gambar jika ada
+        
         if ($request->hasFile('image')) {
             if ($product->image) {
                 FileHelper::deleteFromBoth($product->image);
@@ -145,16 +136,16 @@ class ProductController extends Controller
 
         $product->save();
 
-        // ================================
-        // 🔁 Redirect ke halaman & kategori semula
-        // ================================
+        // Ambil kategori dan halaman aktif
         $category = $request->input('category', $product->category);
-        $page = $request->input('page', 1);
+        $pageParam = $category . '_page';
+        $page = $request->input($pageParam, 1);
 
+        // Redirect kembali ke kategori & halaman semula
         return redirect()
             ->route('admin.product.index', [
                 'category' => $category,
-                'page' => $page,
+                $pageParam => $page,
             ])
             ->with('success', "Produk kategori {$category} berhasil diperbarui.");
     }
