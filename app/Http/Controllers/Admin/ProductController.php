@@ -10,10 +10,8 @@ use App\Helpers\FileHelper;
 
 class ProductController extends Controller
 {
-    public function index(Request $request)
+    public function index($category)
     {
-        $activeCategory = $request->query('category', 'hp');
-
         $hp = Product::where('category', 'hp')->latest()->paginate(10, ['*'], 'hp_page');
         $laptop = Product::where('category', 'laptop')->latest()->paginate(10, ['*'], 'laptop_page');
         $pc = Product::where('category', 'pc')->latest()->paginate(10, ['*'], 'pc_page');
