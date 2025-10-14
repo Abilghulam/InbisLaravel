@@ -58,8 +58,9 @@ body {
 }
 
 .nav-link svg {
-    width: 14px;
-    height: 14px;
+    margin-right: 6px;
+    width: 16px;
+    height: 16px;
     stroke-width: 2;
     transition: transform 0.4s ease;
 }
