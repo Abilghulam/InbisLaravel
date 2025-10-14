@@ -20,6 +20,17 @@
         </div>
 
         <div style="margin-top:10px;">
+            <label>Section:</label><br>
+            <select id="section" name="section" required>
+                <option value="product" {{ $product->section == 'product' ? 'selected' : '' }}>Product</option>
+                <option value="recommendation" {{ $product->section == 'recommendation' ? 'selected' : '' }}>Recommendation
+                </option>
+                <option value="promo" {{ $product->section == 'promo' ? 'selected' : '' }}>Promo</option>
+                <option value="latest" {{ $product->section == 'latest' ? 'selected' : '' }}>Latest</option>
+            </select>
+        </div>
+
+        <div style="margin-top:10px;">
             <label>Harga Lama:</label><br>
             <input type="number" step="0.01" id="old_price" name="old_price"
                 value="{{ old('old_price', $product->old_price) }}">
@@ -43,17 +54,6 @@
                 <option value="high range" {{ $product->level == 'high range' ? 'selected' : '' }}>High Range</option>
                 <option value="mid range" {{ $product->level == 'mid range' ? 'selected' : '' }}>Mid Range</option>
                 <option value="entry level" {{ $product->level == 'entry level' ? 'selected' : '' }}>Entry Level</option>
-            </select>
-        </div>
-
-        <div style="margin-top:10px;">
-            <label>Section:</label><br>
-            <select id="section" name="section" required>
-                <option value="product" {{ $product->section == 'product' ? 'selected' : '' }}>Product</option>
-                <option value="recommendation" {{ $product->section == 'recommendation' ? 'selected' : '' }}>Recommendation
-                </option>
-                <option value="promo" {{ $product->section == 'promo' ? 'selected' : '' }}>Promo</option>
-                <option value="latest" {{ $product->section == 'latest' ? 'selected' : '' }}>Latest</option>
             </select>
         </div>
 
