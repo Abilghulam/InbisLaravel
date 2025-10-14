@@ -5,22 +5,22 @@
 
     <!-- Tabs -->
     <div class="tabs">
-        <button class="tab-link {{ request('category') == 'hp' || !request('category') ? 'active' : '' }}" data-tab="tab-hp"
+        <button class="tab-link {{ $category == 'hp' ? 'active' : '' }}"
             onclick="window.location='{{ route('admin.product.index', ['category' => 'hp']) }}'">
             Handphone
         </button>
 
-        <button class="tab-link {{ request('category') == 'laptop' ? 'active' : '' }}" data-tab="tab-laptop"
+        <button class="tab-link {{ $category == 'laptop' ? 'active' : '' }}"
             onclick="window.location='{{ route('admin.product.index', ['category' => 'laptop']) }}'">
             Laptop & Notebook
         </button>
 
-        <button class="tab-link {{ request('category') == 'pc' ? 'active' : '' }}" data-tab="tab-pc"
+        <button class="tab-link {{ $category == 'pc' ? 'active' : '' }}"
             onclick="window.location='{{ route('admin.product.index', ['category' => 'pc']) }}'">
-            Dekstop Computer
+            Desktop Computer
         </button>
 
-        <button class="tab-link {{ request('category') == 'accessories' ? 'active' : '' }}" data-tab="tab-accessories"
+        <button class="tab-link {{ $category == 'accessories' ? 'active' : '' }}"
             onclick="window.location='{{ route('admin.product.index', ['category' => 'accessories']) }}'">
             Accessories
         </button>
