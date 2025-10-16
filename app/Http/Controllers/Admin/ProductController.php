@@ -150,10 +150,10 @@ class ProductController extends Controller
             ->with('success', "Produk kategori {$category} berhasil diperbarui.");
     }
 
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $product = Product::findOrFail($id);
-        $category = $product->category; // simpan dulu kategorinya sebelum dihapus
+        $category = $product->category; 
 
         if ($product->image) {
             FileHelper::deleteFromBoth($product->image);
@@ -161,8 +161,13 @@ class ProductController extends Controller
 
         $product->delete();
 
+        $pageParam = $category . '_page';
+        $page = $request->input($pageParam, 1);
         return redirect()
-            ->route('admin.product.index', ['category' => $category])
+            ->route('admin.product.index', [
+                'category' => $category,
+                $pageParam => $page,
+            ])
             ->with('success', "Produk kategori {$category} berhasil dihapus.");
     }
 }
