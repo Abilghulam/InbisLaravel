@@ -87,4 +87,9 @@
             @endforelse
         </tbody>
     </table>
+
+    <!-- Pagination -->
+    <div class="pagination-wrapper">
+        {{ $galleries->links('vendor.pagination.admin') }}
+    </div>
 @endsection

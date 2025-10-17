@@ -11,7 +11,7 @@ class BrandPartnerController extends Controller
 {
     public function index()
     {
-        $brand_partners = BrandPartner::all();
+        $brand_partners = BrandPartner::latest()->paginate(10);
         return view('admin.home.brand.index', compact('brand_partners'));
     }
 
