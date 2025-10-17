@@ -126,18 +126,12 @@
                 'product' => 'Product',
                 'products' => 'Product',
                 'catalog' => 'Catalog',
-                'user' => 'User',
-                'users' => 'User',
-                'order' => 'Order',
-                'orders' => 'Order',
                 'create' => 'Tambah',
                 'edit' => 'Edit',
                 'show' => 'Detail',
-                'setting' => 'Pengaturan',
             ];
 
-            // ===== LOGIKA DASHBOARD UTAMA =====
-            // Jika hanya /admin atau /admin/dashboard → tampil 1 teks Dashboard saja
+            // Jika hanya /admin atau /admin/dashboard → Dashboard saja
             if (
                 (count($segments) === 1 && $segments[0] === 'admin') ||
                 (count($segments) === 2 && $segments[0] === 'admin' && $segments[1] === 'dashboard')
@@ -147,6 +141,9 @@
                 // Dashboard tetap link
                 $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
 
+                // Deteksi kategori (query parameter)
+                $category = request()->query('category');
+
                 foreach ($segments as $index => $segment) {
                     if ($segment === 'admin' || $segment === 'dashboard') {
                         continue;
@@ -155,13 +152,28 @@
                         continue;
                     }
 
-                    // Ganti label agar rapi
+                    // Ganti label
                     $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
 
-                    // Buat URL sementara
+                    // Buat URL dinamis
                     $url = url(implode('/', array_slice($segments, 0, $index + 1)));
 
-                    // Semua kecuali terakhir → link
+                    // ===== KHUSUS PRODUCT =====
+                    if ($segment === 'product') {
+                        $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
+
+                        // Jika ada kategori (hp, laptop, dll)
+                        if ($category) {
+                            $breadcrumbs[] = [
+                                'label' => Str::upper($category),
+                                'url' => url('/admin/product/' . strtolower($category)),
+                            ];
+                        }
+
+                        continue;
+                    }
+
+                    // ===== DEFAULT =====
                     if ($index !== array_key_last($segments)) {
                         $breadcrumbs[] = ['label' => $label, 'url' => $url];
                     } else {
