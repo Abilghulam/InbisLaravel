@@ -114,27 +114,55 @@
         @endif
 
         @php
+            use Illuminate\Support\Str;
+
             $segments = request()->segments();
-            $breadcrumbs = [['label' => 'Dashboard', 'url' => route('admin.dashboard')]];
+            $breadcrumbs = [];
 
-            // Buat dinamis berdasarkan URL admin/*
-            $path = '';
-            foreach ($segments as $segment) {
-                $path .= '/' . $segment;
-                $label = ucfirst(str_replace(['-', '_'], ' ', $segment));
+            // ====== Daftar nama pengganti (biar labelnya rapi) ======
+            $replacements = [
+                'admin' => 'Dashboard',
+                'product' => 'Product',
+                'products' => 'Product',
+                'user' => 'User',
+                'users' => 'User',
+                'order' => 'Order',
+                'orders' => 'Order',
+                'create' => 'Tambah',
+                'edit' => 'Edit',
+                'show' => 'Detail',
+                'setting' => 'Pengaturan',
+            ];
 
-                // Jika bukan segment terakhir, kasih URL
-                if ($segment !== end($segments)) {
+            // ====== Mulai isi breadcrumb ======
+            foreach ($segments as $index => $segment) {
+                // Skip 'admin' karena kita tidak ingin URL /admin muncul
+                if ($segment === 'admin') {
+                    continue;
+                }
+
+                // Ganti label kalau ada di daftar replacements
+                $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
+
+                // Abaikan ID numerik (contoh: /edit/5 → lewati "5")
+                if (is_numeric($segment)) {
+                    continue;
+                }
+
+                // ====== Buat link jika bukan item terakhir ======
+                if ($index !== array_key_last($segments)) {
                     $breadcrumbs[] = [
                         'label' => $label,
-                        'url' => url($path),
+                        'url' => url(implode('/', array_slice($segments, 0, $index + 1))),
                     ];
                 } else {
                     $breadcrumbs[] = ['label' => $label];
                 }
             }
-        @endphp
 
+            // Tambahkan Dashboard di paling depan tanpa URL
+            array_unshift($breadcrumbs, ['label' => 'Dashboard']);
+        @endphp
         <x-breadcrump-admin :items="$breadcrumbs" />
 
         <!-- Konten halaman -->
