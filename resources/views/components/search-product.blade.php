@@ -15,9 +15,9 @@
 
         {{-- BADGES --}}
         @if ($product->section === 'latest')
-            <span class="badge badge-new">New</span>
+            <span class="new-badge">New</span>
         @elseif ($product->section === 'recommendation')
-            <span class="badge badge-best">Best Product</span>
+            <span class="best-badge">Best Product</span>
         @endif
     </div>
 
