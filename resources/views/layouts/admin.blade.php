@@ -121,6 +121,7 @@
 
             $replacements = [
                 'admin' => 'Dashboard',
+                'dashboard' => 'Dashboard',
                 'home' => 'Home',
                 'product' => 'Product',
                 'products' => 'Product',
@@ -135,29 +136,35 @@
                 'setting' => 'Pengaturan',
             ];
 
-            // Jika hanya /admin → Dashboard (tanpa link)
-            if (count($segments) === 1 && $segments[0] === 'admin') {
+            // ===== LOGIKA DASHBOARD UTAMA =====
+            // Jika hanya /admin atau /admin/dashboard → tampil 1 teks Dashboard saja
+            if (
+                (count($segments) === 1 && $segments[0] === 'admin') ||
+                (count($segments) === 2 && $segments[0] === 'admin' && $segments[1] === 'dashboard')
+            ) {
                 $breadcrumbs[] = ['label' => 'Dashboard'];
             } else {
+                // Dashboard tetap link
+                $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
+
                 foreach ($segments as $index => $segment) {
-                    if ($segment === 'admin') {
+                    if ($segment === 'admin' || $segment === 'dashboard') {
                         continue;
-                    } // lewati admin
+                    }
                     if (is_numeric($segment)) {
                         continue;
-                    } // skip ID numerik
+                    }
 
                     // Ganti label agar rapi
                     $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
 
-                    // URL sementara untuk segment ini
+                    // Buat URL sementara
                     $url = url(implode('/', array_slice($segments, 0, $index + 1)));
 
-                    // Semua segment sebelum terakhir → link
+                    // Semua kecuali terakhir → link
                     if ($index !== array_key_last($segments)) {
                         $breadcrumbs[] = ['label' => $label, 'url' => $url];
                     } else {
-                        // Segment terakhir → teks biasa
                         $breadcrumbs[] = ['label' => $label];
                     }
                 }
