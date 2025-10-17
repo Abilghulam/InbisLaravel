@@ -140,7 +140,7 @@
                 $breadcrumbs[] = ['label' => 'Dashboard'];
             } else {
                 // Dashboard tetap link ke /admin
-                $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
+                $breadcrumbs[] = ['label' => 'Dashboard'];
 
                 foreach ($segments as $index => $segment) {
                     if ($segment === 'admin') {
