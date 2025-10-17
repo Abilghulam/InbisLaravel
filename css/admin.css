@@ -254,6 +254,40 @@ body {
     font-weight: 600;
 }
 
+/* ======== BREADCRUMB ======== */
+.breadcrumb-admin {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.breadcrumb-admin a {
+    color: #e63946;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.breadcrumb-admin a:hover {
+    text-decoration: underline;
+}
+
+.breadcrumb-admin .separator {
+    margin: 0 8px;
+    color: #999;
+}
+
+.breadcrumb-admin .current {
+    color: #333;
+    font-weight: 600;
+}
+
 /* ======== CONTENT ======== */
 .content {
     margin-left: 240px;

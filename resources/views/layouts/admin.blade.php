@@ -113,6 +113,30 @@
             </div>
         @endif
 
+        @php
+            $segments = request()->segments();
+            $breadcrumbs = [['label' => 'Dashboard', 'url' => route('admin.dashboard')]];
+
+            // Buat dinamis berdasarkan URL admin/*
+            $path = '';
+            foreach ($segments as $segment) {
+                $path .= '/' . $segment;
+                $label = ucfirst(str_replace(['-', '_'], ' ', $segment));
+
+                // Jika bukan segment terakhir, kasih URL
+                if ($segment !== end($segments)) {
+                    $breadcrumbs[] = [
+                        'label' => $label,
+                        'url' => url($path),
+                    ];
+                } else {
+                    $breadcrumbs[] = ['label' => $label];
+                }
+            }
+        @endphp
+
+        <x-breadcrump-admin :items="$breadcrumbs" />
+
         <!-- Konten halaman -->
         @yield('content')
 
