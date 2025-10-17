@@ -762,16 +762,39 @@ body {
     display: block;
 }
 
-.recommendation-card img {
-    max-width: 100%;
-    height: 200px;
+.recommendation-card .image-wrapper {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.recommendation-card .recommendation-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
     object-fit: contain;
-    margin-bottom: 8px;
+    margin-top: 25px;
+    margin-bottom: 10px;
     transition: transform 0.3s ease;
 }
 
-.recommendation-card:hover img {
+.recommendation-card:hover .recommendation-image {
     transform: scale(1.05);
+}
+
+.recommendation-card .best-badge {
+    position: absolute;
+    bottom: -5px;
+    left: 10px;
+    background: linear-gradient(90deg, #00bfff, #0094f7);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    padding: 5px 14px;
+    border-radius: 999px; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 2;
 }
 
 .recommendation-card h3 {
@@ -866,6 +889,12 @@ body {
     .recommendation-card .brand-logo {
         width: 50px;
         height: 50px;
+    }
+
+    .recommendation-card .best-badge {
+    font-size: 0.65rem;
+    padding: 3px 8px;
+    bottom: -6px;
     }
 
     .recommendation-card h3 {

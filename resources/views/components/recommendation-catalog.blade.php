@@ -23,9 +23,12 @@
                                 alt="{{ $item->brand }}">
                         </div>
 
-                        <!-- Product Image -->
-                        <img class="recommendation-image" src="{{ asset($item->image) }}" alt="{{ $item->name }}"
-                            loading="lazy">
+                        <!-- Product Image + Badge -->
+                        <div class="image-wrapper">
+                            <img class="recommendation-image" src="{{ asset($item->image) }}"
+                                alt="{{ $item->name }}" loading="lazy">
+                            <div class="best-badge">Terbaik</div>
+                        </div>
 
                         <!-- Product Info -->
                         <h3>{{ $item->name }}</h3>
