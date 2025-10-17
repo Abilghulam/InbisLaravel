@@ -10,7 +10,7 @@ class CustomerReviewController extends Controller
 {
     public function index()
     {
-        $customer_reviews = CustomerReview::all();
+        $customer_reviews = CustomerReview::latest()->paginate(10);
         return view('admin.home.review.index', compact('customer_reviews'));
     }
 

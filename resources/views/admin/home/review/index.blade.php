@@ -91,4 +91,9 @@
             @endforelse
         </tbody>
     </table>
+
+    <!-- Pagination -->
+    <div class="pagination-wrapper">
+        {{ $customer_reviews->links('vendor.pagination.admin') }}
+    </div>
 @endsection
