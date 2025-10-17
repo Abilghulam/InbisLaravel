@@ -119,11 +119,12 @@
             $segments = request()->segments();
             $breadcrumbs = [];
 
-            // ====== Daftar nama pengganti (biar labelnya rapi) ======
             $replacements = [
                 'admin' => 'Dashboard',
+                'home' => 'Home',
                 'product' => 'Product',
                 'products' => 'Product',
+                'catalog' => 'Catalog',
                 'user' => 'User',
                 'users' => 'User',
                 'order' => 'Order',
@@ -134,34 +135,36 @@
                 'setting' => 'Pengaturan',
             ];
 
-            // ====== Mulai isi breadcrumb ======
-            foreach ($segments as $index => $segment) {
-                // Skip 'admin' karena kita tidak ingin URL /admin muncul
-                if ($segment === 'admin') {
-                    continue;
-                }
+            // Jika hanya /admin → Dashboard (tanpa link)
+            if (count($segments) === 1 && $segments[0] === 'admin') {
+                $breadcrumbs[] = ['label' => 'Dashboard'];
+            } else {
+                // Dashboard tetap link ke /admin
+                $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin')];
 
-                // Ganti label kalau ada di daftar replacements
-                $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
+                foreach ($segments as $index => $segment) {
+                    if ($segment === 'admin') {
+                        continue;
+                    } // lewati admin
+                    if (is_numeric($segment)) {
+                        continue;
+                    } // skip ID numerik
 
-                // Abaikan ID numerik (contoh: /edit/5 → lewati "5")
-                if (is_numeric($segment)) {
-                    continue;
-                }
+                    // Ganti label agar rapi
+                    $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
 
-                // ====== Buat link jika bukan item terakhir ======
-                if ($index !== array_key_last($segments)) {
-                    $breadcrumbs[] = [
-                        'label' => $label,
-                        'url' => url(implode('/', array_slice($segments, 0, $index + 1))),
-                    ];
-                } else {
-                    $breadcrumbs[] = ['label' => $label];
+                    // URL sementara untuk segment ini
+                    $url = url(implode('/', array_slice($segments, 0, $index + 1)));
+
+                    // Semua segment sebelum terakhir → link
+                    if ($index !== array_key_last($segments)) {
+                        $breadcrumbs[] = ['label' => $label, 'url' => $url];
+                    } else {
+                        // Segment terakhir → teks biasa
+                        $breadcrumbs[] = ['label' => $label];
+                    }
                 }
             }
-
-            // Tambahkan Dashboard di paling depan tanpa URL
-            array_unshift($breadcrumbs, ['label' => 'Dashboard']);
         @endphp
         <x-breadcrump-admin :items="$breadcrumbs" />
 

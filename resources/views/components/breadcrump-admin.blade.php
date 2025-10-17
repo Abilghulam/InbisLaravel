@@ -1,12 +1,12 @@
 @props(['items' => []])
 
 <nav class="breadcrumb-admin">
-    @foreach ($items as $index => $item)
-        @if (isset($item['url']) && $index < count($items) - 1)
-            <a href="{{ $item['url'] }}">{{ $item['label'] }}</a>
+    @foreach ($breadcrumbs as $index => $crumb)
+        @if (!empty($crumb['url']) && $index !== array_key_last($breadcrumbs))
+            <a href="{{ $crumb['url'] }}">{{ $crumb['label'] }}</a>
             <span class="separator">›</span>
         @else
-            <span class="current">{{ $item['label'] }}</span>
+            <span class="current">{{ $crumb['label'] }}</span>
         @endif
     @endforeach
 </nav>
