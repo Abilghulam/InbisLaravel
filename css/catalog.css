@@ -784,21 +784,19 @@ body {
 
 .recommendation-card .best-badge {
     position: absolute;
-    bottom: -5px; 
-    left: 0; 
-    background-color: #00bfff;
+    bottom: -5px;
+    left: 10px;
+    background-color: #3396D3;
     color: #fff;
     font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: capitalize;
-    padding: 6px 18px 6px 14px; 
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 30px;
-    border-bottom-right-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    letter-spacing: 0.5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    width: 65%;
-    text-align: left;
+    z-index: 2;
 }
 
 .recommendation-card h3 {
