@@ -12,9 +12,6 @@
                         data-price-label="Rp {{ number_format($item->price, 0, ',', '.') }}" data-old-price=""
                         data-stock="{{ $item->stock }}" data-specs="{!! $item->specs !!}">
 
-                        {{-- Badge Produk Terbaru --}}
-                        <div class="new-badge">New Product</div>
-
                         {{-- Logo Brand --}}
                         <div class="brand-logo">
                             <img src="{{ asset('img/brand/' . strtolower($item->brand) . '.png') }}"
@@ -24,6 +21,9 @@
                         {{-- Gambar Produk --}}
                         <img class="latest-image" src="{{ asset($item->image) }}" alt="{{ $item->name }}"
                             loading="lazy">
+
+                        {{-- Badge Produk Terbaru --}}
+                        <div class="new-badge">New</div>
 
                         {{-- Nama Produk --}}
                         <h3>{{ $item->name }}</h3>

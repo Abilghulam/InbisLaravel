@@ -1236,20 +1236,6 @@ body {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
-.new-badge {
-    position: absolute;
-    top: 10px;
-    left: -28px;
-    background: #0c1e80;
-    color: #fff;
-    padding: 6px 45px;
-    font-size: 13px;
-    font-weight: 700;
-    text-align: center;
-    transform: rotate(-45deg);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
 .latest-card .latest-image {
     width: 100%;
     aspect-ratio: 3 / 4;
@@ -1291,6 +1277,22 @@ body {
 
 .latest-card:hover img {
     transform: scale(1.05);
+}
+
+.latest-card .new-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #2ecc71;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 12px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 2;
 }
 
 .latest-card h3 {
