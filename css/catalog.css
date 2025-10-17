@@ -1280,21 +1280,20 @@ body {
 }
 
 .latest-card .new-badge {
-    display: inline-block;
+    position: absolute;
+    top: 10px;
+    left: 10px;
     background-color: #6bb928;
     color: #fff;
     font-size: 0.75rem;
     font-weight: 700;
     text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: 8px 20px 20px 8px;
+    padding: 4px 10px;
+    border-top-left-radius: 12px;
+    border-bottom-right-radius: 12px;
     letter-spacing: 0.5px;
-    margin-top: 6px;
-    margin-bottom: 8px;
-    text-align: left; 
-    align-self: flex-start; 
-    position: relative;
-    left: 0; 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 2;
 }
 
 .latest-card h3 {
