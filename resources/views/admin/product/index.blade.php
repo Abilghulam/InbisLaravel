@@ -58,36 +58,22 @@
 
 @push('scripts')
     <script>
-        // ====== Handle Switching Tab Manual ======
         document.querySelectorAll('.tab-link').forEach(btn => {
-            btn.addEventListener('click', () => {
+            btn.addEventListener('click', (e) => {
+                // biar ga tumpang tindih antara onclick HTML
+                e.stopPropagation();
+                e.preventDefault();
+
+                // ubah visual active tanpa reload
                 document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
                 document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
                 btn.classList.add('active');
                 document.getElementById(btn.dataset.tab).classList.add('active');
-                // Update query URL agar bisa direload
+
+                // lalu lakukan redirect manual
                 const category = btn.dataset.tab.replace('tab-', '');
-                const newUrl = new URL(window.location.href);
-                newUrl.searchParams.set('category', category);
-                window.history.replaceState({}, '', newUrl);
+                window.location.href = `/admin/product/${category}`;
             });
         });
-
-        // ====== Auto-Open Tab Berdasarkan ?category= ======
-        const urlParams = new URLSearchParams(window.location.search);
-        const category = urlParams.get('category');
-        if (category) {
-            document.querySelectorAll('.tab-link').forEach(btn => btn.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            const activeBtn = document.querySelector(`[data-tab="tab-${category}"]`);
-            const activeTab = document.querySelector(`#tab-${category}`);
-            if (activeBtn && activeTab) {
-                activeBtn.classList.add('active');
-                activeTab.classList.add('active');
-                activeTab.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        }
     </script>
 @endpush
