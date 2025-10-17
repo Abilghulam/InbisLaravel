@@ -1288,7 +1288,6 @@ body {
 
 .latest-card .new-badge {
     position: absolute;
-    bottom: -10px;
     left: 10px;
     background-color: #6bb928;
     color: #fff;
