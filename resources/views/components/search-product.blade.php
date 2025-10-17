@@ -1,13 +1,25 @@
 @props(['product'])
 
-<div class="product-card {{ $product->section === 'promo' ? 'promo-card' : '' }}" data-name="{{ $product->name }}"
-    data-brand="{{ $product->brand }}" data-category="{{ $product->category }}" data-level="{{ $product->level }}"
-    data-image="{{ asset($product->image) }}" data-price="{{ $product->price }}"
+<div class="product-card 
+    {{ $product->section === 'promo' ? 'promo-card' : '' }}
+    {{ $product->section === 'latest' ? 'latest-card' : '' }}
+    {{ $product->section === 'recommendation' ? 'recommendation-card' : '' }}"
+    data-name="{{ $product->name }}" data-brand="{{ $product->brand }}" data-category="{{ $product->category }}"
+    data-level="{{ $product->level }}" data-image="{{ asset($product->image) }}" data-price="{{ $product->price }}"
     data-price-label="Rp {{ number_format($product->price, 0, ',', '.') }}" data-old-price="{{ $product->old_price }}"
     data-stock="{{ $product->stock }}">
 
     <!-- Product Image -->
-    <img class="product-image" src="{{ asset($product->image) }}" alt="{{ $product->name }}" loading="lazy">
+    <div class="image-wrapper">
+        <img class="product-image" src="{{ asset($product->image) }}" alt="{{ $product->name }}" loading="lazy">
+
+        {{-- BADGES --}}
+        @if ($product->section === 'latest')
+            <span class="badge badge-new">New</span>
+        @elseif ($product->section === 'recommendation')
+            <span class="badge badge-best">Best Product</span>
+        @endif
+    </div>
 
     <!-- Brand Logo -->
     <div class="brand-logo">
@@ -17,15 +29,12 @@
     <!-- Product Info -->
     <h3>{{ $product->name }}</h3>
 
-    {{-- Jika promo --}}
     @if ($product->section === 'promo')
         @if (!empty($product->old_price))
             <p class="old-price">Rp {{ number_format($product->old_price, 0, ',', '.') }}</p>
         @endif
         <p class="price highlight">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
-        <span class="badge-promo">Promo</span>
     @else
-        {{-- Produk biasa --}}
         <p class="price">Rp {{ number_format($product->price, 0, ',', '.') }}</p>
     @endif
 
