@@ -27,7 +27,7 @@
                         <div class="image-wrapper">
                             <img class="recommendation-image" src="{{ asset($item->image) }}"
                                 alt="{{ $item->name }}" loading="lazy">
-                            <div class="best-badge">Terbaik</div>
+                            <div class="best-badge">Best Product</div>
                         </div>
 
                         <!-- Product Info -->
