@@ -762,6 +762,14 @@ body {
     display: block;
 }
 
+.recommendation-card img {
+    max-width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+}
+
 .recommendation-card .image-wrapper {
     position: relative;
     width: 100%;
