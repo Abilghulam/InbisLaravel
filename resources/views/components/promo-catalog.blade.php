@@ -64,7 +64,7 @@
 
                             {{-- Badge Diskon --}}
                             @if ($discount > 0)
-                                <div class="discount-badge">-{{ $discount }}%</div>
+                                <div class="discount-badge">{{ $discount }}%</div>
                             @endif
 
                             {{-- Logo Brand --}}
