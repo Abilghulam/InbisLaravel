@@ -37,15 +37,12 @@
         <a href="{{ route('admin.dashboard') }}"
             class="{{ Route::is('admin.dashboard') ? 'active' : '' }}">Dashboard</a>
 
-        <a href="{{ route('admin.home.index') }}" class="{{ Route::is('admin.home.index') ? 'active' : '' }}">Kelola
-            Home</a>
+        <a href="{{ route('admin.home.index') }}" class="{{ Route::is('admin.home*') ? 'active' : '' }}">Kelola Home</a>
 
-        <a href="{{ route('admin.product.index') }}"
-            class="{{ Route::is('admin.product.index') ? 'active' : '' }}">Kelola
+        <a href="{{ route('admin.product.index') }}" class="{{ Route::is('admin.product*') ? 'active' : '' }}">Kelola
             Product</a>
 
-        <a href="{{ route('admin.catalog.index') }}"
-            class="{{ Route::is('admin.catalog.index') ? 'active' : '' }}">Kelola
+        <a href="{{ route('admin.catalog.index') }}" class="{{ Route::is('admin.catalog*') ? 'active' : '' }}">Kelola
             Catalog</a>
 
         <!-- Profil Admin di Sidebar Bawah -->
