@@ -256,8 +256,9 @@ body {
 
 /* ======== CONTENT ======== */
 .content {
+    margin-left: 240px;
+    padding: 20px;
     flex: 1;
-    padding: 25px;
 }
 
 /* ======== TITLES ======== */
