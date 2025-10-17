@@ -55,25 +55,3 @@
         ])
     </div>
 @endsection
-
-@push('scripts')
-    <script>
-        document.querySelectorAll('.tab-link').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // biar ga tumpang tindih antara onclick HTML
-                e.stopPropagation();
-                e.preventDefault();
-
-                // ubah visual active tanpa reload
-                document.querySelectorAll('.tab-link').forEach(el => el.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-                btn.classList.add('active');
-                document.getElementById(btn.dataset.tab).classList.add('active');
-
-                // lalu lakukan redirect manual
-                const category = btn.dataset.tab.replace('tab-', '');
-                window.location.href = `/admin/product/${category}`;
-            });
-        });
-    </script>
-@endpush
