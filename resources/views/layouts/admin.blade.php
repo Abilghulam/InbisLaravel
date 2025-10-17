@@ -139,9 +139,6 @@
             if (count($segments) === 1 && $segments[0] === 'admin') {
                 $breadcrumbs[] = ['label' => 'Dashboard'];
             } else {
-                // Dashboard tetap link ke /admin
-                $breadcrumbs[] = ['label' => 'Dashboard'];
-
                 foreach ($segments as $index => $segment) {
                     if ($segment === 'admin') {
                         continue;
