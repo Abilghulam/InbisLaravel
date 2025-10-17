@@ -1236,6 +1236,13 @@ body {
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
 }
 
+.latest-card .image-wrapper {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 12px;
+}
+
 .latest-card .latest-image {
     width: 100%;
     aspect-ratio: 3 / 4;
@@ -1275,14 +1282,14 @@ body {
     transition: transform 0.3s ease;
 }
 
-.latest-card:hover img {
+.latest-card:hover .latest-image {
     transform: scale(1.05);
 }
 
 .latest-card .new-badge {
-    display: inline-block;
-    margin-top: 8px; /* jarak dari gambar */
-    align-self: flex-start; /* posisikan ke kiri */
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
     background-color: #6bb928;
     color: #fff;
     font-size: 0.75rem;
@@ -1293,6 +1300,7 @@ body {
     border-bottom-right-radius: 12px;
     letter-spacing: 0.5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    z-index: 2;
 }
 
 .latest-card h3 {

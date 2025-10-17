@@ -18,12 +18,12 @@
                                 alt="{{ $item->brand }}">
                         </div>
 
-                        {{-- Gambar Produk --}}
-                        <img class="latest-image" src="{{ asset($item->image) }}" alt="{{ $item->name }}"
-                            loading="lazy">
-
-                        {{-- Badge Produk Terbaru --}}
-                        <div class="new-badge">New</div>
+                        {{-- Gambar Produk + Badge --}}
+                        <div class="image-wrapper">
+                            <img class="latest-image" src="{{ asset($item->image) }}" alt="{{ $item->name }}"
+                                loading="lazy">
+                            <div class="new-badge">New</div>
+                        </div>
 
                         {{-- Nama Produk --}}
                         <h3>{{ $item->name }}</h3>
