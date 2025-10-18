@@ -276,17 +276,6 @@ body {
     transition: color 0.2s ease;
 }
 
-.breadcrumb-admin a::after {
-    content: "›";
-    color: #b5b5b5;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translateY(1px);
-    font-size: 15px;
-    font-weight: 400;
-}
-
 .breadcrumb-admin a:hover {
     color: #b71c1c;
 }
