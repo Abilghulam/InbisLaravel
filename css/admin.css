@@ -279,8 +279,8 @@ body {
 }
 
 .breadcrumb-admin .separator {
+    color: #aaa;
     margin: 0 4px;
-    color: #999;
 }
 
 .breadcrumb-admin .current {
