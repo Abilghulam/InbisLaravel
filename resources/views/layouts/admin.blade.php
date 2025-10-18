@@ -119,7 +119,7 @@
             $segments = request()->segments();
             $breadcrumbs = [];
 
-            // Label pengganti default
+            // Label dasar
             $replacements = [
                 'admin' => 'Dashboard',
                 'dashboard' => 'Dashboard',
@@ -132,7 +132,7 @@
                 'show' => 'Detail',
             ];
 
-            // Label kategori cantik
+            // Label kategori rapi
             $categoryLabels = [
                 'laptop' => 'Laptop & Notebook',
                 'hp' => 'Handphone',
@@ -140,7 +140,7 @@
                 'accessories' => 'Accessories',
             ];
 
-            // Jika hanya /admin → Dashboard saja
+            // Kalau cuma /admin → tampil Dashboard saja
             if (
                 (count($segments) === 1 && $segments[0] === 'admin') ||
                 (count($segments) === 2 && $segments[0] === 'admin' && $segments[1] === 'dashboard')
@@ -150,54 +150,48 @@
                 // Dashboard selalu link
                 $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
 
-                foreach ($segments as $index => $segment) {
-                    // Lewati admin & dashboard
-                    if ($segment === 'admin' || $segment === 'dashboard') {
-                        continue;
+                // Jika URL mengandung 'product'
+                if (in_array('product', $segments)) {
+                    $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
+
+                    // Ambil kategori dari segmen setelah 'product'
+                    $productIndex = array_search('product', $segments);
+                    $categorySlug = $segments[$productIndex + 1] ?? null;
+
+                    if ($categorySlug && !in_array($categorySlug, ['create', 'edit']) && !is_numeric($categorySlug)) {
+                        $slug = strtolower($categorySlug);
+                        $category = $categoryLabels[$slug] ?? Str::title($slug);
+
+                        $breadcrumbs[] = [
+                            'label' => $category,
+                            'url' => url("/admin/product/{$slug}"),
+                        ];
                     }
 
-                    // Lewati ID numerik
-                    if (is_numeric($segment)) {
-                        continue;
+                    // Tambah Edit / Create jika ada
+                    if (in_array('create', $segments)) {
+                        $breadcrumbs[] = ['label' => 'Tambah'];
+                    } elseif (in_array('edit', $segments)) {
+                        $breadcrumbs[] = ['label' => 'Edit'];
                     }
-
-                    // ==== KHUSUS UNTUK PRODUCT ====
-                    if ($segment === 'product') {
-                        $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
-
-                        // Ambil kategori dari segmen setelah 'product'
-                        $categorySlug = $segments[$index + 1] ?? null;
-                        if (
-                            $categorySlug &&
-                            !in_array($categorySlug, ['create', 'edit']) &&
-                            !is_numeric($categorySlug)
-                        ) {
-                            $slug = strtolower($categorySlug);
-                            $category = $categoryLabels[$slug] ?? Str::title($slug);
-                            $breadcrumbs[] = [
-                                'label' => $category,
-                                'url' => url("/admin/product/{$slug}"),
-                            ];
+                } else {
+                    // ==== DEFAULT untuk halaman lain ====
+                    foreach ($segments as $index => $segment) {
+                        if ($segment === 'admin' || $segment === 'dashboard') {
+                            continue;
+                        }
+                        if (is_numeric($segment)) {
+                            continue;
                         }
 
-                        // Cek apakah URL berisi create/edit
-                        if (in_array('create', $segments)) {
-                            $breadcrumbs[] = ['label' => 'Tambah'];
-                        } elseif (in_array('edit', $segments)) {
-                            $breadcrumbs[] = ['label' => 'Edit'];
+                        $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
+                        $url = url(implode('/', array_slice($segments, 0, $index + 1)));
+
+                        if ($index !== array_key_last($segments)) {
+                            $breadcrumbs[] = ['label' => $label, 'url' => $url];
+                        } else {
+                            $breadcrumbs[] = ['label' => $label];
                         }
-
-                        break; // stop di sini
-                    }
-
-                    // ==== DEFAULT ====
-                    $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
-                    $url = url(implode('/', array_slice($segments, 0, $index + 1)));
-
-                    if ($index !== array_key_last($segments)) {
-                        $breadcrumbs[] = ['label' => $label, 'url' => $url];
-                    } else {
-                        $breadcrumbs[] = ['label' => $label];
                     }
                 }
             }
