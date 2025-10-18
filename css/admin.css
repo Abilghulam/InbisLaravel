@@ -263,22 +263,26 @@ body {
     font-size: 14px;
     font-weight: 500;
     color: #555;
-    margin-bottom: 20px;
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px 14px;
     font-family: "SF Pro Text", "Segoe UI", Arial, sans-serif;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-/* Link umum */
 .breadcrumb-admin a {
-    color: #007aff;
+    color: #d32f2f; 
     text-decoration: none;
     position: relative;
-    padding-right: 0.8rem;
+    padding-right: 1rem;
     transition: color 0.2s ease;
 }
 
 .breadcrumb-admin a::after {
     content: "›";
-    color: #aaa;
+    color: #b5b5b5;
     position: absolute;
     right: 0;
     top: 0;
@@ -292,11 +296,11 @@ body {
 }
 
 .breadcrumb-admin a:hover {
-    color: #0056b3;
+    color: #b71c1c; 
 }
 
 .breadcrumb-admin .current {
-    color: #333;
+    color: #222;
     font-weight: 600;
     padding-left: 0.2rem;
 }
