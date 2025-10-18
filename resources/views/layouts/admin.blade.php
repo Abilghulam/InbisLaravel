@@ -119,7 +119,7 @@
             $segments = request()->segments();
             $breadcrumbs = [];
 
-            // Peta pengganti label default
+            // Label pengganti default
             $replacements = [
                 'admin' => 'Dashboard',
                 'dashboard' => 'Dashboard',
@@ -132,7 +132,7 @@
                 'show' => 'Detail',
             ];
 
-            // Peta kategori (slug → label)
+            // Label kategori cantik
             $categoryLabels = [
                 'laptop' => 'Laptop & Notebook',
                 'hp' => 'Handphone',
@@ -140,39 +140,39 @@
                 'accessories' => 'Accessories',
             ];
 
-            // Jika hanya /admin atau /admin/dashboard → Dashboard saja
+            // Jika hanya /admin → Dashboard saja
             if (
                 (count($segments) === 1 && $segments[0] === 'admin') ||
                 (count($segments) === 2 && $segments[0] === 'admin' && $segments[1] === 'dashboard')
             ) {
                 $breadcrumbs[] = ['label' => 'Dashboard'];
             } else {
-                // Dashboard tetap link
+                // Dashboard selalu link
                 $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
 
                 foreach ($segments as $index => $segment) {
+                    // Lewati admin & dashboard
                     if ($segment === 'admin' || $segment === 'dashboard') {
                         continue;
                     }
 
-                    // Lewati segment numerik (ID produk)
+                    // Lewati ID numerik
                     if (is_numeric($segment)) {
                         continue;
                     }
 
-                    // Ganti label default
+                    // Buat label default
                     $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
-
-                    // Buat URL sampai segment ini
                     $url = url(implode('/', array_slice($segments, 0, $index + 1)));
 
                     // ==== KHUSUS UNTUK PRODUCT ====
                     if ($segment === 'product') {
                         $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
 
-                        // Cek apakah ada kategori di segment berikutnya
-                        if (isset($segments[$index + 1]) && !in_array($segments[$index + 1], ['create', 'edit'])) {
-                            $slug = strtolower($segments[$index + 1]);
+                        // Jika ada kategori (misal laptop, hp, dll)
+                        $next = $segments[$index + 1] ?? null;
+                        if ($next && !in_array($next, ['create', 'edit']) && !is_numeric($next)) {
+                            $slug = strtolower($next);
                             $category = $categoryLabels[$slug] ?? Str::title($slug);
 
                             $breadcrumbs[] = [
@@ -181,14 +181,14 @@
                             ];
                         }
 
-                        // Jika ada 'create' atau 'edit' di URL
+                        // Jika sedang create/edit (dan lewati ID setelahnya)
                         if (in_array('create', $segments)) {
                             $breadcrumbs[] = ['label' => 'Tambah'];
                         } elseif (in_array('edit', $segments)) {
                             $breadcrumbs[] = ['label' => 'Edit'];
                         }
 
-                        break; // hentikan loop agar tidak dobel
+                        break; // stop agar tidak nambah dobel
                     }
 
                     // ==== DEFAULT ====
