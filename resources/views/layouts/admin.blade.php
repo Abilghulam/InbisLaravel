@@ -119,6 +119,7 @@
             $segments = request()->segments();
             $breadcrumbs = [];
 
+            // Peta pengganti label default
             $replacements = [
                 'admin' => 'Dashboard',
                 'dashboard' => 'Dashboard',
@@ -131,6 +132,14 @@
                 'show' => 'Detail',
             ];
 
+            // Peta kategori (slug → label)
+            $categoryLabels = [
+                'laptop' => 'Laptop & Notebook',
+                'hp' => 'Handphone',
+                'pc' => 'Dekstop Computer',
+                'accessories' => 'Accessories',
+            ];
+
             // Jika hanya /admin atau /admin/dashboard → Dashboard saja
             if (
                 (count($segments) === 1 && $segments[0] === 'admin') ||
@@ -141,9 +150,7 @@
                 // Dashboard tetap link
                 $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
 
-                // Deteksi kategori (query parameter)
-                $category = request()->query('category');
-
+                // Loop setiap segment URL
                 foreach ($segments as $index => $segment) {
                     if ($segment === 'admin' || $segment === 'dashboard') {
                         continue;
@@ -152,28 +159,38 @@
                         continue;
                     }
 
-                    // Ganti label
+                    // Ganti label default
                     $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
 
-                    // Buat URL dinamis
+                    // Buat URL sampai segment ini
                     $url = url(implode('/', array_slice($segments, 0, $index + 1)));
 
-                    // ===== KHUSUS PRODUCT =====
+                    // ==== KHUSUS UNTUK PRODUCT ====
                     if ($segment === 'product') {
                         $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
 
-                        // Jika ada kategori (hp, laptop, dll)
-                        if ($category) {
+                        // Cek apakah ada kategori (slug) di segment berikutnya
+                        if (isset($segments[$index + 1]) && !in_array($segments[$index + 1], ['create', 'edit'])) {
+                            $slug = strtolower($segments[$index + 1]);
+                            $category = $categoryLabels[$slug] ?? Str::title($slug);
+
                             $breadcrumbs[] = [
-                                'label' => Str::upper($category),
-                                'url' => url('/admin/product/' . strtolower($category)),
+                                'label' => $category,
+                                'url' => url("/admin/product/{$slug}"),
                             ];
                         }
 
-                        continue;
+                        // Jika ada 'create' atau 'edit' di URL
+                        if (in_array('create', $segments)) {
+                            $breadcrumbs[] = ['label' => 'Tambah'];
+                        } elseif (in_array('edit', $segments)) {
+                            $breadcrumbs[] = ['label' => 'Edit'];
+                        }
+
+                        break; // hentikan loop di sini agar tidak duplikat
                     }
 
-                    // ===== DEFAULT =====
+                    // ==== DEFAULT ====
                     if ($index !== array_key_last($segments)) {
                         $breadcrumbs[] = ['label' => $label, 'url' => $url];
                     } else {
@@ -182,6 +199,7 @@
                 }
             }
         @endphp
+
         <x-breadcrump-admin :items="$breadcrumbs" />
 
         <!-- Konten halaman -->
