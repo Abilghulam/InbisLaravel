@@ -140,7 +140,13 @@
                 'accessories' => 'Accessories',
             ];
 
-            // Kalau cuma /admin → tampil Dashboard saja
+            // Tangkap kategori dari query string (bukan segmen)
+            $categorySlug = request()->query('category');
+            $categoryName = $categorySlug
+                ? $categoryLabels[strtolower($categorySlug)] ?? Str::title($categorySlug)
+                : null;
+
+            // Jika hanya /admin atau /admin/dashboard → Dashboard saja
             if (
                 (count($segments) === 1 && $segments[0] === 'admin') ||
                 (count($segments) === 2 && $segments[0] === 'admin' && $segments[1] === 'dashboard')
@@ -150,32 +156,26 @@
                 // Dashboard selalu link
                 $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
 
-                // Jika URL mengandung 'product'
+                // ==== KHUSUS PRODUCT ====
                 if (in_array('product', $segments)) {
                     $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
 
-                    // Ambil kategori dari segmen setelah 'product'
-                    $productIndex = array_search('product', $segments);
-                    $categorySlug = $segments[$productIndex + 1] ?? null;
-
-                    if ($categorySlug && !in_array($categorySlug, ['create', 'edit']) && !is_numeric($categorySlug)) {
-                        $slug = strtolower($categorySlug);
-                        $category = $categoryLabels[$slug] ?? Str::title($slug);
-
+                    // Jika ada kategori dari query string
+                    if ($categorySlug) {
                         $breadcrumbs[] = [
-                            'label' => $category,
-                            'url' => url("/admin/product/{$slug}"),
+                            'label' => $categoryName,
+                            'url' => url('/admin/product?category=' . $categorySlug),
                         ];
                     }
 
-                    // Tambah Edit / Create jika ada
+                    // Tambahkan jika sedang Create/Edit
                     if (in_array('create', $segments)) {
                         $breadcrumbs[] = ['label' => 'Tambah'];
                     } elseif (in_array('edit', $segments)) {
                         $breadcrumbs[] = ['label' => 'Edit'];
                     }
                 } else {
-                    // ==== DEFAULT untuk halaman lain ====
+                    // ==== DEFAULT UNTUK HALAMAN LAIN ====
                     foreach ($segments as $index => $segment) {
                         if ($segment === 'admin' || $segment === 'dashboard') {
                             continue;
