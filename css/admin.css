@@ -269,10 +269,9 @@ body {
 }
 
 .breadcrumb-admin a {
-    color: #d32f2f;
+    color: #d32f2f; 
     text-decoration: none;
     position: relative;
-    padding-right: 1rem;
     transition: color 0.2s ease;
 }
 
@@ -280,19 +279,18 @@ body {
     color: #b71c1c;
 }
 
-.breadcrumb-admin .separator {
-    color: #aaa;
-    margin: 0 8px;
-}
-
 .breadcrumb-admin a:last-of-type::after {
     content: "";
 }
 
+.breadcrumb-admin .separator {
+    margin: 0 8px;
+    color: #999;
+}
+
 .breadcrumb-admin .current {
-    color: #222;
+    color: #333;
     font-weight: 600;
-    padding-left: 0.2rem;
 }
 
 /* ======== CONTENT ======== */
