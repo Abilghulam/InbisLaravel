@@ -161,37 +161,39 @@
                         continue;
                     }
 
-                    // Buat label default
-                    $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
-                    $url = url(implode('/', array_slice($segments, 0, $index + 1)));
-
                     // ==== KHUSUS UNTUK PRODUCT ====
                     if ($segment === 'product') {
                         $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
 
-                        // Jika ada kategori (misal laptop, hp, dll)
-                        $next = $segments[$index + 1] ?? null;
-                        if ($next && !in_array($next, ['create', 'edit']) && !is_numeric($next)) {
-                            $slug = strtolower($next);
+                        // Ambil kategori dari segmen setelah 'product'
+                        $categorySlug = $segments[$index + 1] ?? null;
+                        if (
+                            $categorySlug &&
+                            !in_array($categorySlug, ['create', 'edit']) &&
+                            !is_numeric($categorySlug)
+                        ) {
+                            $slug = strtolower($categorySlug);
                             $category = $categoryLabels[$slug] ?? Str::title($slug);
-
                             $breadcrumbs[] = [
                                 'label' => $category,
                                 'url' => url("/admin/product/{$slug}"),
                             ];
                         }
 
-                        // Jika sedang create/edit (dan lewati ID setelahnya)
+                        // Cek apakah URL berisi create/edit
                         if (in_array('create', $segments)) {
                             $breadcrumbs[] = ['label' => 'Tambah'];
                         } elseif (in_array('edit', $segments)) {
                             $breadcrumbs[] = ['label' => 'Edit'];
                         }
 
-                        break; // stop agar tidak nambah dobel
+                        break; // stop di sini
                     }
 
                     // ==== DEFAULT ====
+                    $label = $replacements[$segment] ?? Str::title(str_replace(['-', '_'], ' ', $segment));
+                    $url = url(implode('/', array_slice($segments, 0, $index + 1)));
+
                     if ($index !== array_key_last($segments)) {
                         $breadcrumbs[] = ['label' => $label, 'url' => $url];
                     } else {
