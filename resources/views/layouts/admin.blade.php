@@ -150,11 +150,12 @@
                 // Dashboard tetap link
                 $breadcrumbs[] = ['label' => 'Dashboard', 'url' => url('/admin/dashboard')];
 
-                // Loop setiap segment URL
                 foreach ($segments as $index => $segment) {
                     if ($segment === 'admin' || $segment === 'dashboard') {
                         continue;
                     }
+
+                    // Lewati segment numerik (ID produk)
                     if (is_numeric($segment)) {
                         continue;
                     }
@@ -169,7 +170,7 @@
                     if ($segment === 'product') {
                         $breadcrumbs[] = ['label' => 'Product', 'url' => url('/admin/product')];
 
-                        // Cek apakah ada kategori (slug) di segment berikutnya
+                        // Cek apakah ada kategori di segment berikutnya
                         if (isset($segments[$index + 1]) && !in_array($segments[$index + 1], ['create', 'edit'])) {
                             $slug = strtolower($segments[$index + 1]);
                             $category = $categoryLabels[$slug] ?? Str::title($slug);
@@ -187,7 +188,7 @@
                             $breadcrumbs[] = ['label' => 'Edit'];
                         }
 
-                        break; // hentikan loop di sini agar tidak duplikat
+                        break; // hentikan loop agar tidak dobel
                     }
 
                     // ==== DEFAULT ====
