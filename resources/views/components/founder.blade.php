@@ -3,7 +3,7 @@
 <!-- Founder Section -->
 <section class="section founder" id="founder">
     <div class="container">
-        <h2 class="section-title fade-in">Direktur Perusahaan</h2>
+        <h2 class="section-title fade-in">Direktur</h2>
 
         @if ($founders)
             <div class="founder-content fade-in">
