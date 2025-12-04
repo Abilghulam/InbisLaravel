@@ -103,7 +103,7 @@ if (file_exists($maintenanceFile)) {
 
             <p>
                 Mohon maaf, kami sedang melakukan pemeliharaan sistem untuk meningkatkan
-                kualitas layanan. Silakan kembali beberapa saat lagi.
+                kualitas layanan. Silakan kembali beberapa saat lagi
             </p>
 
             <div class="loader"></div>
