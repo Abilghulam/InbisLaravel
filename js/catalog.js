@@ -327,10 +327,6 @@ console.log("✅ catalog.js loaded");
 // ========================
 // MODAL VIEW DETAILS
 // ========================
-
-// Pastikan untuk mengganti ini dengan nomor WhatsApp Anda yang sebenarnya
-const WHATSAPP_NUMBER = "6285102860099"; // Contoh: Gunakan format internasional tanpa tanda (+) atau spasi.
-
 const modal = document.getElementById("productModal");
 
 if (modal) {
@@ -343,9 +339,6 @@ if (modal) {
     const modalSpecs = document.getElementById("modalProductSpecs");
     const modalDiscount = document.getElementById("modalProductDiscount"); // ✅ tambahkan badge diskon
 
-    // ✅ Ambil elemen tombol WhatsApp
-    const whatsappButton = document.getElementById("whatsappButton"); 
-
     // Event delegation → jalan di catalog & search
     document.addEventListener("click", (e) => {
         const btn = e.target.closest(".btn-detail");
@@ -357,14 +350,12 @@ if (modal) {
         if (!card) return;
 
         // Isi modal
-        const productName = card.dataset.name || "";
         modalImage.src = card.dataset.image || "";
-        modalTitle.textContent = productName;
+        modalTitle.textContent = card.dataset.name || "";
 
         // === Harga & Diskon ===
-        let productPriceText = ""; // Untuk digunakan di pesan WA
         if (card.classList.contains("promo-card")) {
-            // ... (Kode pengisian harga dan diskon Anda di sini)
+            // Produk promo
             const oldVal = card.dataset.oldPrice?.trim();
             const price = Number(card.dataset.price) || 0;
 
@@ -373,7 +364,6 @@ if (modal) {
                 modalOldPrice.style.display = "block";
 
                 modalPrice.textContent = `Rp ${price.toLocaleString("id-ID")}`;
-                productPriceText = `(Harga Promosi: Rp ${price.toLocaleString("id-ID")})`;
 
                 if (modalDiscount) {
                     const discount = Math.round(
@@ -386,7 +376,6 @@ if (modal) {
                 modalOldPrice.textContent = "";
                 modalOldPrice.style.display = "none";
                 if (modalDiscount) modalDiscount.style.display = "none";
-                productPriceText = "";
             }
         } else {
             // Produk biasa
@@ -396,10 +385,6 @@ if (modal) {
 
             const label = card.dataset.priceLabel?.trim();
             const raw = card.dataset.price?.trim();
-            
-            // Simpan label harga atau harga numerik untuk pesan WA
-            productPriceText = label || (raw ? `(Harga: Rp ${Number(raw).toLocaleString("id-ID")})` : "");
-
             modalPrice.textContent =
                 label ||
                 (raw ? `Rp ${Number(raw).toLocaleString("id-ID")}` : "");
@@ -429,22 +414,6 @@ if (modal) {
         } else if (modalSpecs) {
             modalSpecs.innerHTML = "";
         }
-
-        // ======================================
-        // ✅ FUNGSI WHATSAPP BARU
-        // ======================================
-        if (whatsappButton) {
-            // Pesan otomatis yang akan dikirim
-            const message = `Halo, saya ingin bertanya lebih lanjut tentang produk:\n\n*Nama Produk:* ${productName}\n*Harga:* ${productPriceText || 'Silakan sebutkan harganya'}\n\nApakah produk ini masih tersedia?`;
-            
-            // Encode pesan dan buat tautan
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappLink = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            // Set href tombol WhatsApp
-            whatsappButton.href = whatsappLink;
-        }
-        // ======================================
 
         // Tampilkan modal
         modal.style.display = "block";
