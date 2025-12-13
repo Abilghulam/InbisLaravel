@@ -339,8 +339,11 @@ if (modal) {
     const modalSpecs = document.getElementById("modalProductSpecs");
     const modalDiscount = document.getElementById("modalProductDiscount");
 
+    // ========================
+    // WHATSAPP BUTTON
+    // ========================
     const whatsappButton = document.getElementById("whatsappButton");
-    const whatsappNumber = "6285102860099"; 
+    const whatsappNumber = "6285102860099"; // Nomor resmi PT. Indo Bismar
 
     function updateWhatsAppLink(card) {
         if (!whatsappButton || !card) return;
@@ -353,18 +356,18 @@ if (modal) {
         const stock = card.dataset.stock || "-";
 
         const message = `
-    Halo PT. Indo Bismar,
+Halo PT. Indo Bismar,
 
-    Saya tertarik untuk mendapatkan informasi lebih lanjut mengenai produk/layanan berikut:
+Saya tertarik untuk mendapatkan informasi lebih lanjut mengenai produk/layanan berikut:
 
-    • Nama Produk/Layanan : ${name}
-    • Harga              : ${price}
-    • Level              : ${level}
-    • Status             : ${stock}
+• Nama Produk/Layanan : ${name}
+• Harga              : ${price}
+• Level              : ${level}
+• Status             : ${stock}
 
-    Mohon informasi detail terkait spesifikasi dan prosedur kerja sama.
+Mohon informasi detail terkait spesifikasi dan prosedur kerja sama.
 
-    Terima kasih.
+Terima kasih.
         `.trim();
 
         whatsappButton.href =
@@ -374,7 +377,26 @@ if (modal) {
             encodeURIComponent(message);
     }
 
-    // Event delegation → jalan di catalog & search
+    // ========================
+    // PREVENT KATALOG CLICK WHEN MODAL OPEN
+    // ========================
+    document.addEventListener(
+        "click",
+        function (e) {
+            if (!modal.classList.contains("is-open")) return;
+
+            // JIKA klik BUKAN dari dalam modal → block
+            if (!e.target.closest("#productModal")) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+            }
+        },
+        true // capture phase
+    );
+
+    // ========================
+    // OPEN MODAL
+    // ========================
     document.addEventListener("click", (e) => {
         const btn = e.target.closest(".btn-detail");
         if (!btn) return;
@@ -388,16 +410,14 @@ if (modal) {
         modalImage.src = card.dataset.image || "";
         modalTitle.textContent = card.dataset.name || "";
 
-        // === Harga & Diskon ===
+        // Harga & Diskon
         if (card.classList.contains("promo-card")) {
-            // Produk promo
             const oldVal = card.dataset.oldPrice?.trim();
             const price = Number(card.dataset.price) || 0;
 
             if (oldVal && Number(oldVal) > price) {
                 modalOldPrice.textContent = `Rp ${Number(oldVal).toLocaleString("id-ID")}`;
                 modalOldPrice.style.display = "block";
-
                 modalPrice.textContent = `Rp ${price.toLocaleString("id-ID")}`;
 
                 if (modalDiscount) {
@@ -408,13 +428,10 @@ if (modal) {
                     modalDiscount.style.display = "inline-block";
                 }
             } else {
-                modalOldPrice.textContent = "";
                 modalOldPrice.style.display = "none";
                 if (modalDiscount) modalDiscount.style.display = "none";
             }
         } else {
-            // Produk biasa
-            modalOldPrice.textContent = "";
             modalOldPrice.style.display = "none";
             if (modalDiscount) modalDiscount.style.display = "none";
 
@@ -441,21 +458,28 @@ if (modal) {
         // Spesifikasi
         const specsElement = card.querySelector(".product-specs");
         if (modalSpecs && specsElement) {
-            const specsArray = specsElement.textContent.split(",");
             modalSpecs.innerHTML =
                 "<ul>" +
-                specsArray.map((s) => `<li>${s.trim()}</li>`).join("") +
+                specsElement.textContent
+                    .split(",")
+                    .map((s) => `<li>${s.trim()}</li>`)
+                    .join("") +
                 "</ul>";
-        } else if (modalSpecs) {
+        } else {
             modalSpecs.innerHTML = "";
         }
 
-        // Tampilkan modal
+        // Update WhatsApp
+        updateWhatsAppLink(card);
+
+        // Show modal
         modal.style.display = "block";
         modal.classList.add("is-open");
     });
 
-    // Close (X)
+    // ========================
+    // CLOSE MODAL
+    // ========================
     document.addEventListener("click", (e) => {
         if (e.target.matches(".close-btn")) {
             modal.style.display = "none";
@@ -463,7 +487,6 @@ if (modal) {
         }
     });
 
-    // Klik backdrop
     window.addEventListener("click", (e) => {
         if (e.target === modal) {
             modal.style.display = "none";
@@ -471,7 +494,6 @@ if (modal) {
         }
     });
 
-    // ESC key
     document.addEventListener("keydown", (e) => {
         if (e.key === "Escape") {
             modal.style.display = "none";
@@ -479,6 +501,7 @@ if (modal) {
         }
     });
 }
+
 
 // ========================
 // SEARCH BOX CLEAR BUTTON
