@@ -30,6 +30,12 @@
                 <div class="modal-specs" id="modalProductSpecs">
                     <!-- Spesifikasi produk akan dimuat dari data-attribute -->
                 </div>
+
+                <!-- Button WhatsApp -->
+                <a href="#" id="whatsappButton" class="btn-whatsapp" target="_blank" rel="noopener">
+                    <i class="fab fa-whatsapp"></i>
+                    Pesan via WhatsApp
+                </a>
             </div>
         </div>
     </div>

@@ -337,7 +337,42 @@ if (modal) {
     const modalLevel = document.getElementById("modalProductLevel");
     const modalStock = document.getElementById("modalProductStock");
     const modalSpecs = document.getElementById("modalProductSpecs");
-    const modalDiscount = document.getElementById("modalProductDiscount"); // ✅ tambahkan badge diskon
+    const modalDiscount = document.getElementById("modalProductDiscount");
+
+    const whatsappButton = document.getElementById("whatsappButton");
+    const whatsappNumber = "6285102860099"; 
+
+    function updateWhatsAppLink(card) {
+        if (!whatsappButton || !card) return;
+
+        const name = card.dataset.name || "-";
+        const price = card.dataset.price
+            ? `Rp ${Number(card.dataset.price).toLocaleString("id-ID")}`
+            : "-";
+        const level = card.dataset.level || "-";
+        const stock = card.dataset.stock || "-";
+
+        const message = `
+    Halo PT. Indo Bismar,
+
+    Saya tertarik untuk mendapatkan informasi lebih lanjut mengenai produk/layanan berikut:
+
+    • Nama Produk/Layanan : ${name}
+    • Harga              : ${price}
+    • Level              : ${level}
+    • Status             : ${stock}
+
+    Mohon informasi detail terkait spesifikasi dan prosedur kerja sama.
+
+    Terima kasih.
+        `.trim();
+
+        whatsappButton.href =
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            encodeURIComponent(message);
+    }
 
     // Event delegation → jalan di catalog & search
     document.addEventListener("click", (e) => {

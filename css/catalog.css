@@ -2083,6 +2083,37 @@ body {
     visibility: hidden;
 }
 
+.btn-whatsapp {
+    margin-top: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 22px;
+    background-color: #25D366; /* solid, no gradient */
+    color: #ffffff;
+
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+
+    border-radius: 999px; /* pill shape */
+    text-decoration: none;
+    border: 1px solid #25D366;
+
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-whatsapp i {
+    font-size: 18px;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe5d;
+    transform: translateY(-1px); /* sangat subtle */
+}
+
 /* Animation */
 @keyframes fadeIn {
     from {
