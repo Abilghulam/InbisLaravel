@@ -31,11 +31,27 @@
                     <!-- Spesifikasi produk akan dimuat dari data-attribute -->
                 </div>
 
-                <!-- Button WhatsApp -->
-                <a href="#" id="whatsappButton" class="btn-whatsapp" target="_blank" rel="noopener">
-                    <i class="fab fa-whatsapp"></i>
-                    Pesan via WhatsApp
-                </a>
+                <div class="modal-actions">
+                    <!-- WhatsApp -->
+                    <a href="#" id="whatsappButton" class="btn-whatsapp" target="_blank" rel="noopener">
+                        <i class="fab fa-whatsapp"></i>
+                        Pesan via WhatsApp
+                    </a>
+
+                    <!-- Shopee -->
+                    <a href="https://shopee.co.id/indobismar" class="ecommerce-btn shopee" target="_blank"
+                        rel="noopener">
+                        <img src="{{ asset('img/shopee.png') }}" alt="Shopee">
+                        <span>Lihat Produk</span>
+                    </a>
+
+                    <!-- Tokopedia -->
+                    <a href="https://www.tokopedia.com/indobismarstore" class="ecommerce-btn tokopedia" target="_blank"
+                        rel="noopener">
+                        <img src="{{ asset('img/tokopedia.png') }}" alt="Tokopedia">
+                        <span>Lihat Produk</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>

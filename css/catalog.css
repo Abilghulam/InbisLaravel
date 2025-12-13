@@ -2108,24 +2108,36 @@ body {
     visibility: hidden;
 }
 
+/* Button Action */
+.modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+/* WhatsApp Button */
 .btn-whatsapp {
-    margin-top: 18px;
+    margin-top: 0;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 8px;
 
-    padding: 12px 22px;
-    background-color: #25D366; /* solid, no gradient */
+    height: 44px;
+    padding: 0 20px;
+
+    background-color: #25D366;
     color: #ffffff;
 
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 0.2px;
 
-    border-radius: 999px; /* pill shape */
-    text-decoration: none;
+    border-radius: 999px;
     border: 1px solid #25D366;
+    text-decoration: none;
 
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
@@ -2136,7 +2148,62 @@ body {
 
 .btn-whatsapp:hover {
     background-color: #1ebe5d;
-    transform: translateY(-1px); /* sangat subtle */
+    transform: translateY(-1px); 
+}
+
+/* E Commerce Button */
+.ecommerce-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 44px;
+    height: 44px;
+    padding: 0 14px;
+
+    border-radius: 999px;
+    overflow: hidden;
+
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: width 0.35s ease;
+}
+
+/* Logo */
+.ecommerce-btn img {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+/* Text hidden */
+.ecommerce-btn span {
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Hover expand */
+.ecommerce-btn:hover {
+    width: 150px;
+}
+
+.ecommerce-btn:hover span {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Warna */
+.ecommerce-btn.shopee {
+    background: #fafafa;
+}
+
+.ecommerce-btn.tokopedia {
+    background: #fafafa;
 }
 
 /* Animation */
