@@ -459,7 +459,7 @@ Terima kasih.
         const specsElement = card.querySelector(".product-specs");
         if (modalSpecs && specsElement) {
             modalSpecs.innerHTML =
-                "<ul>" +
+                "<ul class='spec-list'>" +
                 specsElement.textContent
                     .split(",")
                     .map((s) => `<li>${s.trim()}</li>`)
