@@ -329,7 +329,7 @@ console.log("✅ catalog.js loaded");
 // ========================
 
 // Pastikan untuk mengganti ini dengan nomor WhatsApp Anda yang sebenarnya
-const WHATSAPP_NUMBER = "6281234567890"; // Contoh: Gunakan format internasional tanpa tanda (+) atau spasi.
+const WHATSAPP_NUMBER = "085102860099"; // Contoh: Gunakan format internasional tanpa tanda (+) atau spasi.
 
 const modal = document.getElementById("productModal");
 
