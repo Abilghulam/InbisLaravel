@@ -442,14 +442,6 @@ Terima kasih.
                 (raw ? `Rp ${Number(raw).toLocaleString("id-ID")}` : "");
         }
 
-        // Level
-        modalLevel.textContent = card.dataset.level
-            ? card.dataset.level
-                  .split(" ")
-                  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-                  .join(" ")
-            : "";
-
         // Stok
         if (card.dataset.stock) {
             const stockText =
@@ -468,6 +460,39 @@ Terima kasih.
             }
         } else {
             modalStock.textContent = "";
+        }
+
+        // Level
+        if (card.dataset.level) {
+            const levelText =
+                card.dataset.level
+                    .split(" ")
+                    .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+                    .join(" ");
+
+            modalProductLevel.textContent = levelText;
+
+            // Reset class
+            modalProductLevel.classList.remove(
+                "level-flagship",
+                "level-high",
+                "level-mid",
+                "level-entry"
+            );
+
+            const levelLower = card.dataset.level.toLowerCase();
+
+            if (levelLower.includes("flagship")) {
+                modalProductLevel.classList.add("level-flagship");
+            } else if (levelLower.includes("high")) {
+                modalProductLevel.classList.add("level-high");
+            } else if (levelLower.includes("mid")) {
+                modalProductLevel.classList.add("level-mid");
+            } else {
+                modalProductLevel.classList.add("level-entry");
+            }
+        } else {
+            modalProductLevel.textContent = "";
         }
 
         // Spesifikasi

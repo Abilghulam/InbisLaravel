@@ -20,11 +20,14 @@
                     <p class="modal-discount" id="modalProductDiscount" style="display:none"></p>
                 </div>
 
-                <!-- Stok -->
-                <p class="modal-stock" id="modalProductStock"></p>
+                <!-- Badges Stok dan Level -->
+                <div class="modal-badges">
+                    <!-- Stok -->
+                    <p class="modal-stock" id="modalProductStock"></p>
 
-                <!-- Level -->
-                <p class="modal-level" id="modalProductLevel"></p>
+                    <!-- Level -->
+                    <p class="modal-level" id="modalProductLevel"></p>
+                </div>
 
                 <!-- Spesifikasi -->
                 <div class="modal-specs" id="modalProductSpecs">
