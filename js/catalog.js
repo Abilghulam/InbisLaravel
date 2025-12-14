@@ -451,9 +451,24 @@ Terima kasih.
             : "";
 
         // Stok
-        modalStock.textContent = card.dataset.stock
-            ? ` ${card.dataset.stock.charAt(0).toUpperCase()}${card.dataset.stock.slice(1)}`
-            : "";
+        if (card.dataset.stock) {
+            const stockText =
+                card.dataset.stock.charAt(0).toUpperCase() +
+                card.dataset.stock.slice(1);
+
+            modalStock.textContent = stockText;
+
+            // Reset class
+            modalStock.classList.remove("is-available", "is-unavailable");
+
+            if (card.dataset.stock.toLowerCase() === "tersedia") {
+                modalStock.classList.add("is-available");
+            } else {
+                modalStock.classList.add("is-unavailable");
+            }
+        } else {
+            modalStock.textContent = "";
+        }
 
         // Spesifikasi
         const specsElement = card.querySelector(".product-specs");

@@ -20,11 +20,11 @@
                     <p class="modal-discount" id="modalProductDiscount" style="display:none"></p>
                 </div>
 
-                <!-- Level -->
-                <p class="modal-level" id="modalProductLevel"></p>
-
                 <!-- Stok -->
                 <p class="modal-stock" id="modalProductStock"></p>
+
+                <!-- Level -->
+                <p class="modal-level" id="modalProductLevel"></p>
 
                 <!-- Spesifikasi -->
                 <div class="modal-specs" id="modalProductSpecs">
