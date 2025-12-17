@@ -29,8 +29,8 @@
             <img src="{{ asset('img/logo.png') }}" alt="Logo Indo Bismar Group" loading="lazy">
         </div>
 
-        <h2>Login Admin</h2>
-        <p class="subtitle">Masuk untuk mengelola website</p>
+        <h2>Selamat Datang!</h2>
+        <p class="subtitle">Silahkan login untuk mengakses dashboard</p>
 
         {{-- Pesan Error --}}
         @if ($errors->any())
