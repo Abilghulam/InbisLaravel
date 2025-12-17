@@ -30,37 +30,77 @@
             ☰
         </button>
 
-        <!-- Menu -->
+        <!-- Menu Navigasi -->
         <ul class="nav-menu" id="nav-menu">
             <!-- Dropdown Catalog -->
             <li class="dropdown">
-                <a href="javascript:void(0);" class="nav-link" onclick="toggleDropdown()" aria-expanded="false">
-                    Catalog
-                    <svg class="w-[12px] h-[12px] text-gray-800 dark:text-white" xmlns="http://www.w3.org/2000/svg"
-                        width="18" height="18" fill="none" viewBox="0 0 24 24" style="margin-left: 5px">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m19 9-7 7-7-7" />
+                <a href="javascript:void(0);" class="nav-link" onclick="toggleDropdown()" aria-expanded="true">
+
+                    <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="3" width="7" height="7" />
+                        <rect x="14" y="3" width="7" height="7" />
+                        <rect x="3" y="14" width="7" height="7" />
+                        <rect x="14" y="14" width="7" height="7" />
                     </svg>
+                    Catalog
                 </a>
 
-                <!-- Back to Home -->
                 <ul class="dropdown-menu" id="dropdownMenu">
-                    <li><a href="{{ route('catalog.show', ['type' => 'laptop']) }}">Laptop & Notebook</a></li>
-                    <li><a href="{{ route('catalog.show', ['type' => 'pc']) }}">Dekstop Computer</a></li>
-                    <li><a href="{{ route('catalog.show', ['type' => 'hp']) }}">Handphone</a></li>
-                    <li><a href="{{ route('catalog.show', ['type' => 'accessories']) }}"> IT Accessories</a></li>
+                    <li>
+                        <a href="{{ route('catalog.show', ['type' => 'laptop']) }}"
+                            class="{{ request('type') === 'laptop' ? 'active' : '' }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 5h16v10H4z" />
+                                <path d="M2 17h20" />
+                            </svg>
+                            Laptop & Notebook
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('catalog.show', ['type' => 'pc']) }}"
+                            class="{{ request('type') === 'pc' ? 'active' : '' }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M6 3h12v14H6z" />
+                                <path d="M4 21h16" />
+                            </svg>
+                            Desktop Computer
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('catalog.show', ['type' => 'hp']) }}"
+                            class="{{ request('type') === 'hp' ? 'active' : '' }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="7" y="2" width="10" height="20" rx="2" />
+                                <circle cx="12" cy="18" r="1" />
+                            </svg>
+                            Handphone
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="{{ route('catalog.show', ['type' => 'accessories']) }}"
+                            class="{{ request('type') === 'accessories' ? 'active' : '' }}">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                                <circle cx="12" cy="12" r="5" />
+                            </svg>
+                            IT Accessories
+                        </a>
+                    </li>
                 </ul>
             </li>
 
+            <!-- Home -->
             <li>
                 <a href="{{ route('home') }}?scroll=products" class="nav-link">
-                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
-                        viewBox="0 0 24 24">
-                        <path fill-rule="evenodd"
-                            d="M11.293 3.293a1 1 0 0 1 1.414 0l6 6 2 2a1 1 0 0 1-1.414 1.414L19 12.414V19a2 2 0 0 1-2 2h-3a1 1 0 0 1-1-1v-3h-2v3a1 1 0 0 1-1 1H7a2 2 0 0 1-2-2v-6.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2 6-6Z"
-                            clip-rule="evenodd" />
-                    </svg> Home</a>
+                    <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M3 10.5L12 3l9 7.5" />
+                        <path d="M5 9.5V21h14V9.5" />
+                    </svg>
+                    Back to Home
+                </a>
             </li>
         </ul>
     </div>

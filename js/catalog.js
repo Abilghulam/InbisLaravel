@@ -598,3 +598,4 @@ function toggleDropdown() {
     const expanded = link.getAttribute("aria-expanded") === "true";
     link.setAttribute("aria-expanded", !expanded);
 }
+
