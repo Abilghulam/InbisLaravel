@@ -343,7 +343,7 @@ if (modal) {
     // WHATSAPP BUTTON
     // ========================
     const whatsappButton = document.getElementById("whatsappButton");
-    const whatsappNumber = "6285102860099"; // Nomor resmi PT. Indo Bismar
+    const whatsappNumber = "6282234752828";
 
     function updateWhatsAppLink(card) {
         if (!whatsappButton || !card) return;
