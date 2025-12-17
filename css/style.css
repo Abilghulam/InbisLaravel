@@ -1341,7 +1341,7 @@ body {
 
 .social-links.horizontal a {
     padding: 8px 14px;
-    border-radius: 8px;
+    border-radius: 999px;
     font-size: 14px;
     font-weight: 500;
     color: white;
