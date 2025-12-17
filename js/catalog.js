@@ -356,17 +356,14 @@ if (modal) {
         const stock = card.dataset.stock || "-";
 
         const message = `
-Halo PT. Indo Bismar,
-
+Halo Admin Indo Bismar Store,
 Saya tertarik untuk mendapatkan informasi lebih lanjut mengenai produk/layanan berikut:
-
-• Nama Produk/Layanan : ${name}
-• Harga              : ${price}
-• Level              : ${level}
-• Status             : ${stock}
+Nama Produk/Layanan : ${name}
+Harga              : ${price}
+Level              : ${level}
+Status             : ${stock}
 
 Mohon informasi detail terkait spesifikasi dan prosedur kerja sama.
-
 Terima kasih.
         `.trim();
 
