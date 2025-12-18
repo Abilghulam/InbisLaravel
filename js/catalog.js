@@ -597,5 +597,40 @@ function toggleDropdown() {
     // toggle atribut aria-expanded
     const expanded = link.getAttribute("aria-expanded") === "true";
     link.setAttribute("aria-expanded", !expanded);
+
 }
+
+// Toggle Main Nav Menu (3 dots)
+const moreBtn = document.getElementById("moreBtn");
+const navMenu = document.getElementById("nav-menu");
+
+moreBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+
+    const expanded = moreBtn.getAttribute("aria-expanded") === "true";
+    moreBtn.setAttribute("aria-expanded", !expanded);
+});
+
+document.addEventListener("click", function (e) {
+    const moreBtn = document.getElementById("moreBtn");
+    const navMenu = document.getElementById("nav-menu");
+    const dropdown = document.querySelector(".dropdown");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+    const catalogLink = dropdown.querySelector(".nav-link");
+
+    // jika klik DI LUAR menu & tombol
+    if (
+        !navMenu.contains(e.target) &&
+        !moreBtn.contains(e.target)
+    ) {
+        // close floating menu
+        navMenu.classList.remove("show");
+        moreBtn.setAttribute("aria-expanded", "false");
+
+        // close dropdown
+        dropdownMenu.classList.remove("show");
+        catalogLink.setAttribute("aria-expanded", "false");
+    }
+});
+
 

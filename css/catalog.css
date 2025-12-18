@@ -79,6 +79,119 @@ body {
     color: #dc2626;
 }
 
+/* More Button */
+.more-btn {
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.more-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #374151;
+}
+
+.more-btn:hover {
+    background: #f4f4f4;
+}
+
+/* Floating Menu */
+.floating-menu {
+    position: absolute;
+    top: 60px;
+    right: -8px;
+    min-width: 260px;
+    background: #f4f4f4;
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+    border-radius: 14px;
+    padding: 10px;
+    flex-direction: column;
+    gap: 0;
+
+    opacity: 0;
+    transform: translateY(10px) scale(.98);
+    pointer-events: none;
+    transition: all .25s ease;
+}
+
+/* Arrow Icon */
+.arrow-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: auto;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    transition: transform .25s ease;
+}
+
+/* Rotate when open */
+.nav-link[aria-expanded="true"] .arrow-icon {
+    transform: rotate(90deg);
+}
+
+/* ================= FLOATING MENU CLEAN STYLE ================= */
+.floating-menu .nav-link {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 12px 14px;
+    width: 100%;
+    box-shadow: none;
+    justify-content: flex-start;
+}
+
+/* Hover flat style */
+.floating-menu .nav-link:hover {
+    background: rgba(220, 38, 38, 0.08);
+    color: #dc2626;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.floating-menu > li {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dropdown looks attached */
+.floating-menu .dropdown-menu {
+    border-radius: 12px;
+    box-shadow: 0 15px 35px rgba(0,0,0,.15);
+}
+
+/* Divider antar menu */
+.floating-menu > li:not(:last-child) {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+/* Rounded only first & last item */
+.floating-menu > li:first-child .nav-link {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+.floating-menu > li:last-child .nav-link {
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
+}
+
+/* Show menu */
+.floating-menu.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
 /* ================= NAV MENU ================= */
 .nav-menu {
     font-family: "Nunito Sans", sans-serif;
@@ -112,7 +225,7 @@ body {
     color: #1f2937;
     text-decoration: none;
     background: #f9fafb;
-    border-radius: 999px;
+    border-radius: 0;
     border: 1px solid #e5e7eb;
     transition: all 0.3s ease;
 }
@@ -128,14 +241,14 @@ body {
 /* ================= DROPDOWN ================= */
 .dropdown-menu {
     position: absolute;
-    top: 120%;
-    left: 0;
+    top: 0;
+    left: auto;
+    right: 100%;
     min-width: 230px;
-    background: #ffffff;
+    background: #f4f4f4;
     border-radius: 14px;
     border: 1px solid #f1f1f1;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-    padding: 8px 0;
+    padding: 0 0;
     opacity: 0;
     transform: translateY(12px) scale(0.98);
     pointer-events: none;
@@ -144,7 +257,6 @@ body {
 }
 
 /* Show dropdown */
-.nav-menu .dropdown:hover .dropdown-menu,
 .dropdown-menu.show {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -184,6 +296,17 @@ body {
 /* Divider look (optional elegance) */
 .dropdown-menu li:not(:last-child) a {
     border-bottom: 1px solid #f3f4f6;
+}
+
+/* Rounded only first & last item */
+.dropdown-menu > li:first-child a {
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+.dropdown-menu > li:last-child a {
+    border-bottom-left-radius: 14px;
+    border-bottom-right-radius: 14px;
 }
 
 /* ================= ICON ================= */

@@ -30,19 +30,35 @@
             ☰
         </button>
 
+        <!-- More Menu Button (Google Style) -->
+        <button class="more-btn" id="moreBtn" aria-expanded="false">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="5" r="1.8" />
+                <circle cx="12" cy="12" r="1.8" />
+                <circle cx="12" cy="19" r="1.8" />
+            </svg>
+        </button>
+
         <!-- Menu Navigasi -->
-        <ul class="nav-menu" id="nav-menu">
+        <ul class="nav-menu floating-menu" id="nav-menu">
             <!-- Dropdown Catalog -->
             <li class="dropdown">
-                <a href="javascript:void(0);" class="nav-link" onclick="toggleDropdown()" aria-expanded="true">
+                <a href="javascript:void(0);" class="nav-link has-arrow" onclick="toggleDropdown()"
+                    aria-expanded="false">
 
-                    <svg class="nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <svg class="nav-icon" viewBox="0 0 24 24">
                         <rect x="3" y="3" width="7" height="7" />
                         <rect x="14" y="3" width="7" height="7" />
                         <rect x="3" y="14" width="7" height="7" />
                         <rect x="14" y="14" width="7" height="7" />
                     </svg>
+
                     Catalog
+
+                    <!-- Arrow Right -->
+                    <svg class="arrow-icon" viewBox="0 0 24 24">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
                 </a>
 
                 <ul class="dropdown-menu" id="dropdownMenu">
